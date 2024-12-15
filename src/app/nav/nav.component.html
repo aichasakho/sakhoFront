@@ -1,0 +1,22 @@
+<div [ngClass]="{'fixed-top': router.url === '/biens',
+  'bg-secondary': router.url !== '/biens' || isScrolled }"
+     class="header d-flex align-items-center justify-content-between p-3">
+  <img src="../assets/images/logo.png" class="logo" alt="Logo" />
+  <nav class="navbar flex-grow-1">
+    <ul class="d-flex list-unstyled m-0">
+      <li class="me-3"><a routerLink="/">Accueil</a></li>
+      <li class="me-3"><a routerLink="/locations">Locations</a></li>
+      <li class="me-3"><a routerLink="/ventes">Ventes</a></li>
+      <li class="me-3"><a routerLink="/contacts">Contact</a></li>
+      <li class="me-3"><a routerLink="/admin/biens">Dashboard</a></li>
+
+    </ul>
+  </nav>
+  <div class="auth-buttons d-flex">
+    <a *ngIf="!isAuthenticated" routerLink="/login" class="btn btn-primary me-2">Se connecter</a>
+    <a *ngIf="!isAuthenticated" routerLink="/register" class="btn btn-primary">S'inscrire</a>
+
+    <button *ngIf="isAuthenticated" (click)="logout()" class="btn btn-secondary">Se déconnecter</button>
+  </div>
+
+</div>

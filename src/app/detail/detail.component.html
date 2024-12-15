@@ -1,0 +1,21 @@
+<br><br><br><br><br>
+<div *ngIf="bien" class="bien-detail-container">
+  <div class="bien-content">
+    <div class="bien-image">
+      <img [src]="'http://localhost:8000/storage/' + bien.imagePath" alt="{{ bien.titre }}" class="img-fluid" />
+    </div>
+
+    <div class="bien-description">
+      <h1 class="bien-title">{{ bien.type_bien }}</h1>
+      <p class="bien-description-text">{{ bien.description }}</p>
+      <p class="bien-price">Prix: <span>{{ bien.prix }} Fcfa</span></p>
+      <p class="bien-availability">Disponible: <span>{{ bien.disponible ? 'Oui' : 'Non' }}</span></p>
+
+      <div class="bien-actions">
+        <button class="btn btn-outline-primary" (click)="reserver()">Réserver</button>
+        <button class="btn btn-whatsapp" (click)="reserverWhatsApp()">Réserver via WhatsApp</button>
+        <button class="btn btn-email" (click)="reserverEmail()">Réserver par Email</button>
+      </div>
+    </div>
+  </div>
+</div>

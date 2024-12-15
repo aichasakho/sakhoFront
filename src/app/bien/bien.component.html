@@ -1,0 +1,28 @@
+<div class="home-banner">
+  <img class="banner-image" src="assets/images/frames-for-your-heart-2d4lAQAlbDA-unsplash" alt="" />
+</div>
+
+<div class="annonces-section">
+  <h1>Annonces</h1>
+  <hr class="mx-auto mb-5 p-0" style="width:15%" />
+  <hr class="mx-auto mb-5 p-0" style="width:10%" />
+  <div class="annonces-grid">
+    <div class="annonce-item" *ngFor="let bien of biens">
+      <img class="card-img-top" [src]="'http://localhost:8000/storage/' + bien.imagePath" alt="{{ bien.titre }}" *ngIf="bien.imagePath" />
+      <span class="badge {{ bien.type_annonce == 'location' ? 'bg-primary' : 'bg-success' }}">{{ bien.type_annonce }}</span>
+      <div class="annonce-info">
+        <div class="text">
+          <p>{{ bien.description }}</p>
+          <span class="font-weight-bold">{{ bien.prix }} Fcfa</span>
+          <p>Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
+        </div>
+        <div class="properties">
+          <span><i class="flaticon-area"></i> Superficie: 250 m²</span>
+          <span><i class="flaticon-bathtub">🛁</i> 3</span>
+          <span><i class="flaticon-bed">🛏️</i> 4</span>
+        </div>
+        <button class="btn btn-outline-primary" [routerLink]="['/detail', bien.id]">Voir plus</button>
+      </div>
+    </div>
+  </div>
+</div>
