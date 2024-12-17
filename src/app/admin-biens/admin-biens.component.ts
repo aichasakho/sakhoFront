@@ -11,8 +11,9 @@ import { Router } from '@angular/router';
 })
 export class AdminBiensComponent implements OnInit {
   biens: Bien[] = [];
-  bien: Bien = {id:0 , titre: '', description: '', prix: 0, disponible: true, type: '', type_annonce: '' };
+  bien: Bien = {id:0 , titre: '', description: '', prix: 0, disponible: true, type: '', type_annonce: '',    superficie : 0, nombre_douches : 0 , nombre_chambres : 0 };
   selectedFile: File | null = null;
+
 
   constructor(private biensService: BiensService, private router: Router) {}
 
@@ -22,12 +23,14 @@ export class AdminBiensComponent implements OnInit {
 
   loadBiens(): void {
     this.biensService.getBiens().subscribe((data: Bien[]) => {
-      this.biens = data;
-    },
+        this.biens = data;
+        console.log(this.biens);
+      },
       (error) => {
         console.error('Erreur lors du chargement des biens', error);
       });
   }
+
 
   onFileChange(event: any) {
     const file = event.target.files[0];
@@ -42,7 +45,7 @@ export class AdminBiensComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!this.bien.titre || !this.bien.description || !this.bien.prix || !this.bien.type || !this.bien.type_annonce ) {
+    if (!this.bien.titre || !this.bien.description || !this.bien.prix || !this.bien.type || !this.bien.type_annonce || !this.bien.nombre_chambres || !this.bien.nombre_douches  || !this.bien.superficie ) {
       alert('Veuillez remplir tous les champs requis.');
       return;
     }
@@ -54,7 +57,9 @@ export class AdminBiensComponent implements OnInit {
     formData.append('disponible', this.bien.disponible ? '1' : '0');
     formData.append('type', this.bien.type);
     formData.append('type_annonce', this.bien.type_annonce);
-
+    formData.append('nombre_chambres', this.bien.nombre_chambres.toString());
+    formData.append('nombre_douches', this.bien.nombre_douches.toString());
+    formData.append('superficie', this.bien.superficie.toString());
 
     if (this.selectedFile) {
       formData.append('imagePath', this.selectedFile, this.selectedFile.name);
@@ -67,7 +72,9 @@ export class AdminBiensComponent implements OnInit {
       disponible: this.bien.disponible,
       type: this.bien.type,
       type_annonce: this.bien.type_annonce,
-
+      nombres_chambres: this.bien.nombre_chambres,
+      nombres_douches: this.bien.nombre_douches,
+      superficie: this.bien.superficie,
       imagePath: this.selectedFile ? this.selectedFile.name : 'Aucune image',
     });
 
@@ -116,7 +123,7 @@ export class AdminBiensComponent implements OnInit {
     }
   }
   resetForm(): void {
-    this.bien = {id:0, titre: '', description: '', prix: 0, disponible: true, type: '', imagePath: '', type_annonce: '' };
+    this.bien = {id:0, titre: '', description: '', prix: 0, disponible: true, type: '', imagePath: '', type_annonce: '', superficie : 0, nombre_douches : 0 , nombre_chambres : 0  };
     this.selectedFile = null;
   }
 

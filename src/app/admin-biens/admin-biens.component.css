@@ -1,145 +1,87 @@
-/* Styles généraux */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 20px;
+/* Sidebar */
+.sidebar {
+  background-color: #343a40;
+  color: #ffffff;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  padding-top: 20px;
 }
 
-h2 {
-  color: #333;
-  text-align: center;
-  margin-top: 20px
-}
-
-/* Formulaire */
-form {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 20px auto;
-}
-
-div {
+.sidebar .nav-item {
   margin-bottom: 15px;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="number"],
-textarea,
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-/* Boutons */
-button {
-  background-color: #5cb85c;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin: 0; /* Élimine toute marge par défaut */
-}
-
-button:hover {
-  background-color: #4cae4c;
-}
-
-/* Liste des Biens */
-h3 {
-  margin-top: 30px;
-  color: #333;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  background: white;
-  padding: 10px;
-  margin: 10px 0; /* Réduisez si nécessaire */
-  border-radius: 5px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Aligne les éléments à gauche */
-}
-
-.bien-info {
-  display: flex;
-  justify-content: space-between;
-  width: 100%; /* Permet aux éléments de prendre toute la largeur */
-}
-
-.actions {
-  display: flex;
-  gap: 10px; /* Espace entre les boutons */
-}
-
-img {
-  margin-left: 10px;
-  border-radius: 4px;
-}
-/* Responsive */
-@media (max-width: 600px) {
-  li {
-    flex-direction: column; /* Empile les éléments sur petits écrans */
-    align-items: flex-start; /* Aligne les éléments à gauche */
-  }
-
-  .bien-info {
-    flex-direction: column; /* Empile les infos sur petits écrans */
-    align-items: flex-start; /* Aligne à gauche */
-  }
-
-  .actions {
-    width: 100%; /* Les boutons prennent toute la largeur */
-    justify-content: space-between; /* Espace entre les boutons */
-  }
-}
-
-/* Sidebar */
-.sidebar {
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 1030;
-  background-color: #343a40;
-  color: #fff;
-  padding: 20px;
-}
-
 .sidebar .nav-link {
-  color: #000;
-  padding: 0.5rem 1rem;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .sidebar .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  color: #17a2b8;
 }
 
-.col-md-10 {
-  margin-left: 16.66%;
-  padding-left: 30px;
+.sidebar .nav-item .nav-link.active {
+  color: #007bff;
 }
 
+/* Formulaire */
+form .form-group {
+  margin-bottom: 15px;
+}
+
+form .form-check {
+  margin-bottom: 20px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Liste des Biens */
+.list-group-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.bien-info {
+  margin-left: 20px;
+}
+
+.bien-info strong {
+  font-size: 1.2rem;
+}
+
+.actions button {
+  margin-left: 10px;
+}
+
+.logo {
+  margin-left: 50px;
+  width: 80px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 100px;
+  }
+}

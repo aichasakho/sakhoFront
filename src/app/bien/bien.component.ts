@@ -18,10 +18,10 @@ export class BienComponent implements OnInit {
   loadBiens(): void {
     this.biensService.getBiens().subscribe((data: Bien[]) => {
       this.biens = data;
-        console.log(this.biens); // Ajoutez cette ligne pour voir les données
+        console.log(this.biens);
       },
       (error) => {
-        console.error('Erreur lors du chargement des biens', error); // Gérer l'erreur
+        console.error('Erreur lors du chargement des biens', error);
 
       });
   }
@@ -29,11 +29,9 @@ export class BienComponent implements OnInit {
     this.biensService.appelBien(bien).subscribe(
       (response) => {
         console.log(response.message);
-        // Afficher un message de succès à l'utilisateur
       },
       (error) => {
         console.error('Erreur lors de la demande d\'appel', error);
-        // Afficher un message d'erreur à l'utilisateur
       }
     );
   }
@@ -42,11 +40,9 @@ export class BienComponent implements OnInit {
     this.biensService.contacterBien(bien).subscribe(
       (response) => {
         console.log(response.message);
-        // Afficher un message de succès à l'utilisateur
       },
       (error) => {
         console.error('Erreur lors de la demande de contact', error);
-        // Afficher un message d'erreur à l'utilisateur
       }
     );
   }

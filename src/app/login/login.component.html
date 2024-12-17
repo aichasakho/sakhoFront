@@ -1,27 +1,74 @@
-<div class="login-container">
-  <div class="login-card">
-    <h2 class="login-title">Connexion</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" formControlName="email" id="email" class="form-control" placeholder="Entrez votre email" required />
-        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
-          L'email est obligatoire.
+<app-nav></app-nav>
+<br><br><br><br>
+
+<section class="login_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="detail-box">
+          <h3>Bienvenue chez Djibril Sakho Immobilier</h3>
+          <p>
+            Créez votre compte dès maintenant et accédez à une vaste gamme de propriétés exceptionnelles. Trouvez la maison de vos rêves avec Djibril Sakho Immobilier.
+          </p>
+          <a routerLink="/register" class="btn btn-success">Inscrivez-vous maintenant</a>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="login_form">
+          <h5>Connexion</h5>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input
+                type="email"
+                formControlName="email"
+                id="email"
+                class="form-control"
+                placeholder="Entrez votre email"
+                required
+              />
+              <div
+                *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+                class="text-danger"
+              >
+                L'email est obligatoire.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe :</label>
+              <input
+                type="password"
+                formControlName="password"
+                id="password"
+                class="form-control"
+                placeholder="Entrez votre mot de passe"
+                required
+              />
+              <div
+                *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                class="text-danger"
+              >
+                Le mot de passe est obligatoire.
+              </div>
+            </div>
+            <div class="form-actions">
 
-      <div class="form-group">
-        <label for="password">Mot de passe:</label>
-        <input type="password" formControlName="password" id="password" class="form-control" placeholder="Entrez votre mot de passe" required />
-        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
-          Le mot de passe est obligatoire.
+            </div>
+            <button
+              class="btn btn-primary"
+              type="submit"
+              [disabled]="loginForm.invalid || isLoading"
+            >
+              Se connecter
+              <span
+                *ngIf="isLoading"
+                class="spinner-border spinner-border-sm"
+                role="status"
+              ></span>
+            </button>
+          </form>
         </div>
       </div>
-
-      <div class="form-actions">
-        <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Se connecter</button>
-        <a routerLink="/register" class="btn btn-link">Pas de compte? S'inscrire</a>
-      </div>
-    </form>
+    </div>
   </div>
-</div>
+</section>

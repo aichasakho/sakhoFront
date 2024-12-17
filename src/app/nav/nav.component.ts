@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
+import { AuthService } from "../services/auth-service.service";
 
 @Component({
   selector: 'app-nav',
@@ -9,11 +10,21 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
   isAuthenticated: boolean = false;
   isScrolled: boolean = false;
+  dropdownOpen: boolean = false;
+  activeLink: string = '';
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private authService: AuthService) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.activeLink = event.urlAfterRedirects;
+      }
+    });
+  }
 
   ngOnInit(): void {
-    this.checkAuthentication();
+    this.authService.isAuthenticated$.subscribe((authStatus) => {
+      this.isAuthenticated = authStatus;
+    });
   }
 
   @HostListener('window:scroll', [])
@@ -22,15 +33,19 @@ export class NavComponent implements OnInit {
     this.isScrolled = scrollPosition > 100;
   }
 
-  checkAuthentication() {
-    this.isAuthenticated = !!localStorage.getItem('authToken');
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.isAuthenticated = false;
+      this.router.navigate(['/']);
+    });
   }
 
-  logout() {
-    localStorage.removeItem('authToken');
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event) {
+    this.isScrolled = window.scrollY > 50;
+  }
 
-    this.isAuthenticated = false;
-
-    this.router.navigate(['/']);
+  isActiveLink(link: string): boolean {
+    return this.activeLink === link;
   }
 }
