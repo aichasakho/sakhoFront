@@ -1,0 +1,34 @@
+<app-nav></app-nav>
+<div *ngIf="bien" class="bien-detail-container">
+  <div class="bien-content">
+    <div class="bien-image">
+      <img [src]="'http://localhost:8000/storage/' + bien.imagePath" alt="{{ bien.titre }}" class="img-fluid" />
+    </div>
+
+    <div class="bien-description">
+      <h1 class="bien-title">{{ bien.type_bien }}</h1>
+      <p class="bien-description-text">{{ bien.description }}</p>
+
+      <div class="bien-price">
+        <i class="flaticon-money"></i> <span>{{ bien.prix }} Fcfa</span>
+      </div>
+
+      <div class="bien-availability">
+        <i class="flaticon-check"></i>
+        <span>{{ bien.disponible ? 'Disponible' : 'Indisponible' }}</span>
+      </div>
+
+      <div class="properties">
+        <span><i class="flaticon-area"></i> {{ bien.superficie }} m²</span>
+        <span><i class="flaticon-bathtub"></i> {{ bien.nombre_douches }} 🛁</span>
+        <span><i class="flaticon-bed"></i> {{ bien.nombre_chambres }} 🛏️</span>
+      </div>
+
+      <div class="bien-actions">
+        <button class="btn btn-outline-primary" (click)="reserver()"><i class="flaticon-calendar"></i> Réserver</button>
+        <button class="btn btn-whatsapp" (click)="reserverWhatsApp()"><i class="flaticon-whatsapp"></i> WhatsApp</button>
+        <button class="btn btn-email" (click)="reserverEmail()"><i class="flaticon-email"></i> Email</button>
+      </div>
+    </div>
+  </div>
+</div>

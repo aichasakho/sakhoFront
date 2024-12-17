@@ -1,0 +1,109 @@
+<div class="wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <img src="../assets/images/logo.png" class="logo" alt="Logo" />
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-2 sidebar bg-dark text-white py-4">
+        <h4 class="mb-4">Menu</h4>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Biens Immobilier</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Immeubles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Appartements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Maisons</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Terrains</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Parcelles</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="/biens" class="text-white">Retour à l'accueil</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-10 offset-md-2 py-4">
+        <h2 class="mb-4">Gestion des Biens</h2>
+        <!-- Formulaire de Bien -->
+        <form (ngSubmit)="onSubmit()" #bienForm="ngForm" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="titre">Titre:</label>
+            <input type="text" class="form-control" [(ngModel)]="bien.titre" name="titre" required id="titre">
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" [(ngModel)]="bien.description" name="description" required id="description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="prix">Prix:</label>
+            <input type="number" class="form-control" [(ngModel)]="bien.prix" name="prix" required id="prix">
+          </div>
+          <div class="form-group">
+            <label for="superficie">Superficie (en m²):</label>
+            <input type="number" class="form-control" [(ngModel)]="bien.superficie" name="superficie" required id="superficie">
+          </div>
+          <div class="form-group">
+            <label for="nombre_chambres">Nombre de chambres:</label>
+            <input type="number" class="form-control" [(ngModel)]="bien.nombre_chambres" name="nombre_chambres" required id="nombre_chambres">
+          </div>
+          <div class="form-group">
+            <label for="nombre_douches">Nombre de douches:</label>
+            <input type="number" class="form-control" [(ngModel)]="bien.nombre_douches" name="nombre_douches" required id="nombre_douches">
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="bien.disponible" name="disponible" id="disponible">
+            <label class="form-check-label" for="disponible">Disponible</label>
+          </div>
+          <div class="form-group">
+            <label for="type">Type:</label>
+            <select class="form-control" [(ngModel)]="bien.type" name="type" required id="type">
+              <option value="appartement">Appartement</option>
+              <option value="studio">Studio</option>
+              <option value="magasin">Magasin</option>
+              <option value="terrain">Terrain</option>
+              <option value="maison">Maison</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="type_annonce">Type d'annonce:</label>
+            <select class="form-control" [(ngModel)]="bien.type_annonce" name="type_annonce" required id="type_annonce">
+              <option value="location">Location</option>
+              <option value="vente">Vente</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="imagePath">Image:</label>
+            <input type="file" class="form-control-file" (change)="onFileChange($event)" accept="image/*" name="imagePath" id="imagePath">
+          </div>
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
