@@ -2,26 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  padding: 30px;
-  background-color: #f8f9fa;
-=======
   padding: 40px 20px;
   background-color: #f1f1f1;
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 }
 
 .bien-content {
   display: flex;
-<<<<<<< HEAD
-  max-width: 1200px;
-  width: 100%;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  padding: 20px;
-=======
   flex-wrap: wrap;
   max-width: 1200px;
   width: 100%;
@@ -30,27 +16,17 @@
   border-radius: 15px;
   overflow: hidden;
   padding: 30px;
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 }
 
 .bien-image {
   flex: 1;
-<<<<<<< HEAD
-  margin-right: 20px;
-=======
   margin-right: 30px;
   border-radius: 10px;
   overflow: hidden;
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 }
 
 .bien-image img {
   width: 100%;
-<<<<<<< HEAD
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-=======
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
@@ -59,7 +35,6 @@
 
 .bien-image img:hover {
   transform: scale(1.05);
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 }
 
 .bien-description {
@@ -67,18 +42,6 @@
 }
 
 .bien-title {
-<<<<<<< HEAD
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.bien-description-text {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 15px;
-=======
   font-size: 2.6rem;
   color: #333;
   font-weight: 700;
@@ -91,20 +54,13 @@
   color: #666;
   line-height: 1.8;
   margin-bottom: 25px;
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 }
 
 .bien-price,
 .bien-availability {
-<<<<<<< HEAD
-  font-size: 1.2rem;
-  color: #28a745;
-  margin-bottom: 10px;
-=======
   font-size: 1.4rem;
   color: #28a745;
   margin-bottom: 15px;
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 }
 
 .bien-price span,
@@ -112,20 +68,6 @@
   font-weight: bold;
 }
 
-<<<<<<< HEAD
-.bien-actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.bien-actions button {
-  padding: 12px 25px;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  flex-grow: 1;
-=======
 .properties {
   display: flex;
   gap: 20px;
@@ -161,7 +103,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 }
 
 .bien-actions .btn-outline-primary {
@@ -197,11 +138,6 @@
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-@media (max-width: 768px) {
-  .bien-content {
-    flex-direction: column;
-=======
 .bien-actions i {
   margin-right: 10px;
   font-size: 1.5rem;
@@ -211,19 +147,15 @@
   .bien-content {
     flex-direction: column;
     padding: 20px;
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
   }
 
   .bien-image {
     margin-right: 0;
     margin-bottom: 20px;
   }
-<<<<<<< HEAD
-=======
 
   .bien-actions button {
     width: 100%;
     margin-bottom: 15px;
   }
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 }

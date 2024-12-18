@@ -1,61 +1,3 @@
-<<<<<<< HEAD
-<section class="container">
-  <h1>Créer un compte</h1>
-  <div class="card">
-    <div class="card-header">
-      <div class="row">
-       <button class="btn btn-primary mx-3" (click)="toggleAccountType()">
-          Créer un compte {{ isCliForm ? 'utilisateur' : 'client' }}
-        </button>
-      </div>
-    </div>
-    <div class="card-body">
-      <h3 *ngIf="isCliForm">Formulaire de création du compte client</h3>
-      <h3 *ngIf="!isCliForm">Formulaire de création du compte utilisateur</h3>
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div class="form-group" *ngIf="isCliForm">
-          <label for="nom_complet">Nom Complet:</label>
-          <input type="text" formControlName="nom_complet" id="nom_complet" class="form-control" placeholder="Nom Complet" required>
-          <div *ngIf="registerForm.get('nom_complet')?.invalid && registerForm.get('nom_complet')?.touched" class="text-danger">
-            Le nom est obligatoire.
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" formControlName="email" id="email" class="form-control" placeholder="Email" required>
-          <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
-            L'email est obligatoire.
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="password">Mot de passe:</label>
-          <input type="password" formControlName="password" id="password" class="form-control" placeholder="Mot de passe" required>
-          <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
-            Le mot de passe est obligatoire.
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="confirmed_password">Confirmer le mot de passe:</label>
-          <input type="password" formControlName="confirmed_password" id="confirmed_password" class="form-control" placeholder="Confirmer le mot de passe" required>
-          <div *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmed_password')?.touched" class="text-danger">
-            Les mots de passe ne correspondent pas.
-          </div>
-          <div *ngIf="registerForm.get('confirmed_password')?.invalid && registerForm.get('confirmed_password')?.touched" class="text-danger">
-            Le mot de passe est obligatoire.
-          </div>
-        </div>
-
-        <div class="d-flex justify-content-between">
-          <button class="btn btn-primary" type="submit">Créer un compte</button>
-          <a routerLink="/login">
-            <button class="btn btn-secondary ml-3" type="button">Retour</button>
-          </a>
-        </div>
-      </form>
-=======
 <app-nav></app-nav>
 <br><br><br><br>
 
@@ -157,7 +99,6 @@
           </form>
         </div>
       </div>
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
     </div>
   </div>
 </section>

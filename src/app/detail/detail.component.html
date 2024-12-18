@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<br><br><br><br><br>
-=======
 <app-nav></app-nav>
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 <div *ngIf="bien" class="bien-detail-container">
   <div class="bien-content">
     <div class="bien-image">
@@ -12,15 +8,6 @@
     <div class="bien-description">
       <h1 class="bien-title">{{ bien.type_bien }}</h1>
       <p class="bien-description-text">{{ bien.description }}</p>
-<<<<<<< HEAD
-      <p class="bien-price">Prix: <span>{{ bien.prix }} Fcfa</span></p>
-      <p class="bien-availability">Disponible: <span>{{ bien.disponible ? 'Oui' : 'Non' }}</span></p>
-
-      <div class="bien-actions">
-        <button class="btn btn-outline-primary" (click)="reserver()">Réserver</button>
-        <button class="btn btn-whatsapp" (click)="reserverWhatsApp()">Réserver via WhatsApp</button>
-        <button class="btn btn-email" (click)="reserverEmail()">Réserver par Email</button>
-=======
 
       <div class="bien-price">
         <i class="flaticon-money"></i> <span>{{ bien.prix }} Fcfa</span>
@@ -41,7 +28,6 @@
         <button class="btn btn-outline-primary" (click)="reserver()"><i class="flaticon-calendar"></i> Réserver</button>
         <button class="btn btn-whatsapp" (click)="reserverWhatsApp()"><i class="flaticon-whatsapp"></i> WhatsApp</button>
         <button class="btn btn-email" (click)="reserverEmail()"><i class="flaticon-email"></i> Email</button>
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
       </div>
     </div>
   </div>

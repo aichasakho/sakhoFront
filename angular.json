@@ -25,11 +25,6 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
-              "src/styles.css"
-            ],
-            "scripts": []
-=======
               "src/styles.css",
               "./node_modules/notyf/notyf.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
@@ -38,7 +33,6 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
           },
           "configurations": {
             "production": {

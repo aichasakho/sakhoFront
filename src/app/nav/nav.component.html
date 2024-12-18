@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-<div [ngClass]="{'fixed-top': router.url === '/biens',
-  'bg-secondary': router.url !== '/biens' || isScrolled }"
-     class="header d-flex align-items-center justify-content-between p-3">
-  <img src="../assets/images/logo.png" class="logo" alt="Logo" />
-  <nav class="navbar flex-grow-1">
-    <ul class="d-flex list-unstyled m-0">
-      <li class="me-3"><a routerLink="/">Accueil</a></li>
-      <li class="me-3"><a routerLink="/locations">Locations</a></li>
-      <li class="me-3"><a routerLink="/ventes">Ventes</a></li>
-      <li class="me-3"><a routerLink="/contacts">Contact</a></li>
-      <li class="me-3"><a routerLink="/admin/biens">Dashboard</a></li>
-
-    </ul>
-  </nav>
-  <div class="auth-buttons d-flex">
-    <a *ngIf="!isAuthenticated" routerLink="/login" class="btn btn-primary me-2">Se connecter</a>
-    <a *ngIf="!isAuthenticated" routerLink="/register" class="btn btn-primary">S'inscrire</a>
-
-    <button *ngIf="isAuthenticated" (click)="logout()" class="btn btn-secondary">Se déconnecter</button>
-  </div>
-
-=======
 <div class="header navbar navbar-expand-lg navbar-light shadow-sm p-3 fixed-top" [class.navbar-scrolled]="isScrolled">
   <a routerLink="/" class="nav-link" [class.active]="isActiveLink('/')"><img src="../assets/images/logo.png" class="logo" alt="Logo" /></a>
 
@@ -36,7 +13,7 @@
         <a routerLink="/ventes" class="nav-link" [class.active]="isActiveLink('/ventes')">Ventes</a>
       </li>
       <li class="nav-item me-4">
-        <a routerLink="/contacts" class="nav-link" [class.active]="isActiveLink('/contacts')">Contact</a>
+        <a routerLink="/contact" class="nav-link" [class.active]="isActiveLink('/contact')">Contact</a>
       </li>
       <li class="nav-item me-4">
         <a routerLink="/admin/biens" class="nav-link" [class.active]="isActiveLink('/admin/biens')">Dashboard</a>
@@ -62,5 +39,4 @@
       </ul>
     </div>
   </div>
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 </div>

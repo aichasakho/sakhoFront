@@ -18,17 +18,10 @@ export class BienComponent implements OnInit {
   loadBiens(): void {
     this.biensService.getBiens().subscribe((data: Bien[]) => {
       this.biens = data;
-<<<<<<< HEAD
-        console.log(this.biens); // Ajoutez cette ligne pour voir les données
-      },
-      (error) => {
-        console.error('Erreur lors du chargement des biens', error); // Gérer l'erreur
-=======
         console.log(this.biens);
       },
       (error) => {
         console.error('Erreur lors du chargement des biens', error);
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 
       });
   }
@@ -36,17 +29,9 @@ export class BienComponent implements OnInit {
     this.biensService.appelBien(bien).subscribe(
       (response) => {
         console.log(response.message);
-<<<<<<< HEAD
-        // Afficher un message de succès à l'utilisateur
       },
       (error) => {
         console.error('Erreur lors de la demande d\'appel', error);
-        // Afficher un message d'erreur à l'utilisateur
-=======
-      },
-      (error) => {
-        console.error('Erreur lors de la demande d\'appel', error);
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
       }
     );
   }
@@ -55,17 +40,9 @@ export class BienComponent implements OnInit {
     this.biensService.contacterBien(bien).subscribe(
       (response) => {
         console.log(response.message);
-<<<<<<< HEAD
-        // Afficher un message de succès à l'utilisateur
       },
       (error) => {
         console.error('Erreur lors de la demande de contact', error);
-        // Afficher un message d'erreur à l'utilisateur
-=======
-      },
-      (error) => {
-        console.error('Erreur lors de la demande de contact', error);
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
       }
     );
   }

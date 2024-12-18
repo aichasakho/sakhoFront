@@ -1,10 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-<<<<<<< HEAD
-import { Router } from '@angular/router';
-=======
 import {NavigationEnd, Router} from '@angular/router';
 import { AuthService } from "../services/auth-service.service";
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 
 @Component({
   selector: 'app-nav',
@@ -14,13 +10,6 @@ import { AuthService } from "../services/auth-service.service";
 export class NavComponent implements OnInit {
   isAuthenticated: boolean = false;
   isScrolled: boolean = false;
-<<<<<<< HEAD
-
-  constructor(public router: Router) {}
-
-  ngOnInit(): void {
-    this.checkAuthentication();
-=======
   dropdownOpen: boolean = false;
   activeLink: string = '';
 
@@ -36,7 +25,6 @@ export class NavComponent implements OnInit {
     this.authService.isAuthenticated$.subscribe((authStatus) => {
       this.isAuthenticated = authStatus;
     });
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
   }
 
   @HostListener('window:scroll', [])
@@ -45,18 +33,6 @@ export class NavComponent implements OnInit {
     this.isScrolled = scrollPosition > 100;
   }
 
-<<<<<<< HEAD
-  checkAuthentication() {
-    this.isAuthenticated = !!localStorage.getItem('authToken');
-  }
-
-  logout() {
-    localStorage.removeItem('authToken');
-
-    this.isAuthenticated = false;
-
-    this.router.navigate(['/']);
-=======
   logout() {
     this.authService.logout().subscribe(() => {
       this.isAuthenticated = false;
@@ -71,6 +47,5 @@ export class NavComponent implements OnInit {
 
   isActiveLink(link: string): boolean {
     return this.activeLink === link;
->>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
   }
 }
