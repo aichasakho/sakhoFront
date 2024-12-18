@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // src/app/services/biens.service.ts
+=======
+>>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

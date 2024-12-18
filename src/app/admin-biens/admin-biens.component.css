@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Styles généraux */
 body {
   font-family: Arial, sans-serif;
@@ -143,3 +144,92 @@ img {
   padding-left: 30px;
 }
 
+=======
+/* Sidebar */
+.sidebar {
+  background-color: #343a40;
+  color: #ffffff;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  padding-top: 20px;
+}
+
+.sidebar .nav-item {
+  margin-bottom: 15px;
+}
+
+.sidebar .nav-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.sidebar .nav-link:hover {
+  color: #17a2b8;
+}
+
+.sidebar .nav-item .nav-link.active {
+  color: #007bff;
+}
+
+/* Formulaire */
+form .form-group {
+  margin-bottom: 15px;
+}
+
+form .form-check {
+  margin-bottom: 20px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Liste des Biens */
+.list-group-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.bien-info {
+  margin-left: 20px;
+}
+
+.bien-info strong {
+  font-size: 1.2rem;
+}
+
+.actions button {
+  margin-left: 10px;
+}
+
+.logo {
+  margin-left: 50px;
+  width: 80px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 100px;
+  }
+}
+>>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a

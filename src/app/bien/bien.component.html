@@ -1,9 +1,33 @@
+<<<<<<< HEAD
 <div class="home-banner">
   <img class="banner-image" src="assets/images/frames-for-your-heart-2d4lAQAlbDA-unsplash" alt="" />
+=======
+<app-nav></app-nav>
+<br><br><br><br><br><br><br><br>
+
+<div class="home-banner">
+  <div class="banner-overlay"></div>
+  <img class="banner-image" src="assets/images/bg_2.jpg" alt="Bannière" />
+
+<!--  <div class="banner-drawing">-->
+<!--    <svg width="300" height="300" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">-->
+<!--      <circle cx="50" cy="50" r="40" fill="transparent" stroke="white" stroke-width="5">-->
+<!--        <animate attributeName="r" from="40" to="35" dur="1s" begin="0s" repeatCount="indefinite" />-->
+<!--      </circle>-->
+<!--    </svg>-->
+<!--  </div>-->
+
+  <div class="banner-text">
+    <h2>Bienvenue chez Sakho Immobilier</h2>
+    <p>Nous vous aidons à trouver la propriété de vos rêves.</p>
+    <a href="#contact" class="contact-button">Contacter</a>
+  </div>
+>>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 </div>
 
 <div class="annonces-section">
   <h1>Annonces</h1>
+<<<<<<< HEAD
   <hr class="mx-auto mb-5 p-0" style="width:15%" />
   <hr class="mx-auto mb-5 p-0" style="width:10%" />
   <div class="annonces-grid">
@@ -22,6 +46,29 @@
           <span><i class="flaticon-bed">🛏️</i> 4</span>
         </div>
         <button class="btn btn-outline-primary" [routerLink]="['/detail', bien.id]">Voir plus</button>
+=======
+  <hr class="separator" />
+  <div class="annonces-grid">
+    <div class="annonce-item" *ngFor="let bien of biens">
+      <div class="annonce-card">
+        <img class="card-img-top" [src]="'/storage/' + bien.imagePath" alt="{{ bien.titre }}" *ngIf="bien.imagePath" />
+        <div class="badge-container">
+          <span class="badge {{ bien.type_annonce == 'location' ? 'bg-primary' : 'bg-success' }}">{{ bien.type_annonce }}</span>
+        </div>
+        <div class="annonce-info">
+          <div class="text">
+            <p class="description">{{ bien.description }}</p>
+            <span class="font-weight-bold">{{ bien.prix }} Fcfa</span>
+            <p>Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
+          </div>
+          <div class="properties">
+            <span><i class="flaticon-area"></i> Superficie: {{ bien.superficie }} m²</span>
+            <span><i class="flaticon-bathtub">🛁</i> {{ bien.nombre_douches }} </span>
+            <span><i class="flaticon-bed">🛏️</i> {{ bien.nombre_chambres }}</span>
+          </div>
+          <button class="btn btn-outline-primary" [routerLink]="['/detail', bien.id]">Voir plus</button>
+        </div>
+>>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
       </div>
     </div>
   </div>

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent {
 
+<<<<<<< HEAD
   constructor(private authService: AuthService, private router: Router) { }
 
   logout() {
@@ -22,4 +23,20 @@ export class LogoutComponent {
       }
     );
   }
+=======
+  // constructor(private authService: AuthService, private router: Router) {}
+  //
+  // onLogout(): void {
+  //   this.authService.logout().subscribe(
+  //     (response: any) => {
+  //       console.log('Déconnexion réussie', response);
+  //       localStorage.removeItem('token');
+  //       this.router.navigate(['/']);
+  //     },
+  //     (error: any) => {
+  //       console.error('Erreur lors de la déconnexion', error);
+  //     }
+  //   );
+  // }
+>>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 }

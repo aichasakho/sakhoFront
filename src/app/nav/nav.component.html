@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div [ngClass]="{'fixed-top': router.url === '/biens',
   'bg-secondary': router.url !== '/biens' || isScrolled }"
      class="header d-flex align-items-center justify-content-between p-3">
@@ -19,4 +20,47 @@
     <button *ngIf="isAuthenticated" (click)="logout()" class="btn btn-secondary">Se déconnecter</button>
   </div>
 
+=======
+<div class="header navbar navbar-expand-lg navbar-light shadow-sm p-3 fixed-top" [class.navbar-scrolled]="isScrolled">
+  <a routerLink="/" class="nav-link" [class.active]="isActiveLink('/')"><img src="../assets/images/logo.png" class="logo" alt="Logo" /></a>
+
+  <nav class="navbar-collapse">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item me-4">
+        <a routerLink="/" class="nav-link" [class.active]="isActiveLink('/')">Accueil</a>
+      </li>
+      <li class="nav-item me-4">
+        <a routerLink="/locations" class="nav-link" [class.active]="isActiveLink('/locations')">Locations</a>
+      </li>
+      <li class="nav-item me-4">
+        <a routerLink="/ventes" class="nav-link" [class.active]="isActiveLink('/ventes')">Ventes</a>
+      </li>
+      <li class="nav-item me-4">
+        <a routerLink="/contacts" class="nav-link" [class.active]="isActiveLink('/contacts')">Contact</a>
+      </li>
+      <li class="nav-item me-4">
+        <a routerLink="/admin/biens" class="nav-link" [class.active]="isActiveLink('/admin/biens')">Dashboard</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="auth-buttons d-flex align-items-center">
+    <div *ngIf="!isAuthenticated" class="d-flex">
+      <a routerLink="/login" class="btn btn-primary me-2">Se connecter</a>
+      <a routerLink="/register" class="btn btn-outline-secondary">S'inscrire</a>
+    </div>
+
+    <div *ngIf="isAuthenticated" class="dropdown" (mouseenter)="dropdownOpen = true" (mouseleave)="dropdownOpen = false">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="userMenuButton" [attr.aria-expanded]="dropdownOpen ? 'true' : 'false'">
+        <i class="fas fa-user-circle"></i>Compte
+      </button>
+      <ul class="dropdown-menu" [class.show]="dropdownOpen">
+        <li><a class="dropdown-item" routerLink="/profile">Profil</a></li>
+        <li><a class="dropdown-item" routerLink="/settings">Paramètres</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><button class="dropdown-item text-danger" (click)="logout()">Se déconnecter</button></li>
+      </ul>
+    </div>
+  </div>
+>>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 </div>

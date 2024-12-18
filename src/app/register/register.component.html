@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section class="container">
   <h1>Créer un compte</h1>
   <div class="card">
@@ -54,6 +55,109 @@
           </a>
         </div>
       </form>
+=======
+<app-nav></app-nav>
+<br><br><br><br>
+
+<section class="register_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="detail-box">
+          <h3>Bienvenue chez Djibril Sakho Immobilier</h3>
+          <p>
+            Créez votre compte gratuitement et accédez à une vaste gamme de propriétés exceptionnelles. Trouvez la maison de vos rêves avec Djibril Sakho Immobilier.
+          </p>
+          <a routerLink="/login" class="btn btn-success">Connectez-vous maintenantr</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="register_form">
+          <h5>Créer un compte</h5>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="nom_complet">Nom Complet</label>
+              <input
+                type="text"
+                formControlName="nom_complet"
+                id="nom_complet"
+                class="form-control"
+                placeholder="Nom Complet"
+                required
+              />
+              <div
+                *ngIf="registerForm.get('nom_complet')?.invalid && registerForm.get('nom_complet')?.touched"
+                class="text-danger"
+              >
+                Le nom est obligatoire.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                formControlName="email"
+                id="email"
+                class="form-control"
+                placeholder="Email"
+                required
+              />
+              <div
+                *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched"
+                class="text-danger"
+              >
+                L'email est obligatoire et doit être valide.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input
+                type="password"
+                formControlName="password"
+                id="password"
+                class="form-control"
+                placeholder="Mot de passe"
+                required
+              />
+              <div
+                *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+                class="text-danger"
+              >
+                Le mot de passe doit contenir au moins 6 caractères.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password_confirmation">Confirmer le mot de passe</label>
+              <input
+                type="password"
+                formControlName="password_confirmation"
+                id="password_confirmation"
+                class="form-control"
+                placeholder="Confirmer le mot de passe"
+                required
+              />
+              <div
+                *ngIf="registerForm.hasError('mismatch') && registerForm.get('password_confirmation')?.touched"
+                class="text-danger"
+              >
+                Les mots de passe ne correspondent pas.
+              </div>
+            </div>
+
+            <button
+              class="btn btn-primary"
+              type="submit"
+              [disabled]="registerForm.invalid"
+            >
+              S'inscrire
+            </button>
+          </form>
+        </div>
+      </div>
+>>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
     </div>
   </div>
 </section>

@@ -1,3 +1,55 @@
+<<<<<<< HEAD
+=======
+.home-banner {
+  margin-top: -100px;
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.banner-image {
+  width: 100%;
+  height: 20%;
+  object-fit: cover;
+  filter: brightness(0.3);
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.banner-text h2 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.banner-text p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+
+
+>>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
 .annonces-section {
   padding: 40px 20px;
   background-color: #f9f9f9;
@@ -98,3 +150,78 @@
   background-color: #007bff;
   color: #fff;
 }
+<<<<<<< HEAD
+=======
+
+.home-banner {
+  margin-top: -90px;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.3);
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.banner-drawing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.banner-text {
+  position: absolute;
+  top: 30%;
+  left: 30px;
+  transform: translateY(-50%);
+  text-align: left;
+  color: white;
+  z-index: 2;
+}
+
+.banner-text h2 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.banner-text p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+.contact-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+>>>>>>> d83c29b5f98a106ed5257b197daa479c0d9e830a
