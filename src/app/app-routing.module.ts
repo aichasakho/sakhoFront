@@ -10,6 +10,7 @@ import {LoginComponent} from "./login/login.component";
 import {LocationComponent} from "./location/location.component";
 import {VenteComponent} from "./vente/vente.component";
 import {AccueilComponent} from "./accueil/accueil.component";
+import {ContactComponent} from "./contact/contact.component";
 
 
 const routes: Routes = [
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'locations', component: LocationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
+  { path: 'contact', component: ContactComponent},
+
 
   { path: '', redirectTo: '/biens', pathMatch: 'full' },
   { path: '**', redirectTo: '/annonces' }

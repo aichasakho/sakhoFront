@@ -1,40 +1,66 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {Bien} from "../models/bien.model";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Notyf} from "notyf";
+import {ContactService} from "../services/contact.service";
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent {
-  constructor(private http: HttpClient) {}
+export class ContactComponent implements OnInit{
+  contactForm!: FormGroup;
+  private notyf: Notyf;
+  isLoading = false;
 
-  appelBien(bien: Bien) {
-    this.http.post(`/api/biens/${bien.id}/appeler`, {}).subscribe(
-      (response) => {
-        // console.log(response.message);
-        // Afficher un message de succès à l'utilisateur
-      },
-      (error) => {
-        console.error('Erreur lors de la demande d\'appel', error);
-        // Afficher un message d'erreur à l'utilisateur
-      }
-    );
+  constructor(private fb: FormBuilder, private contactService: ContactService) {
+    this.notyf = new Notyf();
   }
 
-  contactBien(bien: Bien) {
-    this.http.post(`/api/biens/${bien.id}/contacter`, {}).subscribe(
-      (response) => {
-        // console.log(response.message);
-        // Afficher un message de succès à l'utilisateur
-      },
-      (error) => {
-        console.error('Erreur lors de la demande de contact', error);
-        // Afficher un message d'erreur à l'utilisateur
-      }
-    );
+  ngOnInit(): void {
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required]
+    });
+  }
+
+  onSubmitContact(): void {
+    if (this.contactForm.valid) {
+      const { name, email, message } = this.contactForm.value;
+      this.contactService.sendMessage(name, email, message).subscribe(
+        (response: any) => {
+          console.log('Message envoyé avec succès:', response);
+        },
+        (error: any) => {
+          console.error('Erreur lors de l\'envoi du message:', error);
+        }
+      );
+    }
+  }
+
+  onSubmit(): void {
+    if (this.contactForm.valid) {
+      this.isLoading = true;
+      const { name, email, message } = this.contactForm.value;
+
+      this.contactService.sendMessage(name, email, message).subscribe(
+        (response) => {
+          console.log('Message envoyé avec succès:', response);
+          this.notyf.success('Votre message a été envoyé avec succès !');
+          this.contactForm.reset();
+          this.isLoading = false;
+        },
+        (error) => {
+          console.error('Erreur lors de l\'envoi du message:', error);
+          const errorMessage = error.error.message || 'Une erreur est survenue';
+          this.notyf.error(errorMessage);
+          this.isLoading = false;
+        }
+      );
+    }
   }
 }
+
 
 
 
