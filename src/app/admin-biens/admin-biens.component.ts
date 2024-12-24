@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AdminBiensComponent implements OnInit {
   biens: Bien[] = [];
-  bien: Bien = {id:0 , titre: '', description: '', prix: 0, disponible: true, type: '', type_annonce: '',    superficie : 0, nombre_douches : 0 , nombre_chambres : 0 };
+  bien: Bien = {id:0 , titre: '', description: '', prix: 0, disponible: true, type: '', type_annonce: '',    superficie : 0, nombre_douches : 0 , nombre_chambres : 0 , imagePath: ''};
   selectedFile: File | null = null;
 
 
@@ -34,18 +34,22 @@ export class AdminBiensComponent implements OnInit {
 
   onFileChange(event: any) {
     const file = event.target.files[0];
-    if (file) {
+    if (file && file.type.startsWith('image/')) {
       this.selectedFile = file;
       const reader = new FileReader();
       reader.onload = (e: any) => {
         this.bien.imagePath = e.target.result;
       };
       reader.readAsDataURL(file);
+    } else {
+      alert('Veuillez sélectionner un fichier image valide.');
+      this.selectedFile = null;
     }
   }
 
+
   onSubmit(): void {
-    if (!this.bien.titre || !this.bien.description || !this.bien.prix || !this.bien.type || !this.bien.type_annonce || !this.bien.nombre_chambres || !this.bien.nombre_douches  || !this.bien.superficie ) {
+    if (!this.bien.titre || !this.bien.description || !this.bien.prix || !this.bien.type || !this.bien.type_annonce || !this.bien.nombre_chambres || !this.bien.nombre_douches  || !this.bien.superficie || !this.bien.imagePath ) {
       alert('Veuillez remplir tous les champs requis.');
       return;
     }

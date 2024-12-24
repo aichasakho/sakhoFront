@@ -1,91 +1,165 @@
-.contact_section {
-  position: relative;
-  background-color: #ecf0f1; /* Couleur de fond claire */
-  color: #2c3e50;
-  padding: 60px 0;
+.hero_area {
+  background-image: url('/assets/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.container {
-  display: flex;
-  width: 80%;
-  max-width: 1200px;
-  margin: auto;
-}
 
-.detail-box {
-  flex: 1;
-  background-color: #ffffff; /* Couleur de fond blanche */
-  color: #2c3e50; /* Couleur du texte */
-  padding: 30px;
-  border-radius: 8px 8px 0 0;
+.header_section {
+  background: #fff;
+  padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #bdc3c7; /* Ajouter une bordure pour la visibilité */
+
+  .navbar-brand h3 {
+    color: #4a4a4a;
+  }
+  .navbar-brand span {
+    font-size: 14px;
+    color: #888;
+  }
+  .nav-link {
+    color: #555;
+    &:hover {
+      color: #007bff;
+    }
+  }
 }
 
-.contact_form {
-  flex: 1;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+/* contact section */
+.contact_section {
+  background-color: #164745;
   position: relative;
-  z-index: 1;
+  margin: 95px;
+}
+
+.contact_section .heading_container h3::before {
+  left: -1px;
 }
 
 .contact_section::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom right, #2c3e50, #1abc9c);
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
-  z-index: 0;
+  top: -1px;
+  height: 100.5%;
+  width: 40%;
+  background-color: #ffffff;
+  -webkit-clip-path: polygon(0 0, 95% 0, 65% 100%, 0% 100%);
+  clip-path: polygon(0 0, 95% 0, 65% 100%, 0% 100%);
 }
 
-.contact_form h5 {
-  font-size: 24px;
-  margin-bottom: 20px;
+.contact_section .row {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-.form-group {
-  margin-bottom: 20px;
+.contact_section .detail-box {
+  width: 250px;
 }
 
-label {
-  font-weight: 600;
-}
-
-input.form-control,
-textarea.form-control {
-  border: 1px solid #bdc3c7;
-  border-radius: 5px;
-  padding: 10px;
-  width: 100%;
-  font-size: 16px;
-}
-
-input.form-control:focus,
-textarea.form-control:focus {
-  outline: none;
-  border-color: #1abc9c;
-}
-
-.btn-primary {
-  background-color: #1abc9c;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-.btn-primary:hover {
-  background-color: #16a085;
-}
-
-.text-danger {
-  font-size: 14px;
+.contact_section .detail-box p {
   margin-top: 5px;
+}
+
+.contact_section .contact-form {
+  padding: 45px 0;
+  border-radius: 20px;
+}
+
+.contact_section .contact-form h5 {
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+}
+
+.contact_section .contact-form input {
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+  width: 100%;
+  margin: 15px 0;
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
+.contact_section .contact-form input.input_message {
+  height: 105px;
+  border-radius: 10px;
+}
+
+.contact_section .contact-form input::-webkit-input-placeholder {
+  color: #151515;
+}
+
+.contact_section .contact-form input:-ms-input-placeholder {
+  color: #151515;
+}
+
+.contact_section .contact-form input::-ms-input-placeholder {
+  color: #151515;
+}
+
+.contact_section .contact-form input::placeholder {
+  color: #151515;
+}
+
+.contact_section .contact-form button {
+  border: none;
+  outline: none;
+  padding: 12px 50px;
+  text-transform: uppercase;
+  margin-top: 25px;
+  background-color: #4bc5b8;
+  color: #fff;
+  border-radius: 30px;
+}
+
+.contact_section .map_img-box {
+  width: 80%;
+  margin: 25px auto 0 auto;
+}
+
+.contact_section .map_img-box img {
+  width: 100%;
+}
+
+.col-md-6 {
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+
+.heading_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.heading_container h3 {
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.heading_container h3::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: 1px;
+  height: 65px;
+  background-color: #4bc5b8;
+  -webkit-transform: translateY(-50%) rotate(20deg);
+  transform: translateY(-50%) rotate(20deg);
 }
