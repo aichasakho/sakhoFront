@@ -2,7 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/sakho_immoFront" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/sakho_immoFront/sakho_immoFront" vcs="Git" />
   </component>
 </project>
