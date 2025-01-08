@@ -29,15 +29,15 @@
 
 .contact_section {
   position: relative;
-  background-image: url('/assets/images/App.jpg');
   background-size: cover;
   background-position: center;
-  color: #ffffff;
+  color: #000000;
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: #0b2e13;
 }
 
 .contact_section::before {

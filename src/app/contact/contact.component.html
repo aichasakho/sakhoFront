@@ -1,22 +1,12 @@
 <app-nav></app-nav>
 <br><br><br><br>
-
-<section class="contact_section layout_padding">
+<
+<section class="contact_section">
+  <div class="container">
     <div class="row">
       <div class="col-md-6">
         <div class="detail-box">
-          <h3>Nous Contacter</h3>
-          <p>
-            Si vous avez des questions ou des préoccupations, n'hésitez pas à nous contacter en remplissant le formulaire ci-dessous.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="contact_form">
-          <h5>Formulaire de Contact</h5>
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmitContact()">
-            <div class="form-group">
-              <label for="name">Nom :</label>
+
           <div class="heading_container">
             <h3>
               Nous Contacter
@@ -27,8 +17,7 @@
             </p>
           </div>
         </div>
-          </form>
-        </div>
+      </div>
       <div class="col-md-6">
         <div class="contact-form">
           <h5>
@@ -52,8 +41,6 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Email :</label>
-
               <input
                 type="email"
                 formControlName="email"
@@ -70,7 +57,6 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="message">Message :</label>
 
               <textarea
                 formControlName="message"
