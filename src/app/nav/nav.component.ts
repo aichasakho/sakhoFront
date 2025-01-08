@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
+
 import { AuthService } from "../services/auth-service.service";
 
 @Component({
@@ -13,6 +14,8 @@ export class NavComponent implements OnInit {
   dropdownOpen: boolean = false;
   activeLink: string = '';
 
+  isAdminOrSuperAdmin: boolean = false;
+
   constructor(public router: Router, private authService: AuthService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -24,6 +27,11 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.authService.isAuthenticated$.subscribe((authStatus) => {
       this.isAuthenticated = authStatus;
+
+      if (authStatus) {
+        this.isAdminOrSuperAdmin = this.authService.hasAnyRole(['admin', 'super-admin']);
+        console.log('isAdminOrSuperAdmin:', this.isAdminOrSuperAdmin);
+      }
     });
   }
 

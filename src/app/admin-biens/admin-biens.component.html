@@ -101,6 +101,12 @@
             <label for="imagePath">Image:</label>
             <input type="file" class="form-control-file" (change)="onFileChange($event)" accept="image/*" name="imagePath" id="imagePath">
           </div>
+
+          <div *ngIf="bien.imagePath">
+            <label>Aperçu de l'image :</label>
+            <img [src]="bien.imagePath" alt="Aperçu" style="max-width: 200px; max-height: 200px;" />
+          </div>
+
           <button type="submit" class="btn btn-primary">Enregistrer</button>
         </form>
       </div>

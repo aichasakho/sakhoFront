@@ -7,7 +7,7 @@ import {ContactService} from "../services/contact.service";
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit{
+export class ContactComponent implements OnInit {
   contactForm!: FormGroup;
   private notyf: Notyf;
   isLoading = false;
@@ -24,24 +24,12 @@ export class ContactComponent implements OnInit{
     });
   }
 
+
   onSubmitContact(): void {
     if (this.contactForm.valid) {
-      const { name, email, message } = this.contactForm.value;
-      this.contactService.sendMessage(name, email, message).subscribe(
-        (response: any) => {
-          console.log('Message envoyé avec succès:', response);
-        },
-        (error: any) => {
-          console.error('Erreur lors de l\'envoi du message:', error);
-        }
-      );
-    }
-  }
 
-  onSubmit(): void {
-    if (this.contactForm.valid) {
       this.isLoading = true;
-      const { name, email, message } = this.contactForm.value;
+      const {name, email, message} = this.contactForm.value;
 
       this.contactService.sendMessage(name, email, message).subscribe(
         (response) => {
@@ -57,10 +45,12 @@ export class ContactComponent implements OnInit{
           this.isLoading = false;
         }
       );
+    } else {
+      this.notyf.error('Veuillez remplir tous les champs requis.');
+
+
     }
+
+
   }
 }
-
-
-
-
