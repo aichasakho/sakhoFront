@@ -19,6 +19,8 @@ import { VenteComponent } from './vente/vente.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ListeBiensComponent } from './admin-biens/liste-biens/liste-biens.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     VenteComponent,
     AccueilComponent,
     LogoutComponent,
+    SidebarComponent,
+    ListeBiensComponent,
   ],
   imports: [
     BrowserModule,

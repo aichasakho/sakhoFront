@@ -17,41 +17,14 @@
     <div class="row">
       <!-- Sidebar -->
       <div class="col-md-2 sidebar bg-dark text-white py-4">
-        <h4 class="mb-4">Menu</h4>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Biens Immobilier</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Immeubles</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Appartements</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Maisons</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Terrains</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Parcelles</a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="/biens" class="text-white">Retour à l'accueil</a>
-          </li>
-        </ul>
+        <app-sidebar></app-sidebar>
       </div>
-
       <div class="col-md-10 offset-md-2 py-4">
-        <h2 class="mb-4">Gestion des Biens</h2>
+        <h2 class="mb-4 mt-5">Gestion des Biens</h2>
         <!-- Formulaire de Bien -->
-        <form (ngSubmit)="onSubmit()" #bienForm="ngForm" enctype="multipart/form-data">
+        <div class="card col-md-8 m-auto">
+          <div class="card-body">
+            <form (ngSubmit)="onSubmit()" #bienForm="ngForm" enctype="multipart/form-data">
           <div class="form-group">
             <label for="titre">Titre:</label>
             <input type="text" class="form-control" [(ngModel)]="bien.titre" name="titre" required id="titre">
@@ -109,6 +82,9 @@
 
           <button type="submit" class="btn btn-primary">Enregistrer</button>
         </form>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
