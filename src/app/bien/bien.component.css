@@ -1,3 +1,9 @@
+.hero_area {
+  margin: auto;
+  height: 75vh;
+  background: linear-gradient(to left, #e4e5e0,#2C7975FF);
+}
+
 .home-banner {
   margin-top: -100px;
   position: relative;
@@ -63,7 +69,7 @@
 .annonces-section hr {
   border: none;
   height: 4px;
-  background-color: #007bff;
+  background-color: #39A6A1FF;
   margin: 0 auto 20px auto;
 }
 
@@ -138,13 +144,13 @@
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 50px;
-  color: #007bff;
-  border: 2px solid #007bff;
+  color: #39A6A1FF;
+  border: 2px solid #39A6A1FF;
   transition: all 0.3s ease;
 }
 
 .annonce-info button:hover {
-  background-color: #007bff;
+  background-color:#39A6A1FF;
   color: #fff;
 }
 
@@ -207,7 +213,7 @@
   display: inline-block;
   margin-top: 20px;
   padding: 12px 20px;
-  background-color: #007bff;
+  background-color: #39A6A1FF;
   color: white;
   text-decoration: none;
   border-radius: 50px;
@@ -216,6 +222,6 @@
 }
 
 .contact-button:hover {
-  background-color: #0056b3;
+  background-color: #2C7975FF;
   transform: scale(1.1);
 }

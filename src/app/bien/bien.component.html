@@ -79,9 +79,11 @@
   <div class="annonces-grid">
     <div class="annonce-item" *ngFor="let bien of biens">
       <div class="annonce-card">
+
+
         <img
           class="card-img-top"
-          [src]="'/storage/' + bien.imagePath"
+          [src]="'http://127.0.0.1:8000/storage/' + bien.imagePath"
           alt="{{ bien.titre }}"
           *ngIf="bien.imagePath"
         />
