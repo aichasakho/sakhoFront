@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
-
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from "../services/auth-service.service";
 
 @Component({
@@ -13,8 +12,7 @@ export class NavComponent implements OnInit {
   isScrolled: boolean = false;
   dropdownOpen: boolean = false;
   activeLink: string = '';
-
-  isAdminOrSuperAdmin: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(public router: Router, private authService: AuthService) {
     this.router.events.subscribe((event) => {
@@ -27,10 +25,11 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.authService.isAuthenticated$.subscribe((authStatus) => {
       this.isAuthenticated = authStatus;
-
+  
       if (authStatus) {
-        this.isAdminOrSuperAdmin = this.authService.hasAnyRole(['admin', 'super-admin']);
-        console.log('isAdminOrSuperAdmin:', this.isAdminOrSuperAdmin);
+        this.isAdmin = this.authService.hasRole('admin');
+      } else {
+        this.isAdmin = false;
       }
     });
   }
@@ -46,11 +45,6 @@ export class NavComponent implements OnInit {
       this.isAuthenticated = false;
       this.router.navigate(['/']);
     });
-  }
-
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event) {
-    this.isScrolled = window.scrollY > 50;
   }
 
   isActiveLink(link: string): boolean {

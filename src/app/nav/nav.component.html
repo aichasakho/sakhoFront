@@ -15,9 +15,15 @@
       <li class="nav-item me-4">
         <a routerLink="/contact" class="nav-link" [class.active]="isActiveLink('/contact')">Contact</a>
       </li>
-      <li class="nav-item me-4">
+      <!-- <li class="nav-item me-4">
+        <a routerLink="/admin/biens" class="nav-link" [class.active]="isActiveLink('/admin/biens')">Dashboard</a>
+      </li> -->
+
+      <li *ngIf="isAdmin" class="nav-item me-4">
         <a routerLink="/admin/biens" class="nav-link" [class.active]="isActiveLink('/admin/biens')">Dashboard</a>
       </li>
+      
+      
       <!--<li *ngIf="isAdminOrSuperAdmin" class="nav-item me-4">
         <a routerLink="/admin/biens" class="nav-link" [class.active]="isActiveLink('/admin/biens')">Dashboard</a>
       </li>-->
@@ -27,25 +33,32 @@
         </a>
       </li>
     </ul>
+
+    <div class="auth-buttons d-flex align-items-center">
+      <div *ngIf="!isAuthenticated" class="d-flex">
+  
+        <a routerLink="/login" class="btn btn-outline-success me-2">Se connecter</a>
+        <a routerLink="/register" class="btn btn-outline-secondary">S'inscrire</a>
+      </div>
+  
+      <div *ngIf="isAuthenticated" class="dropdown" (mouseenter)="dropdownOpen = true" (mouseleave)="dropdownOpen = false">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="userMenuButton" [attr.aria-expanded]="dropdownOpen ? 'true' : 'false'">
+          <i class="fas fa-user-circle"></i>Compte
+        </button>
+        <ul class="dropdown-menu" [class.show]="dropdownOpen">
+          <li><a class="dropdown-item" routerLink="/profile">Profil</a></li>
+          <li><a class="dropdown-item" routerLink="/settings">Paramètres</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><button class="dropdown-item text-danger" (click)="logout()">Se déconnecter</button></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <div class="auth-buttons d-flex align-items-center">
-    <div *ngIf="!isAuthenticated" class="d-flex">
+  
 
-      <a routerLink="/login" class="btn btn-outline-success me-2">Se connecter</a>
-      <a routerLink="/register" class="btn btn-outline-secondary">S'inscrire</a>
-    </div>
-
-    <div *ngIf="isAuthenticated" class="dropdown" (mouseenter)="dropdownOpen = true" (mouseleave)="dropdownOpen = false">
-      <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="userMenuButton" [attr.aria-expanded]="dropdownOpen ? 'true' : 'false'">
-        <i class="fas fa-user-circle"></i>Compte
-      </button>
-      <ul class="dropdown-menu" [class.show]="dropdownOpen">
-        <li><a class="dropdown-item" routerLink="/profile">Profil</a></li>
-        <li><a class="dropdown-item" routerLink="/settings">Paramètres</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><button class="dropdown-item text-danger" (click)="logout()">Se déconnecter</button></li>
-      </ul>
-    </div>
-  </div>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
 </div>

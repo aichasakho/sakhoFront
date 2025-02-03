@@ -1,8 +1,25 @@
-.hero_area {
-  margin: auto;
-  height: 75vh;
-  background: linear-gradient(to left, #e4e5e0,#2C7975FF);
+body {
+  font-family: 'Open Sans', sans-serif;
 }
+
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+}
+
+blockquote {
+  font-family: 'Georgia', serif;
+}
+
+.citation {
+  font-family: 'Merriweather', serif;
+}
+
+
 
 .home-banner {
   margin-top: -100px;
@@ -232,6 +249,25 @@
   font-family: Arial, sans-serif;
 }
 
+.carousel-image {
+  position: relative;
+  height: 80vh; 
+  overflow: hidden;
+
+}
+
+.carousel-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(25%);
+}
+
+
 .header {
   background-color: #f2f2f2;
   padding: 20px;
@@ -278,31 +314,48 @@
 
 .offers {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
+  padding: 0 20px;
 }
 
 .offer-card {
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
+  background-color: #fff;
   border-radius: 8px;
-  text-align: center;
-  padding: 20px;
-  transition: transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .offer-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.offer-card img {
-  max-width: 60px;
-  height: auto;
-  margin-bottom: 10px;
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.offer-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 2px solid #e1e1e1;
 }
 
 .offer-card h3 {
-  font-size: 1.2em;
-  color: #333;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.25rem;
+  background-color: #fff;
+  color: #34495E;
+  margin: 0;
 }
 
+.offer-card h3:hover {
+  color: #3498db;
+  cursor: pointer;
+  text-decoration: underline;
+}
