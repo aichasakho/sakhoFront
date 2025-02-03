@@ -15,7 +15,7 @@ export class BiensService {
     return this.http.get<Bien[]>(this.apiUrl);
   }
 
-  getBien(id: number): Observable<Bien> {
+  getBien(id: string | null): Observable<Bien> {
     return this.http.get<Bien>(`${this.apiUrl}/${id}`);
   }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { BiensService } from '../../services/bien.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Bien } from '../../models/bien.model';
 
 @Component({
@@ -10,82 +9,46 @@ import { Bien } from '../../models/bien.model';
   styleUrls: ['./edit-bien.component.css']
 })
 export class EditBienComponent implements OnInit {
-  bienForm!: FormGroup;
-  selectedFile?: File;
-  bienId!: number;
+  bien: any;
+  selectedFile: File | null = null;
+  constructor(private route: ActivatedRoute, private bienService: BiensService) {}
 
-  constructor(
-    private fb: FormBuilder,
-    private bienService: BiensService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {
-    this.bienForm = this.fb.group({
-      titre: ['', Validators.required],
-      description: ['', Validators.required],
-      prix: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      type: ['', Validators.required]
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.bienService. getBien(id).subscribe(data => {
+      this.bien = data;
     });
-
-    this.bienId = Number(this.route.snapshot.paramMap.get('id'));
-
-    this.loadBienData();
   }
-
-  loadBienData(): void {
-    this.bienService.getBien(this.bienId).subscribe(
-      (data) => {
-        this.bienForm.patchValue({
-          titre: data.titre,
-          description: data.description,
-          prix: data.prix,
-          type: data.type
-        });
-      },
-      (error) => {
-        console.error('Erreur lors du chargement du bien', error);
-        alert('Bien introuvable');
-      }
-    );
-  }
-
-  onSubmit(): void {
-    if (this.bienForm.valid) {
-      const formData = new FormData();
-      if (this.selectedFile) {
-        formData.append('imagePath', this.selectedFile, this.selectedFile.name);
-      }
-
-      this.bienService.updateBien(this.bienId, formData).subscribe(
-        (response) => {
-          console.log("Mise à jour réussie", response);
-          this.router.navigate(['/biens']);
-        },
-        (error) => {
-          if (error.error && error.error.errors) {
-            let errorMessage = 'Erreur lors de la mise à jour: ';
-            for (const key in error.error.errors) {
-              errorMessage += `${key}: ${error.error.errors[key].join(', ')}; `;
-            }
-            alert(errorMessage);
-          } else {
-            alert('Une erreur inconnue est survenue.');
-          }
-        }
-      );
-    } else {
-      console.error("Erreur lors de la soumission. Vérifiez les champs.");
-    }
-  }
-
-
-  onFileSelected(event: Event): void {
-    const file = (event.target as HTMLInputElement).files?.[0];
+  onFileChange(event: any) {
+    const file = event.target.files[0];
     if (file) {
       this.selectedFile = file;
-      console.log("File selected:", file);
     }
   }
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('titre', this.bien.titre);
+    formData.append('description', this.bien.description); // Ajoutez ce champ
+    formData.append('prix', this.bien.prix.toString());
+    formData.append('superficie', this.bien.superficie ? this.bien.superficie.toString() : ''); // Ajoutez une vérification
+    formData.append('nombre_chambres', this.bien.nombre_chambres ? this.bien.nombre_chambres.toString() : ''); // Idem
+    formData.append('nombre_douches', this.bien.nombre_douches ? this.bien.nombre_douches.toString() : ''); // Idem
+    formData.append('disponible', this.bien.disponible.toString());
+
+    if (this.selectedFile) {
+      formData.append('imagePath', this.selectedFile);
+    }
+
+    this.bienService.updateBien(this.bien.id, formData).subscribe(() => {
+      console.log('Bien mis à jour avec succès');
+    }, error => {
+      console.error('Erreur lors de la mise à jour du bien', error);
+      if (error.error.errors) {
+        alert('Erreurs de validation : ' + JSON.stringify(error.error.errors));
+      } else {
+        alert(`Erreur: ${error.message}`);
+      }
+    });
+  }
+
 }

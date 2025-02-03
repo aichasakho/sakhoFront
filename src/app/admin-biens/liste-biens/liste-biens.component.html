@@ -1,6 +1,6 @@
 <div class="wrapper">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <img src="../assets/images/logo.png" class="logo"  alt="Logo" width="100px"/>
+    <img src="../assets/images/logo.png" class="logo" alt="Logo" width="100px"/>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,56 +13,52 @@
     </div>
   </nav>
 
+  <div class="sidebar bg-dark text-white">
+    <app-sidebar></app-sidebar>
+  </div>
+
   <div class="container-fluid">
     <div class="row">
-      <!-- Sidebar -->
-      <div class="col-md-2 sidebar bg-dark text-white py-4">
-        <app-sidebar></app-sidebar>
-      </div>
-
       <div class="col-md-10 offset-md-2 py-4">
         <h2 class="mb-4 mt-5">Liste des Biens</h2>
-        <!-- Formulaire de Bien -->
         <div class="card">
           <div class="card-body">
-              <table class="table table-striped">
-                <thead>
-                <tr>
-                  <th scope="col">Image</th>
-                  <th scope="col">Titre</th>
-                  <th scope="col">Prix</th>
-                  <th scope="col">Superficie</th>
-                  <th scope="col">Nombre de chambres</th>
-                  <th scope="col">Nombre de douches</th>
-                  <th scope="col">Disponible</th>
-                  <th scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let bien of biens">
-                  <td>
-                    <img [src]="'http://127.0.0.1:8000/storage/' + bien.imagePath" alt="Image" class="img-fluid"
-                         width="200px"/>
-                  </td>
-                  <td>{{bien.titre}}</td>
-                  <td>{{bien.prix}}</td>
-                  <td>{{bien.superficie}}</td>
-                  <td>{{bien.nombre_chambres}}</td>
-                  <td>{{bien.nombre_douches}}</td>
-                  <td>{{bien.disponible}}</td>
-                  <td>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                    <button class="btn btn-sm btn-primary" (click)="onEdit(bien)">Modifier</button>
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Superficie</th>
+                <th scope="col">Nombre de chambres</th>
+                <th scope="col">Nombre de douches</th>
+                <th scope="col">Disponible</th>
+                <th scope="col">Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let bien of biens">
+                <td>
+                  <img [src]="'http://127.0.0.1:8000/storage/' + bien.imagePath" alt="Image" class="img-fluid" width="200px"/>
+                </td>
+                <td>{{bien.titre}}</td>
+                <td>{{bien.prix}}</td>
+                <td>{{bien.superficie}}</td>
+                <td>{{bien.nombre_chambres}}</td>
+                <td>{{bien.nombre_douches}}</td>
+                <td>{{bien.disponible}}</td>
+                <td>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button class="btn btn-sm btn-primary" (click)="onEdit(bien.id)">Modifier</button>
                     <button class="btn btn-sm btn-danger" (click)="onDelete(bien)">Supprimer</button>
-                    </div>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

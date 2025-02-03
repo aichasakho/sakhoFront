@@ -1,34 +1,62 @@
-<form [formGroup]="bienForm" (ngSubmit)="onSubmit()" class="container my-5">
-  <h2 class="mb-4">Mettre à jour un Bien</h2>
-  <div class="row">
-    <div class="col-sm-6 col-md-4 mb-4">
-      <div class="card h-100 p-3">
-        <div class="card-body">
+<div class="container mt-5">
+  <h2 class="mb-4">Modifier le Bien</h2>
 
-          <div class="mb-3">
-            <label for="titre" class="form-label">Titre:</label>
-            <input id="titre" formControlName="titre" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="description" class="form-label">Description:</label>
-            <input id="description" formControlName="description" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="prix" class="form-label">Prix:</label>
-            <input id="prix" formControlName="prix" type="number" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="type" class="form-label">Type:</label>
-            <input id="type" formControlName="type" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="imagePath" class="form-label">Image:</label>
-            <input id="imagePath" type="file" (change)="onFileSelected($event)" class="form-control">
-          </div>
-          <button type="submit" class="btn btn-primary">Mettre à jour</button>
-        </div>
-      </div>
+  <form (ngSubmit)="onSubmit()" #bienForm="ngForm">
+    <div class="form-group">
+      <label for="titre">Titre</label>
+      <input type="text" id="titre" class="form-control" [(ngModel)]="bien.titre" name="titre" required>
     </div>
-  </div>
 
-</form>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" [(ngModel)]="bien.description" name="description" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="prix">Prix</label>
+      <input type="number" id="prix" class="form-control" [(ngModel)]="bien.prix" name="prix" required>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select id="type" [(ngModel)]="bien.type" name="type" required>
+        <option value="appartement">Appartement</option>
+        <option value="maison">Maison</option>
+        <option value="studio">Studio</option>
+        <option value="magasin">Magasin</option>
+        <option value="terrain">Terrain</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="superficie">Superficie (m²)</label>
+      <input type="number" id="superficie" class="form-control" [(ngModel)]="bien.superficie" name="superficie">
+    </div>
+
+    <div class="form-group">
+      <label for="nombre_chambres">Nombre de Chambres</label>
+      <input type="number" id="nombre_chambres" class="form-control" [(ngModel)]="bien.nombre_chambres" name="nombre_chambres">
+    </div>
+
+    <div class="form-group">
+      <label for="nombre_douches">Nombre de Douches</label>
+      <input type="number" id="nombre_douches" class="form-control" [(ngModel)]="bien.nombre_douches" name="nombre_douches">
+    </div>
+
+    <div class="form-group">
+      <label for="disponible">Disponible</label>
+      <select id="disponible" class="form-control" [(ngModel)]="bien.disponible" name="disponible" required>
+        <option value="true">Oui</option>
+        <option value="false">Non</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="imagePath">Image</label>
+      <input type="file" id="imagePath" class="form-control" (change)="onFileChange($event)">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+    <a routerLink="/biens" class="btn btn-secondary">Annuler</a>
+  </form>
+</div>
