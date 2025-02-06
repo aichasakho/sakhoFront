@@ -251,7 +251,7 @@ blockquote {
 
 .carousel-image {
   position: relative;
-  height: 80vh; 
+  height: 80vh;
   overflow: hidden;
 
 }
@@ -314,24 +314,16 @@ blockquote {
 
 .offers {
   display: grid;
-<<<<<<< HEAD
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   padding: 0 20px;
 }
 
-.offer-card {
-  background-color: #fff;
-=======
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 40px;
 
-}
 
 .offer-card {
   background-color: #f3f3f1;
   border: 1px solid #ffffff;
->>>>>>> 161bdd5edb8f23a2d0ec1ae846500b3dcac6942f
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
