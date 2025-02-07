@@ -19,7 +19,7 @@
     justify-content: center;
   }
 
-  
+
 
   .navbar-collapse.show {
     display: flex;
@@ -33,13 +33,13 @@
   .navbar-nav .nav-item {
     margin: 10px 0;
   }
-  
+
 
   .navbar-toggler {
     border: none;
     background-color: #fff;
     font-size: 1.2em;
-    color: #000; 
+    color: #000;
   }
 }
 

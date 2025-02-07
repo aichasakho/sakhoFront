@@ -296,7 +296,7 @@ blockquote {
 }
 
 .footer {
-  background-color: #e2e2e2;
+  background-color: #8bbdbb;
   text-align: center;
   padding: 10px;
 }
@@ -315,7 +315,7 @@ blockquote {
 .offers {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 60px;
   padding: 0 20px;
 }
 
@@ -325,7 +325,7 @@ blockquote {
   background-color: #f3f3f1;
   border: 1px solid #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -342,10 +342,13 @@ blockquote {
 }
 
 .offer-image {
-  width: 100%;
-  height: 180px;
+  width: 50%;
+  height: 50%;
+  margin-left: 80px;
   object-fit: cover;
-  border-bottom: 2px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  background-size: auto;
+
 }
 
 .offer-card h3 {
@@ -358,7 +361,71 @@ blockquote {
 }
 
 .offer-card h3:hover {
-  color: #3498db;
+  color: #39A6A1FF;
   cursor: pointer;
   text-decoration: underline;
 }
+.bien-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+
+}
+.bien-actions button {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  flex-grow: 1;
+  width: calc(15% - 5px);
+  height: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+/*
+.bien-actions .btn-outline {
+  color: white;
+  border: none;
+}
+
+.bien-actions .btn-outline:hover {
+  cursor: pointer;
+  color:#25D366 ;
+}
+
+.bien-actions .btn-outline-success {
+  background-color: #25D366;
+  color: white;
+  border: none;
+}
+
+.bien-actions .btn-whatsapp:hover {
+  background-color: #59f870;
+  cursor: pointer;
+}
+
+.bien-actions .btn-outline-primary {
+  background-color: #4777dc;
+  color: white;
+  border: none;
+}
+
+.bien-actions .btn-email:hover {
+  background-color: #0c2760;
+  cursor: pointer;
+}
+
+.bien-actions i {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+  .bien-actions button {
+    width: 75%;
+    margin-bottom: 15px;
+  }
+}
+*/

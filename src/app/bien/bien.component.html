@@ -104,7 +104,7 @@
       <div class="annonce-card">
         <img
           class="card-img-top"
-          [src]="'/storage/' + bien.imagePath"
+          [src]="'http://127.0.0.1:8000/storage/' + bien.imagePath"
           alt="{{ bien.titre }}"
           *ngIf="bien.imagePath"
         />
@@ -112,7 +112,7 @@
         <div class="type-annonce" [ngClass]="{'location': bien.type_annonce === 'location', 'vente': bien.type_annonce === 'vente'}">
           {{ bien.type_annonce }}
         </div>
-        <div class="annonce-info">
+        <div class="annonce-info" [routerLink]="['/detail', bien.id]">
           <div class="description-container">
             <p class="description">{{ bien.description }}</p>
             <span class="price">{{ bien.prix }} Fcfa</span>
@@ -123,9 +123,13 @@
             <span><i class="flaticon-bathtub">🛁</i> {{ bien.nombre_douches }} </span>
             <span><i class="flaticon-bed">🛏️</i> {{ bien.nombre_chambres }}</span>
           </div>
-          <button class="btn btn-outline-primary" [routerLink]="['/detail', bien.id]">
+          <div class="bien-actions">
+            <button class="btn btn-outline-success" (click)="reserverWhatsApp()"><i class="flaticon-whatsapp"></i> WhatsApp</button>
+            <button class="btn btn-outline-primary" (click)="reserverEmail()"><i class="flaticon-email"></i> Email</button>
+          </div>
+          <!--<button class="btn btn-outline-primary" [routerLink]="['/detail', bien.id]">
             Voir plus
-          </button>
+          </button>-->
         </div>
       </div>
     </div>
@@ -134,7 +138,7 @@
 <br><br>
   <div class="d-flex justify-content-center align-items-center h-100">
     <button class="btn btn-outline-secondary btn-lg rounded-pill px-4 py-2" *ngIf="biensToShow.length < biens.length" (click)="loadMore()">
-      Voir plus de biens
+      Voir plus
     </button>
   </div>
 
@@ -147,27 +151,27 @@
   <div class="offers">
     <div class="offer-card">
       <a href="#" class="card-link">
-        <img src="assets/images/about.jpg" alt="Appartements à louer" class="offer-image">
+        <img src="assets/icons/building-fill.svg" alt="Appartements à louer" class="offer-image">
         <h3>Appartements à louer</h3>
       </a>
     </div>
 
     <div class="offer-card">
       <a href="#" class="card-link">
-        <img src="assets/images/properties-7.jpg" alt="Locations meublées" class="offer-image">
+        <img src="assets/icons/house-fill.svg" alt="Locations meublées" class="offer-image">
         <h3>Locations meublées</h3>
       </a>
     </div>
     <div class="offer-card">
       <a href="#" class="card-link">
-        <img src="assets/images/properties-7.jpg" alt="Bureaux & Commerces" class="offer-image">
+        <img src="assets/icons/buildings-fill.svg" alt="Bureaux & Commerces" class="offer-image">
         <h3>Bureaux & Commerces</h3>
       </a>
     </div>
 
     <div class="offer-card">
       <a href="#" class="card-link">
-        <img src="assets/images/properties-7.jpg" alt="Toutes nos offres" class="offer-image">
+        <img src="assets/icons/houses-fill.svg" alt="Toutes nos offres" class="offer-image">
         <h3>Toutes nos offres</h3>
       </a>
     </div>
