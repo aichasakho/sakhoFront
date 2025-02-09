@@ -23,10 +23,10 @@ export class BiensService {
     return this.http.post<Bien>(this.apiUrl, bien);
   }
 
-  updateBien(id: number, formData: FormData): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, formData);
-  }
-
+ 
+updateBien(bien: FormData): Observable<Bien> {
+  return this.http.post<Bien>('http://127.0.0.1:8000/api/update/', bien);
+}
   deleteBien(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BiensService } from '../../services/bien.service';
 import { Bien } from '../../models/bien.model';
+import { FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-bien',
@@ -9,46 +11,105 @@ import { Bien } from '../../models/bien.model';
   styleUrls: ['./edit-bien.component.css']
 })
 export class EditBienComponent implements OnInit {
-  bien: any;
-  selectedFile: File | null = null;
-  constructor(private route: ActivatedRoute, private bienService: BiensService) {}
-
-  ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.bienService. getBien(id).subscribe(data => {
-      this.bien = data;
-    });
-  }
-  onFileChange(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      this.selectedFile = file;
+ 
+    idBien!:any
+    biens: Bien[] = [];
+  veriForm = false;
+  bienForm = this.formBuilder.group({
+    id :[''],
+    titre: ['', Validators.required],
+    description: ['', Validators.required],
+    prix: ['', Validators.required],
+    imagePath: [null],
+    disponible: ['1'],
+    type: ['', Validators.required],
+    type_annonce: ['', Validators.required],
+    nombre_chambres: ['', Validators.required],
+    nombre_douches: ['', Validators.required],
+    superficie: ['', Validators.required],
+  });
+  
+    constructor(
+      private formBuilder: FormBuilder,
+      private router: Router,
+      private route: ActivatedRoute,
+      private bienService: BiensService,
+  
+    ) {}
+  
+    ngOnInit(): void {
+      // Récupérer le paramètre 'id' depuis l'URL
+      this.route.paramMap.subscribe(params => {
+        this.idBien = params.get('id');
+        this.bienService.getBienById(this.idBien).subscribe(
+          (data)=>{
+            console.log(data)
+            this.bienForm.get("titre")?.setValue(""+data.titre)
+            this.bienForm.get("description")?.setValue(""+data.description)
+            this.bienForm.get("prix")?.setValue(""+data.prix)
+            this.bienForm.get("type")?.setValue(""+data.type)
+            this.bienForm.get("type_annonce")?.setValue(""+data.type_annonce)
+            this.bienForm.get("nombre_chambres")?.setValue(""+data.nombre_chambres)
+            this.bienForm.get("nombre_douches")?.setValue(""+data.nombre_douches)
+            this.bienForm.get("superficie")?.setValue(""+data.superficie)
+          },
+          (Error)=>{
+  
+          }
+        )
+      }); 
+  
+    
     }
-  }
-  onSubmit() {
-    const formData = new FormData();
-    formData.append('titre', this.bien.titre);
-    formData.append('description', this.bien.description); // Ajoutez ce champ
-    formData.append('prix', this.bien.prix.toString());
-    formData.append('superficie', this.bien.superficie ? this.bien.superficie.toString() : ''); // Ajoutez une vérification
-    formData.append('nombre_chambres', this.bien.nombre_chambres ? this.bien.nombre_chambres.toString() : ''); // Idem
-    formData.append('nombre_douches', this.bien.nombre_douches ? this.bien.nombre_douches.toString() : ''); // Idem
-    formData.append('disponible', this.bien.disponible.toString());
-
-    if (this.selectedFile) {
-      formData.append('imagePath', this.selectedFile);
-    }
-
-    this.bienService.updateBien(this.bien.id, formData).subscribe(() => {
-      console.log('Bien mis à jour avec succès');
-    }, error => {
-      console.error('Erreur lors de la mise à jour du bien', error);
-      if (error.error.errors) {
-        alert('Erreurs de validation : ' + JSON.stringify(error.error.errors));
-      } else {
-        alert(`Erreur: ${error.message}`);
+  
+    
+    onFileChange(event: any) {
+      if (event.target.files.length > 0) {
+        const file = event.target.files[0];
+        this.bienForm.patchValue({
+          imagePath: file
+        });
       }
-    });
-  }
+    }
+   
+    modifiBien() {
+      this.veriForm = true;
+      if (this.bienForm.invalid) {
+        return;
+      } else {
+           const formData = new FormData();
+           
+           formData.append('id', this.idBien);
+           formData.append('titre', this.bienForm.get('titre')?.value || '');
+           formData.append('description', this.bienForm.get('description')?.value || '');
+           formData.append('prix', this.bienForm.get('prix')?.value || '');
+           formData.append('imagePath', this.bienForm.get('imagePath')?.value || '');
+           formData.append('disponible', this.bienForm.get('disponible')?.value || '1');
+           formData.append('type', this.bienForm.get('type')?.value || '');
+           formData.append('type_annonce', this.bienForm.get('type_annonce')?.value || '');
+           formData.append('nombre_chambres', this.bienForm.get('nombre_chambres')?.value || '');
+           formData.append('nombre_douches', this.bienForm.get('nombre_douches')?.value || '');
+           formData.append('superficie', this.bienForm.get('superficie')?.value || '');
 
+           for (const pair of (formData as any).entries()) {
+              console.log(pair[0] + ': ' + pair[1]);
+            }
+           this.bienService.updateBien(formData).subscribe(
+            (data) => {
+               console.log(data);
+               Swal.fire({
+                 position: "top-end",
+                 icon: "success",
+                 title: "Modification  avec success",
+                 showConfirmButton: false,
+                 timer: 1500
+               });
+               this.router.navigate(['biens']);
+             },
+             (error) => {
+               console.log(error);
+             }
+           );
+         }
+       }
 }

@@ -314,7 +314,6 @@ blockquote {
 
 .offers {
   display: grid;
-<<<<<<< HEAD
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   padding: 0 20px;
@@ -322,16 +321,6 @@ blockquote {
 
 .offer-card {
   background-color: #fff;
-=======
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 40px;
-
-}
-
-.offer-card {
-  background-color: #f3f3f1;
-  border: 1px solid #ffffff;
->>>>>>> 161bdd5edb8f23a2d0ec1ae846500b3dcac6942f
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -370,3 +359,20 @@ blockquote {
   cursor: pointer;
   text-decoration: underline;
 }
+/* Alignement des boutons */
+.button-group {
+  display: flex;
+  justify-content: space-around; /* Espace égal entre les boutons */
+  gap: 10px; /* Espacement constant */
+  margin-top: 10px; /* Un peu d'espace au-dessus */
+}
+
+/* Boutons personnalisés */
+.custom-btn {
+  padding: 5px 10px; /* Diminue la taille des boutons */
+  font-size: 14px; /* Réduit la taille du texte */
+  border-radius: 5px; /* Arrondit les coins légèrement */
+  border: none; /* Enlève les bordures par défaut */
+  cursor: pointer; /* Change le curseur en pointeur */
+}
+

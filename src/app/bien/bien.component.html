@@ -100,32 +100,29 @@
   <h1 class="section-title">Annonces</h1>
 
   <div class="annonces-grid">
-    <div class="annonce-item" *ngFor="let bien of biensToShow">
+    <div class="annonce-item" *ngFor="let bien of biens">
       <div class="annonce-card">
-        <img
-          class="card-img-top"
-          [src]="'/storage/' + bien.imagePath"
-          alt="{{ bien.titre }}"
-          *ngIf="bien.imagePath"
-        />
-
-        <div class="type-annonce" [ngClass]="{'location': bien.type_annonce === 'location', 'vente': bien.type_annonce === 'vente'}">
-          {{ bien.type_annonce }}
+        <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
+        <div class="badge-container">
+          <span class="badge {{ bien.type_annonce == 'location' ? 'bg-primary' : 'bg-success' }}">{{ bien.type_annonce }}</span>
         </div>
         <div class="annonce-info">
-          <div class="description-container">
+          <div class="text">
             <p class="description">{{ bien.description }}</p>
-            <span class="price">{{ bien.prix }} Fcfa</span>
-            <p class="availability">Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
+            <span class="font-weight-bold">{{ bien.prix }} Fcfa</span>
+            <p>Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
           </div>
           <div class="properties">
             <span><i class="flaticon-area"></i> Superficie: {{ bien.superficie }} m²</span>
             <span><i class="flaticon-bathtub">🛁</i> {{ bien.nombre_douches }} </span>
             <span><i class="flaticon-bed">🛏️</i> {{ bien.nombre_chambres }}</span>
           </div>
-          <button class="btn btn-outline-primary" [routerLink]="['/detail', bien.id]">
-            Voir plus
-          </button>
+          
+          <div class="button-group">
+            <button class="btn btn-outline" [routerLink]="['/detail', bien.id]">Voir plus</button>
+            <button class="btn btn-outline" [routerLink]="['/edit-bien', bien.id]">Modifier</button>
+            <button class="btn btn-outline" (click)="delete(bien.id)">Supprimer</button>
+          </div>
         </div>
       </div>
     </div>
@@ -199,31 +196,3 @@
 
 
 <app-contact></app-contact>
-
-<<<<<<< HEAD
-  
-=======
-  <div class="container">
-    <div class="header">
-      <h1>Nos Offres</h1>
-    </div>
-    <div class="offers">
-      <div class="offer-card">
-        <img src="assets/icons/building-fill.svg" alt="Appartements à louer">
-        <h3>Appartements à louer</h3>
-      </div>
-      <div class="offer-card">
-        <img src="assets/icons/house-door-fill.svg" alt="Locations meublées">
-        <h3>Locations meublées</h3>
-      </div>
-      <div class="offer-card">
-        <img src="assets/icons/buildings-fill.svg" alt="Bureaux & Commerces">
-        <h3>Bureaux & Commerces</h3>
-      </div>
-      <div class="offer-card">
-        <img src="assets/icons/houses-fill.svg" alt="Toutes nos offres">
-        <h3>Toutes nos offres</h3>
-      </div>
-    </div>
-  </div>
->>>>>>> 161bdd5edb8f23a2d0ec1ae846500b3dcac6942f
