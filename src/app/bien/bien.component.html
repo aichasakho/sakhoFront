@@ -100,36 +100,34 @@
   <h1 class="section-title">Annonces</h1>
 
   <div class="annonces-grid">
-    <div class="annonce-item" *ngFor="let bien of biensToShow">
+    <div class="annonce-item" *ngFor="let bien of biens">
       <div class="annonce-card">
-        <img
-          class="card-img-top"
-          [src]="'http://127.0.0.1:8000/storage/' + bien.imagePath"
-          alt="{{ bien.titre }}"
-          *ngIf="bien.imagePath"
-        />
-
         <div class="type-annonce" [ngClass]="{'location': bien.type_annonce === 'location', 'vente': bien.type_annonce === 'vente'}">
           {{ bien.type_annonce }}
         </div>
         <div class="annonce-info" [routerLink]="['/detail', bien.id]">
           <div class="description-container">
+        <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
+        <div class="badge-container">
+          <span class="badge {{ bien.type_annonce == 'location' ? 'bg-primary' : 'bg-success' }}">{{ bien.type_annonce }}</span>
+        </div>
+        <div class="annonce-info">
+          <div class="text">
             <p class="description">{{ bien.description }}</p>
-            <span class="price">{{ bien.prix }} Fcfa</span>
-            <p class="availability">Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
+            <span class="font-weight-bold">{{ bien.prix }} Fcfa</span>
+            <p>Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
           </div>
           <div class="properties">
             <span><i class="flaticon-area"></i> Superficie: {{ bien.superficie }} m²</span>
             <span><i class="flaticon-bathtub">🛁</i> {{ bien.nombre_douches }} </span>
             <span><i class="flaticon-bed">🛏️</i> {{ bien.nombre_chambres }}</span>
           </div>
-          <div class="bien-actions">
-            <button class="btn btn-outline-success" (click)="reserverWhatsApp()"><i class="flaticon-whatsapp"></i> WhatsApp</button>
-            <button class="btn btn-outline-primary" (click)="reserverEmail()"><i class="flaticon-email"></i> Email</button>
+
+          <div class="button-group">
+            <button class="btn btn-outline" [routerLink]="['/detail', bien.id]">Voir plus</button>
+            <button class="btn btn-outline" [routerLink]="['/edit-bien', bien.id]">Modifier</button>
+            <button class="btn btn-outline" (click)="delete(bien.id)">Supprimer</button>
           </div>
-          <!--<button class="btn btn-outline-primary" [routerLink]="['/detail', bien.id]">
-            Voir plus
-          </button>-->
         </div>
       </div>
     </div>
@@ -182,3 +180,5 @@
 
 <app-contact></app-contact>
 
+  </div>
+</div>

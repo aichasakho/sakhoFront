@@ -321,9 +321,10 @@ blockquote {
 
 
 
+
+
 .offer-card {
-  background-color: #f3f3f1;
-  border: 1px solid #ffffff;
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -385,47 +386,21 @@ blockquote {
   align-items: center;
 }
 
-/*
-.bien-actions .btn-outline {
-  color: white;
-  border: none;
+
+/* Alignement des boutons */
+.button-group {
+  display: flex;
+  justify-content: space-around; /* Espace égal entre les boutons */
+  gap: 10px; /* Espacement constant */
+  margin-top: 10px; /* Un peu d'espace au-dessus */
 }
 
-.bien-actions .btn-outline:hover {
-  cursor: pointer;
-  color:#25D366 ;
+/* Boutons personnalisés */
+.custom-btn {
+  padding: 5px 10px; /* Diminue la taille des boutons */
+  font-size: 14px; /* Réduit la taille du texte */
+  border-radius: 5px; /* Arrondit les coins légèrement */
+  border: none; /* Enlève les bordures par défaut */
+  cursor: pointer; /* Change le curseur en pointeur */
 }
 
-.bien-actions .btn-outline-success {
-  background-color: #25D366;
-  color: white;
-  border: none;
-}
-
-.bien-actions .btn-whatsapp:hover {
-  background-color: #59f870;
-  cursor: pointer;
-}
-
-.bien-actions .btn-outline-primary {
-  background-color: #4777dc;
-  color: white;
-  border: none;
-}
-
-.bien-actions .btn-email:hover {
-  background-color: #0c2760;
-  cursor: pointer;
-}
-
-.bien-actions i {
-  margin-right: 10px;
-  font-size: 1.5rem;
-}
-@media (max-width: 768px) {
-  .bien-actions button {
-    width: 75%;
-    margin-bottom: 15px;
-  }
-}
-*/

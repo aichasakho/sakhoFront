@@ -1,62 +1,68 @@
 <div class="container mt-5">
   <h2 class="mb-4">Modifier le Bien</h2>
 
-  <form (ngSubmit)="onSubmit()" #bienForm="ngForm">
+  <form (ngSubmit)="modifiBien()" [formGroup]="bienForm" enctype="multipart/form-data">
     <div class="form-group">
-      <label for="titre">Titre</label>
-      <input type="text" id="titre" class="form-control" [(ngModel)]="bien.titre" name="titre" required>
+      <label for="titre">Titre:</label>
+      <input type="text" class="form-control" formControlName="titre" required id="titre">
+      <br>
+         <span *ngIf="veriForm && bienForm.controls.titre.errors">* le titre est obligatoire</span>
     </div>
-
     <div class="form-group">
-      <label for="description">Description</label>
-      <textarea id="description" class="form-control" [(ngModel)]="bien.description" name="description" required></textarea>
+      <label for="description">Description:</label>
+      <textarea class="form-control" formControlName="description" required id="description"></textarea>
+      <br>
+      <span *ngIf="veriForm && bienForm.controls.description.errors">* la description est obligatoire</span>
     </div>
-
     <div class="form-group">
-      <label for="prix">Prix</label>
-      <input type="number" id="prix" class="form-control" [(ngModel)]="bien.prix" name="prix" required>
+      <label for="prix">Prix:</label>
+      <input type="number" class="form-control" formControlName="prix" required id="prix">
+      <br>
+      <span *ngIf="veriForm && bienForm.controls.prix.errors">* le prix est obligatoire</span>
     </div>
-
     <div class="form-group">
-      <label for="type">Type</label>
-      <select id="type" [(ngModel)]="bien.type" name="type" required>
+      <label for="superficie">Superficie (en m²):</label>
+      <input type="number" class="form-control" formControlName="superficie" required id="superficie">
+      <br>
+      <span *ngIf="veriForm && bienForm.controls.superficie.errors">* la superficie est obligatoire</span>
+    </div>
+    <div class="form-group">
+      <label for="nombre_chambres">Nombre de chambres:</label>
+      <input type="number" class="form-control" formControlName="nombre_chambres" required id="nombre_chambres">
+      <br>
+      <span *ngIf="veriForm && bienForm.controls.nombre_chambres.errors">* le nombre de chambre est obligatoire</span>
+    </div>
+    <div class="form-group">
+      <label for="nombre_douches">Nombre de douches:</label>
+      <input type="number" class="form-control" formControlName="nombre_douches" required id="nombre_douches">
+      <br>
+      <span *ngIf="veriForm && bienForm.controls.nombre_douches.errors">* le nombre de douches est obligatoire</span>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" formControlName="disponible" id="disponible">
+      <label class="form-check-label" for="disponible">Disponible</label>
+    </div>
+    <div class="form-group">
+      <label for="type">Type:</label>
+      <select class="form-control" formControlName="type" required id="type">
         <option value="appartement">Appartement</option>
-        <option value="maison">Maison</option>
         <option value="studio">Studio</option>
         <option value="magasin">Magasin</option>
         <option value="terrain">Terrain</option>
+        <option value="maison">Maison</option>
       </select>
     </div>
-
     <div class="form-group">
-      <label for="superficie">Superficie (m²)</label>
-      <input type="number" id="superficie" class="form-control" [(ngModel)]="bien.superficie" name="superficie">
-    </div>
-
-    <div class="form-group">
-      <label for="nombre_chambres">Nombre de Chambres</label>
-      <input type="number" id="nombre_chambres" class="form-control" [(ngModel)]="bien.nombre_chambres" name="nombre_chambres">
-    </div>
-
-    <div class="form-group">
-      <label for="nombre_douches">Nombre de Douches</label>
-      <input type="number" id="nombre_douches" class="form-control" [(ngModel)]="bien.nombre_douches" name="nombre_douches">
-    </div>
-
-    <div class="form-group">
-      <label for="disponible">Disponible</label>
-      <select id="disponible" class="form-control" [(ngModel)]="bien.disponible" name="disponible" required>
-        <option value="true">Oui</option>
-        <option value="false">Non</option>
+      <label for="type_annonce">Type d'annonce:</label>
+      <select class="form-control" formControlName="type_annonce" required id="type_annonce">
+        <option value="location">Location</option>
+        <option value="vente">Vente</option>
       </select>
     </div>
-
     <div class="form-group">
-      <label for="imagePath">Image</label>
-      <input type="file" id="imagePath" class="form-control" (change)="onFileChange($event)">
+      <label for="imagePath">Image:</label>
+      <input type="file" class="form-control-file" (change)="onFileChange($event)">
     </div>
-
-    <button type="submit" class="btn btn-primary">Sauvegarder</button>
-    <a routerLink="/biens" class="btn btn-secondary">Annuler</a>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
   </form>
 </div>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BiensService } from '../services/bien.service';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, Validators } from '@angular/forms';
 import { Bien } from '../models/bien.model';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-biens',
@@ -11,12 +12,25 @@ import { Router } from '@angular/router';
 })
 export class AdminBiensComponent implements OnInit {
   biens: Bien[] = [];
+  veriForm = false;
+  bienForm = this.formBuilder.group({
+    titre: ['', Validators.required],
+    description: ['', Validators.required],
+    prix: ['', Validators.required],
+    imagePath: [null],
+    disponible: ['1'],
+    type: ['', Validators.required],
+    type_annonce: ['', Validators.required],
+    nombre_chambres: ['', Validators.required],
+    nombre_douches: ['', Validators.required],
+    superficie: ['', Validators.required],
+  });
 
-  bien: Bien = {id:0 , titre: '', description: '', prix: 0, disponible: true, type: '', type_annonce: '',    superficie : 0, nombre_douches : 0 , nombre_chambres : 0 , imagePath: ''};
-  selectedFile: File | null = null;
-
-
-  constructor(private biensService: BiensService, private router: Router) {}
+  constructor(
+    private biensService: BiensService,
+     private router: Router,
+     private formBuilder: FormBuilder,
+    ) {}
 
   ngOnInit(): void {
     this.loadBiens();
@@ -31,107 +45,51 @@ export class AdminBiensComponent implements OnInit {
         console.error('Erreur lors du chargement des biens', error);
       });
   }
-
-
+ 
+ 
   onFileChange(event: any) {
-    const file = event.target.files[0];
-    if (file && file.type.startsWith('image/')) {
-      this.selectedFile = file;
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.bien.imagePath = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    } else {
-      alert('Veuillez sélectionner un fichier image valide.');
-      this.selectedFile = null;
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.bienForm.patchValue({
+        imagePath: file
+      });
     }
   }
 
-
-  onSubmit(): void {
-
-    if (!this.bien.titre || !this.bien.description || !this.bien.prix || !this.bien.type || !this.bien.type_annonce || !this.bien.nombre_chambres || !this.bien.nombre_douches  || !this.bien.superficie || !this.bien.imagePath ) {
-      alert('Veuillez remplir tous les champs requis.');
+  addBien() {
+    this.veriForm = true;
+    if (this.bienForm.invalid) {
       return;
-    }
+    } else {
+      const formData = new FormData();
+      formData.append('titre', this.bienForm.get('titre')?.value || '');
+      formData.append('description', this.bienForm.get('description')?.value || '');
+      formData.append('prix', this.bienForm.get('prix')?.value || '');
+      formData.append('imagePath', this.bienForm.get('imagePath')?.value || '');
+      formData.append('disponible', this.bienForm.get('disponible')?.value || '1');
+      formData.append('type', this.bienForm.get('type')?.value || '');
+      formData.append('type_annonce', this.bienForm.get('type_annonce')?.value || '');
+      formData.append('nombre_chambres', this.bienForm.get('nombre_chambres')?.value || '');
+      formData.append('nombre_douches', this.bienForm.get('nombre_douches')?.value || '');
+      formData.append('superficie', this.bienForm.get('superficie')?.value || '');
 
-    const formData = new FormData();
-    formData.append('titre', this.bien.titre);
-    formData.append('description', this.bien.description);
-    formData.append('prix', this.bien.prix.toString());
-    formData.append('disponible', this.bien.disponible ? '1' : '0');
-    formData.append('type', this.bien.type);
-    formData.append('type_annonce', this.bien.type_annonce);
-    formData.append('nombre_chambres', this.bien.nombre_chambres.toString());
-    formData.append('nombre_douches', this.bien.nombre_douches.toString());
-    formData.append('superficie', this.bien.superficie.toString());
-
-    if (this.selectedFile) {
-      formData.append('imagePath', this.selectedFile, this.selectedFile.name);
-    }
-
-    console.log('FormData:', {
-      titre: this.bien.titre,
-      description: this.bien.description,
-      prix: this.bien.prix,
-      disponible: this.bien.disponible,
-      type: this.bien.type,
-      type_annonce: this.bien.type_annonce,
-      nombres_chambres: this.bien.nombre_chambres,
-      nombres_douches: this.bien.nombre_douches,
-      superficie: this.bien.superficie,
-      imagePath: this.selectedFile ? this.selectedFile.name : 'Aucune image',
-    });
-
-    const request = this.bien.id
-      ? this.biensService.updateBien(this.bien.id, formData)
-      : this.biensService.createBien(formData);
-
-    request.subscribe(
-      () => {
-        this.loadBiens();
-        this.resetForm();
-      },
-      (error) => {
-        console.error('Erreur lors de la soumission du bien', error);
-        if (error.error && error.error.errors) {
-          let errorMessage = 'Erreur lors de la soumission du bien : ';
-          for (const key in error.error.errors) {
-            errorMessage += `${key}: ${error.error.errors[key].join(', ')}; `;
-          }
-          alert(errorMessage);
-        } else {
-          alert('Une erreur inconnue est survenue.');
-        }
-      }
-    );
-  }
-
-  editBien(bien: Bien): void {
-    this.router.navigate(['/edit-bien', bien.id]);
-  }
-
-  deleteBien(id?: number): void {
-    if (id !== undefined) {
-      this.biensService.deleteBien(id).subscribe(
-        () => {
-          this.loadBiens();
+      this.biensService.createBien(formData).subscribe(
+        (data) => {
+          
+          console.log(data);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Ajout avec success",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.router.navigate(['biens']);
         },
         (error) => {
-          console.error('Erreur lors de la suppression du bien', error);
-          alert('Une erreur est survenue lors de la suppression du bien. Veuillez réessayer.');
+          console.log(error);
         }
       );
-    } else {
-      console.error("ID est undefined. Impossible de supprimer le bien.");
-      alert("Erreur : l'identifiant du bien est manquant.");
     }
   }
-  resetForm(): void {
-    this.bien = {id:0, titre: '', description: '', prix: 0, disponible: true, type: '', imagePath: '', type_annonce: '', superficie : 0, nombre_douches : 0 , nombre_chambres : 0  };
-    this.selectedFile = null;
-  }
-
-
 }

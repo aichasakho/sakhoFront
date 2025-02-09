@@ -10,5 +10,5 @@ export class Bien {
   type: string = '';
   type_annonce: string = '';
   imagePath?: string;
-
+  imageUrl!: string;
 }

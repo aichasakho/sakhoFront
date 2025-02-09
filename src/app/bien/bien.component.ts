@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BiensService } from '../services/bien.service';
 import { Bien } from '../models/bien.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-bien',
@@ -41,16 +42,35 @@ export class BienComponent implements OnInit {
     this.currentPage = nextPage;
   }
 
-  reserverWhatsApp(): void {
-    const message = `Je souhaite réserver le bien: ${this.bien.titre} avec le prix de ${this.bien.prix} FCFA.`;
-    const phoneNumber = '+221776819474';
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-  }
+  delete(id:any){
+    console.log(id)
+    Swal.fire({
+      title: "Etes vous Sure?",
+      text: "vous aller supprimer cet article!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "oui , supprimer!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.biensService.deleteBien(id).subscribe(
+          ()=>{
 
-  reserverEmail(): void {
-    const subject = `Réservation pour ${this.bien.titre}`;
-    const body = `Je souhaite réserver le bien suivant :\n\nTitre: ${this.bien.titre}\nPrix: ${this.bien.prix} FCFA\nDescription: ${this.bien.description}`;
-    const email = 'sakhoaichatou11@gmail.com.com';
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            this.loadBiens();
+          },
+          ()=>{
+
+          }
+        )
+        Swal.fire({
+
+          title: "Supprimer !",
+          text: "l'article a été supprimer",
+          icon: "success"
+        });
+      }
+    });
+
   }
 }
