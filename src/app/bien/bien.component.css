@@ -296,10 +296,15 @@ blockquote {
 }
 
 .footer {
-  background-color: #8bbdbb;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 20px;
   text-align: center;
   padding: 10px;
+  border-radius: 10px;
 }
+
+
 
 .container {
   max-width: 100%;
@@ -310,22 +315,18 @@ blockquote {
 .header {
   text-align: center;
   margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.93);
 }
 
 .offers {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 60px;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 20px;
   padding: 0 20px;
 }
 
-
-
-
-
 .offer-card {
-  background-color: #fff;
-  border-radius: 8px;
+  background-color: rgba(57, 166, 161, 0.29);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -357,7 +358,7 @@ blockquote {
   padding: 20px;
   font-size: 1.25rem;
   background-color: #fff;
-  color: #34495E;
+  color: #000;
   margin: 0;
 }
 
@@ -366,27 +367,6 @@ blockquote {
   cursor: pointer;
   text-decoration: underline;
 }
-.bien-actions {
-  display: flex;
-  gap: 20px;
-  margin-top: 40px;
-  flex-wrap: wrap;
-
-}
-.bien-actions button {
-  padding: 15px 30px;
-  font-size: 1.1rem;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  flex-grow: 1;
-  width: calc(15% - 5px);
-  height: 10px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-
 /* Alignement des boutons */
 .button-group {
   display: flex;

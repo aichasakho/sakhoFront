@@ -1,3 +1,4 @@
+<script src="bien.component.spec.ts"></script>
 <app-nav></app-nav>
 <br><br><br><br><br>
 
@@ -102,9 +103,9 @@
   <div class="annonces-grid">
     <div class="annonce-item" *ngFor="let bien of biens">
       <div class="annonce-card">
-        <div class="type-annonce" [ngClass]="{'location': bien.type_annonce === 'location', 'vente': bien.type_annonce === 'vente'}">
+        <!--<div class="type-annonce" [ngClass]="{'location': bien.type_annonce === 'location', 'vente': bien.type_annonce === 'vente'}">
           {{ bien.type_annonce }}
-        </div>
+        </div>-->
         <div class="annonce-info" [routerLink]="['/detail', bien.id]">
           <div class="description-container">
         <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
@@ -141,6 +142,7 @@
   </div>
 
 </div>
+  </div>
 
 <div class="container">
   <div class="header">
@@ -176,9 +178,8 @@
   </div>
 </div>
 
+  </div>
 
 
 <app-contact></app-contact>
 
-  </div>
-</div>

@@ -22,25 +22,25 @@
       <li *ngIf="isAdmin" class="nav-item me-4">
         <a routerLink="/admin/biens" class="nav-link" [class.active]="isActiveLink('/admin/biens')">Dashboard</a>
       </li>
-      
-      
+
+
       <!--<li *ngIf="isAdminOrSuperAdmin" class="nav-item me-4">
         <a routerLink="/admin/biens" class="nav-link" [class.active]="isActiveLink('/admin/biens')">Dashboard</a>
       </li>-->
       <li class="nav-item me-4">
         <a href="tel:+221776660967" class="nav-link">
-          <i class="fas fa-phone-alt"></i> +221 77 666 09 67
+          <i class="fas fa-phone-alt"></i> +221 77 681 94 74
         </a>
       </li>
     </ul>
 
     <div class="auth-buttons d-flex align-items-center">
       <div *ngIf="!isAuthenticated" class="d-flex">
-  
+
         <a routerLink="/login" class="btn btn-outline-success me-2">Se connecter</a>
         <a routerLink="/register" class="btn btn-outline-secondary">S'inscrire</a>
       </div>
-  
+
       <div *ngIf="isAuthenticated" class="dropdown" (mouseenter)="dropdownOpen = true" (mouseleave)="dropdownOpen = false">
         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="userMenuButton" [attr.aria-expanded]="dropdownOpen ? 'true' : 'false'">
           <i class="fas fa-user-circle"></i>Compte
@@ -55,10 +55,10 @@
     </div>
   </nav>
 
-  
+
 
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  
+
 </div>
