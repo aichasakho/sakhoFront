@@ -2,11 +2,11 @@
 <br><br><br><br><br>
 
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
+  <!-- <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
+  </div> -->
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="carousel-image">
@@ -103,8 +103,10 @@
     <div class="annonce-item" *ngFor="let bien of biens">
       <div class="annonce-card">
         <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
-        <div class="badge-container">
-          <span class="badge {{ bien.type_annonce == 'location' ? 'bg-primary' : 'bg-success' }}">{{ bien.type_annonce }}</span>
+        <div class="badge-container" *ngIf="bien?.type_annonce">
+          <span class="badge {{ bien.type_annonce == 'location' ? 'bg-primary' : 'bg-success' }}">
+            {{ bien.type_annonce }}
+          </span>
         </div>
         <div class="annonce-info">
           <div class="text">
