@@ -6,12 +6,13 @@
       <li class="nav-item me-4">
         <a routerLink="/" class="nav-link" [class.active]="isActiveLink('/')">Accueil</a>
       </li>
-      <li class="nav-item me-4">
-        <a routerLink="/locations" class="nav-link" [class.active]="isActiveLink('/locations')">Locations</a>
-      </li>
       <li class="nav-item me-4" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">
         <a routerLink="/admin/biens" class="nav-link " [class.active]="isActiveLink('/admin/biens')">Ajouter un Bien</a>
       </li>
+      <li class="nav-item me-4">
+        <a routerLink="/locations" class="nav-link" [class.active]="isActiveLink('/locations')">Locations</a>
+      </li>
+      
       <li class="nav-item me-4">
         <a routerLink="/ventes" class="nav-link" [class.active]="isActiveLink('/ventes')">Ventes</a>
       </li>

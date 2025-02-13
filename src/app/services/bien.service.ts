@@ -14,6 +14,12 @@ export class BiensService {
   getBiens(): Observable<Bien[]> {
     return this.http.get<Bien[]>(this.apiUrl);
   }
+  getVente(): Observable<Bien[]> {
+    return this.http.get<Bien[]>('http://127.0.0.1:8000/api/vente/');
+  }
+  getLocation(): Observable<Bien[]> {
+    return this.http.get<Bien[]>('http://127.0.0.1:8000/api/location/');
+  }
 
   getBien(id: string | null): Observable<Bien> {
     return this.http.get<Bien>(`${this.apiUrl}/${id}`);
