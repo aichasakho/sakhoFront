@@ -74,6 +74,7 @@ blockquote {
   padding: 40px 20px;
   background-color: #f9f9f9;
   font-family: 'Arial', sans-serif;
+  margin: 90px;
 }
 
 .annonces-section h1 {
@@ -239,7 +240,7 @@ blockquote {
 }
 
 .contact-button:hover {
-  background-color: #2C7975FF;
+  background-color: #2a8c85;
   transform: scale(1.1);
 }
 
@@ -296,11 +297,12 @@ blockquote {
 }
 
 .footer {
-  background-color: #e2e2e2;
+  background-color: #343636;
   text-align: center;
   padding: 10px;
-}
+  color: #FFFFFF;
 
+}
 .container {
   max-width: 100%;
   margin: 0 auto;
@@ -364,7 +366,6 @@ blockquote {
 
 .container {
   max-width: 100%;
-  margin: auto;
   text-align: center;
 }
 
@@ -376,6 +377,8 @@ h2 {
 .grid {
   display: flex;
   justify-content: space-between;
+  margin: 70px;
+
 }
 
 .card {
@@ -403,12 +406,14 @@ h2 {
 .card h3 {
   margin: 0;
   font-size: 1.2em;
-  color: #333;
+  /*color: #333;*/
+  color:#39A6A1FF; /* Couleur similaire à celle affichée */
+
 }
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgb(21, 91, 88);
 }
 
 
