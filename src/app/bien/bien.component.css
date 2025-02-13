@@ -251,7 +251,7 @@ blockquote {
 
 .carousel-image {
   position: relative;
-  height: 80vh; 
+  height: 80vh;
   overflow: hidden;
 
 }
@@ -306,8 +306,9 @@ blockquote {
   margin: 0 auto;
   font-family: Arial, sans-serif;
 }
+/*dernier section footer */
 
-.header {
+/*.header {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -358,7 +359,61 @@ blockquote {
   color: #3498db;
   cursor: pointer;
   text-decoration: underline;
+}*/
+
+
+.container {
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
 }
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex: 1; /* Prend un espace égal */
+  margin: 0 10px; /* Espace entre les cartes */
+  height: 200px;
+}
+/*color: #007bff; !* Couleur similaire à celle affichée *!*/
+
+.card i {
+  font-size: 50px;
+  color:#39A6A1FF; /* Couleur similaire à celle affichée */
+  display: block;
+  margin-bottom: 10px;
+  padding-top: 35px;
+
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
 /* Alignement des boutons */
 .button-group {
   display: flex;
