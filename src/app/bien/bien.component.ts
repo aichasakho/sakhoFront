@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BiensService } from '../services/bien.service';
 import { Bien } from '../models/bien.model';
 import Swal from 'sweetalert2';
+import { AuthService } from '../services/auth-service.service';
 
 @Component({
   selector: 'app-bien',
@@ -13,11 +14,23 @@ export class BienComponent implements OnInit {
   biensToShow: Bien[] = [];
   itemsPerPage: number = 8;
   currentPage: number = 1;
+  user: any;  isAuthenticated: boolean = false;
 
-  constructor(private biensService: BiensService) {}
+
+  constructor(
+    private biensService: BiensService,
+    private authService : AuthService,
+
+  ) {}
 
   ngOnInit(): void {
     this.loadBiens();
+    this.authService.isAuthenticated$.subscribe((authStatus) => {
+      this.isAuthenticated = authStatus;
+  
+    });
+    this.user = this.authService.getUser();
+
   }
 
   loadBiens(): void {
