@@ -3,8 +3,8 @@
 <div *ngIf="bien" class="bien-detail-container">
   <div class="bien-content">
     <div class="bien-image">
-      <img [src]="'http://localhost:8000/storage/' + bien.imagePath" alt="{{ bien.titre }}" class="img-fluid" />
-    </div>
+      <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
+        </div>
 
     <div class="bien-description">
       <h1 class="bien-title">{{ bien.type_bien }}</h1>

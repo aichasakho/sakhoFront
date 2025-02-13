@@ -1,0 +1,379 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+  
+  p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+  }
+  
+  blockquote {
+    font-family: 'Georgia', serif;
+  }
+  
+  .citation {
+    font-family: 'Merriweather', serif;
+  }
+  
+  
+  
+  .home-banner {
+    margin-top: -100px;
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 20%;
+    object-fit: cover;
+    filter: brightness(0.3);
+  }
+  
+  .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+  }
+  
+  .banner-text h2 {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  
+  .banner-text p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-weight: 300;
+  }
+  
+  
+  
+  .annonces-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .annonces-section h1 {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .annonces-section hr {
+    border: none;
+    height: 4px;
+    background-color: #39A6A1FF;
+    margin: 0 auto 20px auto;
+  }
+  
+  .annonces-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .annonce-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .annonce-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .annonce-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .annonce-item .badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .annonce-info {
+    padding: 20px;
+  }
+  
+  .annonce-info .text {
+    margin-bottom: 10px;
+  }
+  
+  .annonce-info .text p {
+    margin: 0 0 10px;
+    color: #666;
+  }
+  
+  .annonce-info .text .font-weight-bold {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .annonce-info .properties {
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .annonce-info .properties span {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .annonce-info button {
+    display: block;
+    margin: 10px auto 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 50px;
+    color: #39A6A1FF;
+    border: 2px solid #39A6A1FF;
+    transition: all 0.3s ease;
+  }
+  
+  .annonce-info button:hover {
+    background-color:#39A6A1FF;
+    color: #fff;
+  }
+  
+  .home-banner {
+    margin-top: -90px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.3);
+  }
+  
+  .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .banner-drawing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  
+  .banner-text {
+    position: absolute;
+    top: 30%;
+    left: 30px;
+    transform: translateY(-50%);
+    text-align: left;
+    color: white;
+    z-index: 2;
+  }
+  
+  .banner-text h2 {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  
+  .banner-text p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-weight: 300;
+  }
+  
+  .contact-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #39A6A1FF;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-button:hover {
+    background-color: #2C7975FF;
+    transform: scale(1.1);
+  }
+  
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .carousel-image {
+    position: relative;
+    height: 80vh; 
+    overflow: hidden;
+  
+  }
+  
+  .carousel-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(25%);
+  }
+  
+  
+  .header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .text-section {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .image-section {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .image-section img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .footer {
+    background-color: #e2e2e2;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .offers {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .offer-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .offer-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #e1e1e1;
+  }
+  
+  .offer-card h3 {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.25rem;
+    background-color: #fff;
+    color: #34495E;
+    margin: 0;
+  }
+  
+  .offer-card h3:hover {
+    color: #3498db;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  /* Alignement des boutons */
+  .button-group {
+    display: flex;
+    justify-content: space-around; /* Espace égal entre les boutons */
+    gap: 10px; /* Espacement constant */
+    margin-top: 10px; /* Un peu d'espace au-dessus */
+  }
+  
+  /* Boutons personnalisés */
+  .custom-btn {
+    padding: 5px 10px; /* Diminue la taille des boutons */
+    font-size: 14px; /* Réduit la taille du texte */
+    border-radius: 5px; /* Arrondit les coins légèrement */
+    border: none; /* Enlève les bordures par défaut */
+    cursor: pointer; /* Change le curseur en pointeur */
+  }
+  
+  

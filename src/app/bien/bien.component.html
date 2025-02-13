@@ -2,28 +2,28 @@
 <br><br><br><br><br>
 
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
+  <!-- <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
+  </div> -->
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="carousel-image">
         <img src="assets/images/frames-for-your-heart-2d4lAQAlbDA-unsplash.jpg" class="d-block w-100 darken-image" alt="...">
       </div>
       <div class="carousel-caption d-none d-md-block">
-          <div class="row justify-content-center align-items-center vh-100">
-            <div class="col-12 col-md-8 text-center">
-              <div class="detail-box">
-                <h1>Bienvenue chez</h1>
-                <h1>DJIBRIL SAKHO - IMMOBILIER</h1>
-              </div>
-              <a routerLink="/contact" class="contact-button">
-                <i class="fas fa-envelope"></i> Contacter
-              </a>
+        <div class="row justify-content-center align-items-center vh-100">
+          <div class="col-12 col-md-8 text-center">
+            <div class="detail-box">
+              <h1>Bienvenue chez</h1>
+              <h1>DJIBRIL SAKHO - IMMOBILIER</h1>
             </div>
+            <a routerLink="/contact" class="contact-button">
+              <i class="fas fa-envelope"></i> Contacter
+            </a>
           </div>
+        </div>
       </div>
     </div>
     <div class="carousel-item">
@@ -103,8 +103,10 @@
     <div class="annonce-item" *ngFor="let bien of biens">
       <div class="annonce-card">
         <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
-        <div class="badge-container">
-          <span class="badge {{ bien.type_annonce == 'location' ? 'bg-primary' : 'bg-success' }}">{{ bien.type_annonce }}</span>
+        <div class="badge-container" *ngIf="bien?.type_annonce">
+          <span class="badge {{ bien.type_annonce == 'location' ? 'bg-primary' : 'bg-success' }}">
+            {{ bien.type_annonce }}
+          </span>
         </div>
         <div class="annonce-info">
           <div class="text">
@@ -120,18 +122,18 @@
 
           <div class="button-group">
             <button class="btn btn-outline" [routerLink]="['/detail', bien.id]">Voir plus</button>
-            <button class="btn btn-outline" [routerLink]="['/edit-bien', bien.id]">Modifier</button>
-            <button class="btn btn-outline" (click)="delete(bien.id)">Supprimer</button>
+            <button class="btn btn-outline" [routerLink]="['/edit-bien', bien.id]" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Modifier</button>
+            <button class="btn btn-outline" (click)="delete(bien.id)" *ngIf=" isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Supprimer</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-<br><br>
+  <br><br>
   <div class="d-flex justify-content-center align-items-center h-100">
     <button class="btn btn-outline-secondary btn-lg rounded-pill px-4 py-2" *ngIf="biensToShow.length < biens.length" (click)="loadMore()">
-      Voir plus
+      Voir plus de biens
     </button>
   </div>
 

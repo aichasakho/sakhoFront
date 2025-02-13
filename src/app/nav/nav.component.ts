@@ -12,8 +12,7 @@ export class NavComponent implements OnInit {
   isScrolled: boolean = false;
   dropdownOpen: boolean = false;
   activeLink: string = '';
-  isAdmin: boolean = false;
-
+  user: any;
   constructor(public router: Router, private authService: AuthService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -23,15 +22,12 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user = this.authService.getUser();
     this.authService.isAuthenticated$.subscribe((authStatus) => {
       this.isAuthenticated = authStatus;
   
-      if (authStatus) {
-        this.isAdmin = this.authService.hasRole('admin');
-      } else {
-        this.isAdmin = false;
-      }
     });
+
   }
 
   @HostListener('window:scroll', [])

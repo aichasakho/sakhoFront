@@ -1,1 +1,58 @@
-<p>vente works!</p>
+<app-nav></app-nav>
+<br><br><br><br><br>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <!-- <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div> -->
+
+
+
+
+
+
+<div class="annonces-section">
+  <h1 class="section-title">Article en Vente</h1>
+
+  <div class="annonces-grid">
+    <div class="annonce-item" *ngFor="let bien of biens">
+      <div class="annonce-card">
+        <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
+        <div class="annonce-info">
+          <div class="text">
+            <p class="description">{{ bien.description }}</p>
+            <span class="font-weight-bold">{{ bien.prix }} Fcfa</span>
+            <p>Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
+          </div>
+          <div class="properties">
+            <span><i class="flaticon-area"></i> Superficie: {{ bien.superficie }} m²</span>
+            <span><i class="flaticon-bathtub">🛁</i> {{ bien.nombre_douches }} </span>
+            <span><i class="flaticon-bed">🛏️</i> {{ bien.nombre_chambres }}</span>
+          </div>
+          
+          <div class="button-group">
+            <button class="btn btn-outline" [routerLink]="['/detail', bien.id]">Voir plus</button>
+            <button class="btn btn-outline" [routerLink]="['/edit-bien', bien.id]" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Modifier</button>
+            <button class="btn btn-outline" (click)="delete(bien.id)" *ngIf=" isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Supprimer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br><br>
+  <div class="d-flex justify-content-center align-items-center h-100">
+    <button class="btn btn-outline-secondary btn-lg rounded-pill px-4 py-2" *ngIf="biensToShow.length < biens.length" (click)="loadMore()">
+      Voir plus de biens
+    </button>
+  </div>
+  
+</div>
+
+
+
+
+
+<app-contact></app-contact>

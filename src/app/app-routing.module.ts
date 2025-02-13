@@ -29,7 +29,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'contact', component: ContactComponent},
 
-
   { path: '', redirectTo: '/biens', pathMatch: 'full' },
   { path: '**', redirectTo: '/annonces' }
 
