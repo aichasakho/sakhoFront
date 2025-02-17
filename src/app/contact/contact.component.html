@@ -73,15 +73,8 @@
               </div>
             </div>
             <button
-              class="btn btn-primary"
-              type="submit"
-              [disabled]="contactForm.invalid || isLoading">
-              Envoyer
-              <span
-                *ngIf="isLoading"
-                class="spinner-border spinner-border-sm"
-                role="status"
-              ></span>
+              class="btn btn-primary" type="submit" [disabled]="contactForm.invalid || isLoading">Envoyer
+              <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status"></span>
             </button>
           </form>
         </div>
