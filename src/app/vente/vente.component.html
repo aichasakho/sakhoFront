@@ -12,43 +12,34 @@
 
 
 
-
-<div class="annonces-section">
-  <h1 class="section-title">Article en Vente</h1>
-
-  <div class="annonces-grid">
-    <div class="annonce-item" *ngFor="let bien of biens">
-      <div class="annonce-card">
-        <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
-        <div class="annonce-info">
-          <div class="text">
-            <p class="description">{{ bien.description }}</p>
-            <span class="font-weight-bold">{{ bien.prix }} Fcfa</span>
-            <p>Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
-          </div>
-          <div class="properties">
-            <span><i class="flaticon-area"></i> Superficie: {{ bien.superficie }} m²</span>
-            <span><i class="flaticon-bathtub">🛁</i> {{ bien.nombre_douches }} </span>
-            <span><i class="flaticon-bed">🛏️</i> {{ bien.nombre_chambres }}</span>
-          </div>
-          
-          <div class="button-group">
-            <button class="btn btn-outline" [routerLink]="['/detail', bien.id]">Voir plus</button>
-            <button class="btn btn-outline" [routerLink]="['/edit-bien', bien.id]" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Modifier</button>
-            <button class="btn btn-outline" (click)="delete(bien.id)" *ngIf=" isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Supprimer</button>
+<!-- Section Annonces -->
+<div class="annonces-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Article en Vente</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let bien of biens">
+        <div class="card h-100">
+          <img [src]="bien.imageUrl" class="card-img-top" alt="{{bien.titre}}">
+          <div class="card-body">
+            <div class="badge bg-primary mb-2">{{ bien.type_annonce }}</div>
+            <p class="card-text" style="text-align: justify;">{{ bien.description }}</p>
+            <p class="card-text"><strong>{{ bien.prix }} Fcfa</strong></p>
+            <p class="card-text">Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+              <button class="btn btn-outline-primary " [routerLink]="['/detail', bien.id]">Voir plus</button>
+              <button class="btn btn-outline-secondary" [routerLink]="['/edit-bien', bien.id]" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Modifier</button>
+              <button class="btn btn-outline-danger" (click)="delete(bien.id)" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Supprimer</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="text-center mt-4">
+      <button class="btn btn-secondary btn-lg" *ngIf="biensToShow.length < biens.length" (click)="loadMore()">
+        Voir plus de biens
+      </button>
+    </div>
   </div>
-
-<br><br>
-  <div class="d-flex justify-content-center align-items-center h-100">
-    <button class="btn btn-outline-secondary btn-lg rounded-pill px-4 py-2" *ngIf="biensToShow.length < biens.length" (click)="loadMore()">
-      Voir plus de biens
-    </button>
-  </div>
-  
 </div>
 
 
