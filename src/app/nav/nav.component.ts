@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { OnInit, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from "../services/auth-service.service";
+import { Component, Renderer2, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +14,9 @@ export class NavComponent implements OnInit {
   dropdownOpen: boolean = false;
   activeLink: string = '';
   user: any;
-  constructor(public router: Router, private authService: AuthService) {
+  constructor(public router: Router, private authService: AuthService,
+    private renderer: Renderer2, private el: ElementRef
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.activeLink = event.urlAfterRedirects;
@@ -45,5 +48,19 @@ export class NavComponent implements OnInit {
 
   isActiveLink(link: string): boolean {
     return this.activeLink === link;
+  }
+  closeNavbar() {
+    const navbarCollapse = this.el.nativeElement.querySelector('.navbar-collapse');
+    this.renderer.removeClass(navbarCollapse, 'show');
+  }
+
+  // Méthode pour basculer le menu (optionnel)
+  toggleNavbar() {
+    const navbarCollapse = this.el.nativeElement.querySelector('.navbar-collapse');
+    if (navbarCollapse.classList.contains('show')) {
+      this.renderer.removeClass(navbarCollapse, 'show');
+    } else {
+      this.renderer.addClass(navbarCollapse, 'show');
+    }
   }
 }

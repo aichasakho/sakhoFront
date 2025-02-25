@@ -2,6 +2,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: #000000;
   background-color: #ffffff;
+  
   height: 50%;
 }
 
@@ -24,15 +25,8 @@ body {
 }
 
 .info_section .info_news .info_contact {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
   align-items: flex-start;
 }
 
@@ -53,21 +47,9 @@ body {
   background-color: #e0e0e0;
 }
 
-.info_section .info_news form input::-webkit-input-placeholder {
-  color: #acaeae;
-  border-radius: 5px;
-}
-
-.info_section .info_news form input:-ms-input-placeholder {
-  color: #acaeae;
-}
-
-.info_section .info_news form input::-ms-input-placeholder {
-  color: #acaeae;
-}
-
 .info_section .info_news form input::placeholder {
   color: #acaeae;
+  border-radius: 5px;
 }
 
 .info_section .info_news form button {
@@ -87,11 +69,7 @@ body {
 .footer_section {
   background-color: #121111;
   font-weight: 500;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -107,8 +85,36 @@ body {
   color: #787878;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .layout_padding {
+    padding: 45px 0;
+  }
 
+  .info_section .info_news form button {
+    width: 100%;
+    padding: 10px 20px;
+  }
 
+  .info_section .info_news .info_contact {
+    align-items: center;
+  }
 
+  .footer_section p {
+    padding: 15px 20px;
+    font-size: 14px;
+  }
 
+  .info_section h5 {
+    font-size: 18px;
+  }
 
+  .info_section .info_menu .navbar-nav .nav-item .nav-link {
+    font-size: 14px;
+  }
+
+  .footer_section {
+    flex-direction: column;
+    text-align: center;
+  }
+}

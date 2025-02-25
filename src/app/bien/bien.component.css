@@ -19,8 +19,6 @@ blockquote {
   font-family: 'Merriweather', serif;
 }
 
-
-
 .home-banner {
   margin-top: -100px;
   position: relative;
@@ -68,8 +66,6 @@ blockquote {
   font-weight: 300;
 }
 
-
-
 .annonces-section {
   padding: 40px 20px;
   background-color: #f9f9f9;
@@ -82,7 +78,6 @@ blockquote {
   text-align: center;
   margin-bottom: 20px;
 }
-
 
 .annonces-section hr {
   border: none;
@@ -125,7 +120,6 @@ blockquote {
   color: #fff;
   border-radius: 4px;
 }
-
 
 .annonce-info {
   padding: 20px;
@@ -249,14 +243,12 @@ blockquote {
   max-width: 100%;
   margin: 0 auto;
   font-family: Arial, sans-serif;
-
 }
 
 .carousel-image {
   position: relative;
   height: 80vh;
   overflow: hidden;
-
 }
 
 .carousel-image img {
@@ -269,7 +261,6 @@ blockquote {
   object-fit: cover;
   filter: brightness(25%);
 }
-
 
 .header {
   background-color: #ffffff;
@@ -285,15 +276,12 @@ blockquote {
   border-radius: 20px;
   border-style: double;
  -webkit-border-bottom-left-radius: 95px;
-
-
 }
 
 .content {
   display: flex;
   align-items: center;
   margin: 10px 0;
-
 }
 
 .text-section {
@@ -301,7 +289,6 @@ blockquote {
   padding: 20px;
   margin: 90px;
   text-align: left;
-
 }
 
 .image-section {
@@ -321,8 +308,6 @@ blockquote {
   border-radius: 20px;
   border-style: double;
   -webkit-border-bottom-left-radius: 95px;
-
-
 }
 
 .container {
@@ -353,7 +338,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin: 70px;
-
 }
 
 .card {
@@ -367,7 +351,6 @@ h2 {
   margin: 0 10px; /* Espace entre les cartes */
   height: 200px;
 }
-/*color: #007bff; !* Couleur similaire à celle affichée *!*/
 
 .card i {
   font-size: 50px;
@@ -375,24 +358,18 @@ h2 {
   display: block;
   margin-bottom: 10px;
   padding-top: 35px;
-
 }
 
 .card h3 {
   margin: 0;
   font-size: 1.2em;
-  /*color: #333;*/
   color:#39A6A1FF; /* Couleur similaire à celle affichée */
-
 }
 
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgb(21, 91, 88);
 }
-
-
-
 
 /* Alignement des boutons */
 .button-group {
@@ -411,3 +388,72 @@ h2 {
   cursor: pointer; /* Change le curseur en pointeur */
 }
 
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .text-section, .image-section {
+    flex: 1 1 100%;
+    padding: 10px;
+  }
+
+  .carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .carousel-caption h1 {
+    font-size: 2rem;
+  }
+
+  .carousel-caption a {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
+
+  .card {
+    margin: 10px 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .contact-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .annonces-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-image {
+    height: 30vh;
+  }
+
+  .content {
+    margin: 0;
+  }
+
+  .text-section, .image-section {
+    padding: 10px;
+  }
+
+  .carousel-image {
+    height: auto;
+  }
+}

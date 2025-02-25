@@ -1,4 +1,3 @@
-<app-nav></app-nav>
 <br><br><br><br><br>
 
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -76,95 +75,94 @@
 <div class="debut">
   <h3>Des Expériences Hors du Commun</h3>
 </div>
-<div class="great-container">
+<!-- Section À propos -->
+<div class="great-container py-5">
   <div class="container">
-
-      <div class="content">
-        <div class="text-section">
-          <h2>À propos de DSI</h2>
-          <p>Fondée en 2009, Djibril Sakho Immobilier est une entreprise familiale qui s'est imposée avec succès sur le marché de l'immobilier au Sénégal. Forte de plus de 15 années d'expérience, elle offre une expertise reconnue dans les domaines de la location, de la vente, de la gérance et des prestations de services. Une entreprise de confiance, grâce à son sérieux, sa fiabilité et son engagement envers ses clients. Elle met un point d'honneur à entretenir des relations de long terme fondées sur l'expertise et la satisfaction de ses clients.</p>
-        </div>
-        <div class="image-section">
-          <img src="assets/images/person_1.jpg" alt="Image de l'agence">
-        </div>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2>À propos de DSI</h2>
+        <p>Fondée en 2009, Djibril Sakho Immobilier est une entreprise familiale qui s'est imposée avec succès sur le marché de l'immobilier au Sénégal.</p>
       </div>
-
-      <div class="footer">
-        <h5>15 ans d’expérience dans l’immobilier au Sénégal</h5>
+      <div class="col-md-6">
+        <img src="assets/images/person_1.jpg" class="img-fluid rounded" alt="Image de l'agence">
       </div>
     </div>
-  <div>
-    <br><br>
-
-    <div class="header">
-      <h2>Annonces</h2>
+    <div class="footer text-center py-3 mt-4">
+      <h5>15 ans d’expérience dans l’immobilier au Sénégal</h5>
     </div>
-    <div class="annonces-section">
-      <div class="annonces-grid">
-        <div class="annonce-item" *ngFor="let bien of biens">
-          <div class="annonce-card">
-            <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
-            <div class="badge-container" *ngIf="bien?.type_annonce">
-              <span class="badge {{ bien.type_annonce == 'location' ? 'bg-primary' : 'bg-success' }}">
-                {{ bien.type_annonce }}
-              </span>
-            </div>
-            <div class="annonce-info">
-              <div class="text">
-                <p class="description">{{ bien.description }}</p>
-                <span class="font-weight-bold">{{ bien.prix }} Fcfa</span>
-                <p>Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
-              </div>
-              <div class="properties">
-                <span><i class="flaticon-area"></i> Superficie: {{ bien.superficie }} m²</span>
-                <span><i class="flaticon-bathtub">🛁</i> {{ bien.nombre_douches }} </span>
-                <span><i class="flaticon-bed">🛏️</i> {{ bien.nombre_chambres }}</span>
-              </div>
+  </div>
+</div>
 
-              <div class="button-group">
-                <button class="btn btn-outline" [routerLink]="['/detail', bien.id]">Voir plus</button>
-                <button class="btn btn-outline" [routerLink]="['/edit-bien', bien.id]" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Modifier</button>
-                <button class="btn btn-outline" (click)="delete(bien.id)" *ngIf=" isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Supprimer</button>
-              </div>
+<!-- Section Annonces -->
+<div class="annonces-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Annonces</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let bien of biens">
+        <div class="card h-100">
+          <img [src]="bien.imageUrl" class="card-img-top" alt="{{bien.titre}}">
+          <div class="card-body">
+            <div class="badge bg-primary mb-2">{{ bien.type_annonce }}</div>
+            <p class="card-text" style="text-align: justify;">{{ bien.description }}</p>
+            <p class="card-text"><strong>{{ bien.prix }} Fcfa</strong></p>
+            <p class="card-text">Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-outline-primary " [routerLink]="['/detail', bien.id]">Voir plus</button>
+              <button class="btn btn-outline-secondary" [routerLink]="['/edit-bien', bien.id]" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Modifier</button>
+              <button class="btn btn-outline-danger" (click)="delete(bien.id)" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Supprimer</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-      <br><br>
-      <div class="d-flex justify-content-center align-items-center h-100">
-        <button class="btn btn-outline-secondary btn-lg rounded-pill px-4 py-2" *ngIf="biensToShow.length < biens.length" (click)="loadMore()">
-          Voir plus de biens
-        </button>
-      </div>
-
+    <div class="text-center mt-4">
+      <button class="btn btn-secondary btn-lg" *ngIf="biensToShow.length < biens.length" (click)="loadMore()">
+        Voir plus de biens
+      </button>
     </div>
+  </div>
+</div>
 
-    <div class="container">
-      <div class="header">
-        <h2>  Nos offres</h2>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <i class="fas fa-home"></i>
+<!-- Section Nos offres -->
+<div class="container py-5">
+  <h2 class="text-center mb-4">Nos offres</h2>
+  <div class="row">
+    <div class="col-md-3 mb-4">
+      <div class="card text-center h-100">
+        <i class="fas fa-home fa-3x mt-4"></i>
+        <div class="card-body">
           <h3>Appartements à louer</h3>
         </div>
-        <div class="card">
-          <i class="fas fa-couch"></i>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card text-center h-100">
+        <i class="fas fa-couch fa-3x mt-4"></i>
+        <div class="card-body">
           <h3>Locations meublées</h3>
         </div>
-        <div class="card">
-          <i class="fas fa-store"></i>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card text-center h-100">
+        <i class="fas fa-store fa-3x mt-4"></i>
+        <div class="card-body">
           <h3>Bureaux & Commerces</h3>
         </div>
-        <div class="card">
-          <i class="fas fa-list-alt"></i>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card text-center h-100">
+        <i class="fas fa-list-alt fa-3x mt-4"></i>
+        <div class="card-body">
           <h3>Tous nos locations</h3>
         </div>
       </div>
     </div>
+  </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 

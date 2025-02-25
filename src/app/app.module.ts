@@ -21,6 +21,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ListeBiensComponent } from './admin-biens/liste-biens/liste-biens.component';
+import { ContactButtonComponent } from './contact-button/contact-button.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ListeBiensComponent } from './admin-biens/liste-biens/liste-biens.compo
     LogoutComponent,
     SidebarComponent,
     ListeBiensComponent,
+    ContactButtonComponent
   ],
   imports: [
     BrowserModule,
