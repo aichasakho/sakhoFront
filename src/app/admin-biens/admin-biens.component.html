@@ -1,8 +1,6 @@
 <div class="wrapper">
- 
-  <div class="container-fluid mt-5">
+  <div class="body">
     <div class="row">
-      
       <div class="col-md-10 offset-md-2 py-4">
         <h2 class="mb-4 mt-5 text-center">Gestion des Biens</h2>
         <!-- Formulaire de Bien -->
@@ -13,7 +11,7 @@
                 <label for="titre">Titre:</label>
                 <input type="text" class="form-control" formControlName="titre" required id="titre">
                 <br>
-                   <span *ngIf="veriForm && bienForm.controls.titre.errors">* le titre est obligatoire</span>
+                <span *ngIf="veriForm && bienForm.controls.titre.errors">* le titre est obligatoire</span>
               </div>
               <div class="form-group">
                 <label for="description">Description:</label>
@@ -37,7 +35,7 @@
                 <label for="nombre_chambres">Nombre de chambres:</label>
                 <input type="number" class="form-control" formControlName="nombre_chambres" required id="nombre_chambres">
                 <br>
-                <span *ngIf="veriForm && bienForm.controls.nombre_chambres.errors">* le nombre de chambre est obligatoire</span>
+                <span *ngIf="veriForm && bienForm.controls.nombre_chambres.errors">* le nombre de chambres est obligatoire</span>
               </div>
               <div class="form-group">
                 <label for="nombre_douches">Nombre de douches:</label>
@@ -70,9 +68,8 @@
                 <label for="imagePath">Image:</label>
                 <input type="file" class="form-control-file" (change)="onFileChange($event)">
               </div>
-              <button type="submit" class="btn btn-primary">Enregistrer</button>
+              <button type="submit" class="btn btn-success">Enregistrer</button>
             </form>
-
           </div>
         </div>
       </div>

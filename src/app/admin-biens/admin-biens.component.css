@@ -1,30 +1,9 @@
-/* Sidebar */
-.sidebar {
-  background-color: #343a40;
-  color: #ffffff;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  padding-top: 20px;
-}
-
-.sidebar .nav-item {
-  margin-bottom: 15px;
-}
-
-.sidebar .nav-link {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.sidebar .nav-link:hover {
-  color: #17a2b8;
-}
-
-.sidebar .nav-item .nav-link.active {
-  color: #007bff;
+/* Dégradé de fond */
+body {
+  background: linear-gradient(to bottom, #ffffff, #39A6A1); /* Dégradé du blanc au vert */
+  min-height: 100vh; /* Assure que le fond dégradé couvre toute la hauteur */
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 0; /* Supprime le padding par défaut */
 }
 
 /* Formulaire */
@@ -37,16 +16,19 @@ form .form-check {
 }
 
 form button {
-  width: 100%;
+  margin-left: auto; /* Centre le bouton */
+  margin-right: auto; /* Centre le bouton */
+  display: block; /* Permet de centrer le bouton */
+  width: 200px;
   padding: 10px;
-  background-color: #007bff;
+  background-color: rgba(22, 71, 69, 0.86);
   color: white;
   border: none;
   border-radius: 5px;
 }
 
 form button:hover {
-  background-color: #0056b3;
+  background-color: rgba(57, 166, 161, 0.62);
 }
 
 /* Liste des Biens */

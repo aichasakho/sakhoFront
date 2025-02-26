@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #007bff;
+    background-color: #39A6A1FF;
     color: white;
     border: none;
     border-radius: 50%;
@@ -43,7 +43,7 @@
 }
 
 .contact-form button {
-    background-color: #007bff;
+    background-color: #39A6A1FF;
     color: white;
     border: none;
     padding: 10px;
@@ -52,5 +52,5 @@
 }
 
 .contact-form button:hover {
-    background-color: #0056b3;
+    background-color: #309893;
 }

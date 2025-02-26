@@ -77,7 +77,7 @@
 </div>
 <!-- Section À propos -->
 <div class="great-container py-5">
-  <div class="container">
+  <div class="containeer">
     <div class="row align-items-center">
       <div class="col-md-6">
         <h2>À propos de DSI</h2>
@@ -93,21 +93,29 @@
   </div>
 </div>
 
+
 <!-- Section Annonces -->
 <div class="annonces-section py-5">
+  <h2 class="text-center mb-4">Annonces</h2>
+
+  <hr>
+
   <div class="container">
-    <h2 class="text-center mb-4">Annonces</h2>
     <div class="row">
       <div class="col-md-4 mb-4" *ngFor="let bien of biens">
         <div class="card h-100">
-          <img [src]="bien.imageUrl" class="card-img-top" alt="{{bien.titre}}">
-          <div class="card-body">
-            <div class="badge bg-primary mb-2">{{ bien.type_annonce }}</div>
-            <p class="card-text" style="text-align: justify;">{{ bien.description }}</p>
-            <p class="card-text"><strong>{{ bien.prix }} Fcfa</strong></p>
-            <p class="card-text">Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
-            <div class="d-flex flex-wrap gap-2 justify-content-center">
-              <button class="btn btn-outline-primary " [routerLink]="['/detail', bien.id]">Voir plus</button>
+          <div class="card-content">
+            <img [src]="bien.imageUrl" class="card-img-top" alt="{{bien.titre}}">
+            <div class="card-body">
+              <div class="badge bg-success mb-2">{{ bien.type_annonce }}</div>
+              <p class="card-text" style="text-align: justify;">{{ bien.description }}</p>
+              <p class="card-text"><strong>{{ bien.prix }} Fcfa</strong></p>
+              <p class="card-text">Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-outline-success voir-plus" [routerLink]="['/detail', bien.id]">Voir plus</button>
               <button class="btn btn-outline-secondary" [routerLink]="['/edit-bien', bien.id]" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Modifier</button>
               <button class="btn btn-outline-danger" (click)="delete(bien.id)" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Supprimer</button>
             </div>
@@ -123,9 +131,27 @@
   </div>
 </div>
 
+<div class="great-container py-5">
+  <div class="pub">
+    <div class="row align-items-center">
+
+      <div class="col-md-3">
+        <img src="assets/images/person_2.jpg" class="img-fluid rounded" alt="Image de l'agence">
+      </div>
+      <div class="col-md-6">
+        <h2>À propos de DSI</h2>
+        <p>Fondée en 2009, Djibril Sakho Immobilier est une entreprise familiale qui s'est imposée avec succès sur le marché de l'immobilier au Sénégal.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 <!-- Section Nos offres -->
-<div class="container py-5">
-  <h2 class="text-center mb-4">Nos offres</h2>
+<h2 class="text-center mb-4">Nos offres</h2>
+
+<div class="offres-section py-5">
   <div class="row">
     <div class="col-md-3 mb-4">
       <div class="card text-center h-100">
