@@ -6,20 +6,18 @@
 
   <!-- Bouton de bascule pour mobile -->
   <button
-    class="navbar-toggler"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarCollapse"
-    aria-controls="navbarCollapse"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-    (click)="toggleNavbar()"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  class="navbar-toggler"
+  type="button"
+  aria-controls="navbarCollapse"
+  [attr.aria-expanded]="isMenuOpen"
+  aria-label="Toggle navigation"
+  (click)="toggleNavbar()"
+>
+  <span class="navbar-toggler-icon"></span>
+</button>
 
   <!-- Menu -->
-  <div class="collapse navbar-collapse" id="navbarCollapse">
+  <div class="collapse navbar-collapse" id="navbarCollapse" [class.show]="isMenuOpen">
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
       <!-- Liens du menu -->
       <li class="nav-item me-4">

@@ -14,6 +14,7 @@ export class NavComponent implements OnInit {
   dropdownOpen: boolean = false;
   activeLink: string = '';
   user: any;
+  isMenuOpen = false;
   constructor(public router: Router, private authService: AuthService,
     private renderer: Renderer2, private el: ElementRef
   ) {
@@ -53,14 +54,7 @@ export class NavComponent implements OnInit {
     const navbarCollapse = this.el.nativeElement.querySelector('.navbar-collapse');
     this.renderer.removeClass(navbarCollapse, 'show');
   }
-
-  // Méthode pour basculer le menu (optionnel)
-  toggleNavbar() {
-    const navbarCollapse = this.el.nativeElement.querySelector('.navbar-collapse');
-    if (navbarCollapse.classList.contains('show')) {
-      this.renderer.removeClass(navbarCollapse, 'show');
-    } else {
-      this.renderer.addClass(navbarCollapse, 'show');
+ toggleNavbar() {
+      this.isMenuOpen = !this.isMenuOpen; // Change l'état du menu (ouvert/fermé)
     }
-  }
 }

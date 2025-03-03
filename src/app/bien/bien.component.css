@@ -256,7 +256,7 @@ blockquote {
   overflow: hidden;
 }
 
-.carousel-image img {
+.carousels-image img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -442,7 +442,7 @@ h2 {
   }
 
   .carousel-caption {
-    top: 50%;
+    top: 30%;
     transform: translateY(-50%);
   }
 
