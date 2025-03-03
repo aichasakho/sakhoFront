@@ -88,12 +88,14 @@
 
 .bien-actions {
   display: flex;
-  gap: 20px;
+  gap: 100;
   margin-top: 30px;
   flex-wrap: wrap;
+  width: 150px;
+  
 }
 
-.bien-actions button {
+/* .bien-actions button {
   padding: 15px 30px;
   font-size: 1.3rem;
   border-radius: 12px;
@@ -103,6 +105,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+.bien-actions button {
+  width: 100%; /* Les boutons auront la même largeur */
+  max-width: 250px; /* Ajuste cette valeur si nécessaire */
+  display: block; /* Force les boutons à être sur une ligne distincte */
+  text-align: center; /* Centre le texte */
+  padding: 10px; /* Assure un bon espacement */
+  font-size: 16px; /* Rendre les boutons lisibles */
 }
 
 .bien-actions .btn-outline-primary {
@@ -147,6 +157,7 @@
   .bien-content {
     flex-direction: column;
     padding: 20px;
+    width: 100%;
   }
 
   .bien-image {

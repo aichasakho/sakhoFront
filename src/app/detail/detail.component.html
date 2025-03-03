@@ -4,7 +4,7 @@
   <div class="bien-content">
     <div class="bien-image">
       <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
-        </div>
+    </div>
 
     <div class="bien-description">
       <h1 class="bien-title">{{ bien.type_bien }}</h1>
@@ -25,9 +25,18 @@
         <span><i class="flaticon-bed"></i> {{ bien.nombre_chambres }} 🛏️</span>
       </div>
 
-      <div class="bien-actions">
-        <button class="btn btn-whatsapp" (click)="reserverWhatsApp()"><i class="flaticon-whatsapp"></i> WhatsApp</button>
-        <button class="btn btn-email" (click)="reserverEmail()"><i class="flaticon-email"></i> Email</button>
+     <!--  <div class="bien-actions center">
+        <button class="btn btn-whatsapp mx-4" (click)="reserverWhatsApp()"><i class="flaticon-whatsapp"></i> WhatsApp</button><br>
+        <button class="btn btn-email mx-4" (click)="reserverEmail()"><i class="flaticon-email"></i> Email</button>
+      </div> -->
+
+      <div class="bien-actions d-flex flex-column align-items-center">
+        <button class="btn btn-whatsapp" (click)="reserverWhatsApp()">
+          <i class="flaticon-whatsapp"></i> WhatsApp
+        </button>
+        <button class="btn btn-email mt-2" (click)="reserverEmail()">
+          <i class="flaticon-email"></i> Email
+        </button>
       </div>
     </div>
   </div>
