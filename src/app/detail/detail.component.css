@@ -83,7 +83,7 @@
 
 .properties i {
   margin-right: 10px;
-  color: #007bff;
+  color: #11938c;
 }
 
 .bien-actions {
@@ -92,7 +92,7 @@
   margin-top: 30px;
   flex-wrap: wrap;
   width: 150px;
-  
+
 }
 
 /* .bien-actions button {
@@ -107,22 +107,24 @@
   align-items: center;
 } */
 .bien-actions button {
-  width: 100%; 
-  max-width: 250px; 
-  display: block; 
-  text-align: center; 
-  padding: 10px; 
-  font-size: 16px; 
+  width: 100%;
+  max-width: 250px;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+
+
 }
 
 .bien-actions .btn-outline-primary {
-  background-color: #007bff;
+  background-color: #11938c;
   color: white;
   border: none;
 }
 
 .bien-actions .btn-outline-primary:hover {
-  background-color: #0056b3;
+  background-color: #11938c;
   cursor: pointer;
 }
 
@@ -133,12 +135,12 @@
 }
 
 .bien-actions .btn-whatsapp:hover {
-  background-color: #128C7E;
+  background-color: #e4e5e0;
   cursor: pointer;
 }
 
 .bien-actions .btn-email {
-  background-color: #17a2b8;
+  background-color: #18538f;
   color: white;
   border: none;
 }
