@@ -83,10 +83,11 @@ blockquote {
 }
 
 .annonces-section hr {
-  border: 5px;
+  border-radius: 25px;
   height: 4px;
   width: 25%;
   background-color: #39A6A1FF;
+
   margin: 0 auto 20px auto;
 }
 
@@ -103,7 +104,7 @@ blockquote {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+.
 .annonce-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -161,13 +162,13 @@ blockquote {
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 50px;
-  color: #39A6A1FF;
-  border: 2px solid #39A6A1FF;
+  color: rgb(57, 166, 161);
+  border: 2px solid #39a6a1;
   transition: all 0.3s ease;
 }
 
 .annonce-info button:hover {
-  background-color:#39A6A1FF;
+  background-color: #59e3dd;
   color: #fff;
 }
 
@@ -239,12 +240,12 @@ blockquote {
 }
 
 .contact-button:hover {
-  background-color: #2a8c85;
+  background-color: #59e3dd;
   transform: scale(1.1);
 }
 
 .btn{
-  color: #39A6A1FF;
+  color: #0c0c0c;
 }
 .container {
   max-width: 100%;
@@ -318,7 +319,7 @@ blockquote {
 }
 
 .debut{
-  background-color: rgb(17, 147, 140);
+  background-color: rgb(57, 166, 161);
   padding: 10px;
   text-align: center;
   color: #FFFFFF;
@@ -351,7 +352,7 @@ blockquote {
 }
 
 .footer {
-  background-color: #2c3131;
+  background-color:#39A6A1FF;
   text-align: center;
   padding: 8px;
   color: #FFFFFF;
@@ -372,9 +373,10 @@ blockquote {
   background-color: #f9f9f9;
   border-radius: 5%;
 
+
 }
 .offres-section hr {
-  border: 5px;
+  border-radius: 25px;
   height: 4px;
   width: 25%;
   background-color: #39A6A1FF;
@@ -390,10 +392,10 @@ blockquote {
 
 
 .others-section hr {
-  border: 5px;
+  border-radius: 25px;
   height: 4px;
   width: 25%;
-  background-color: #39A6A1FF;
+  background-color: rgb(57, 166, 161);
   margin: 0 auto 20px auto;
 }
 
@@ -422,7 +424,7 @@ h2 {
 
 .card i {
   font-size: 50px;
-  color:#39A6A1FF; /* Couleur similaire à celle affichée */
+  color: #39A6A1FF; /* Couleur similaire à celle affichée */
   display: block;
   margin-bottom: 10px;
   padding-top: 35px;
@@ -433,10 +435,9 @@ h2 {
   font-size: 1.2em;
   color:#39A6A1FF; /* Couleur similaire à celle affichée */
 }
-
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgb(21, 91, 88);
+  box-shadow: 0 4px 8px rgb(57, 166, 161);
 }
 
 /* Alignement des boutons */
