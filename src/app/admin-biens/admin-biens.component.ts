@@ -18,7 +18,7 @@ export class AdminBiensComponent implements OnInit {
     description: ['', Validators.required],
     prix: ['', Validators.required],
     imagePath: [null],
-    disponible: ['1'],
+    disponible: [''],
     type: ['', Validators.required],
     type_annonce: ['', Validators.required],
     nombre_chambres: ['', Validators.required],
@@ -62,11 +62,14 @@ export class AdminBiensComponent implements OnInit {
       return;
     } else {
       const formData = new FormData();
+      const disponibleValue = this.bienForm.get('disponible')?.value ? '1' : '0';
+      formData.append('disponible', disponibleValue);
+
       formData.append('titre', this.bienForm.get('titre')?.value || '');
       formData.append('description', this.bienForm.get('description')?.value || '');
       formData.append('prix', this.bienForm.get('prix')?.value || '');
       formData.append('imagePath', this.bienForm.get('imagePath')?.value || '');
-      formData.append('disponible', this.bienForm.get('disponible')?.value || '1');
+      //formData.append('disponible', this.bienForm.get('disponible')?.value || '');
       formData.append('type', this.bienForm.get('type')?.value || '');
       formData.append('type_annonce', this.bienForm.get('type_annonce')?.value || '');
       formData.append('nombre_chambres', this.bienForm.get('nombre_chambres')?.value || '');
