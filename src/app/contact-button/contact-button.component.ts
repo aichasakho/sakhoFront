@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from '../services/contact.service';
 import { Notyf } from 'notyf';
@@ -10,6 +10,9 @@ import { Notyf } from 'notyf';
 })
 export class ContactButtonComponent {
   showForm = false; // Contrôle l'affichage du formulaire
+  showButton: boolean = false; // Contrôle l'affichage du bouton de retour
+
+
 
   toggleForm() {
     this.showForm = !this.showForm;
@@ -18,11 +21,11 @@ export class ContactButtonComponent {
  contactForm!: FormGroup;
    private notyf: Notyf;
    isLoading = false;
- 
+
    constructor(private fb: FormBuilder, private contactService: ContactService) {
      this.notyf = new Notyf();
    }
- 
+
    ngOnInit(): void {
      this.contactForm = this.fb.group({
        name: ['', Validators.required],
@@ -30,14 +33,14 @@ export class ContactButtonComponent {
        message: ['', Validators.required]
      });
    }
- 
- 
+
+
    onSubmitContact(): void {
      if (this.contactForm.valid) {
- 
+
        this.isLoading = true;
        const {name, email, message} = this.contactForm.value;
- 
+
        this.contactService.sendMessage(name, email, message).subscribe(
          (response) => {
            console.log('Message envoyé avec succès:', response);
@@ -54,10 +57,25 @@ export class ContactButtonComponent {
        );
      } else {
        this.notyf.error('Veuillez remplir tous les champs requis.');
- 
- 
+
+
      }
- 
- 
+
+
    }
+
+   // bouton de retour
+
+// Afficher ou masquer le bouton de retour
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showButton = window.scrollY > 100; // Afficher le bouton après avoir défilé de 100 pixels
+    console.log('Scroll position:', window.scrollY, 'Show button:', this.showButton);
+   }
+
+// Faire défiler vers le haut
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Défilement en douceur vers le haut
+  }
+
 }

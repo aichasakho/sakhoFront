@@ -7,12 +7,14 @@
 <div class="annonces-section py-5">
   <div class="container">
     <h2 class="text-center mb-4">articles en location</h2>
+    <hr>
+    <br>
     <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let bien of biens">
+      <div class="col-md-3 mb-4" *ngFor="let bien of biens">
         <div class="card h-100">
           <img [src]="bien.imageUrl" class="card-img-top" alt="{{bien.titre}}">
           <div class="card-body">
-            <div class="badge bg-primary mb-2">{{ bien.type_annonce }}</div>
+            <div class="badge  mb-2">{{ bien.type_annonce }}</div>
             <p class="card-text" style="text-align: justify;">{{ bien.description }}</p>
             <p class="card-text"><strong>{{ bien.prix }} Fcfa</strong></p>
             <p class="card-text">Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
@@ -32,9 +34,9 @@
     </div>
   </div>
 </div>
+</div>
 
 
 
 
 
-<app-contact></app-contact>

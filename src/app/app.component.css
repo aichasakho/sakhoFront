@@ -55,15 +55,15 @@ body {
 .info_section .info_news form button {
   display: inline-block;
   padding: 7px 45px;
-  background-color: #4bc5b8;
-  border: 1px solid #4bc5b8;
+  background-color: #9d783d;
+  border: 1px solid #9d783d;
   color: #ffffff;
   margin-top: 15px;
 }
 
 .info_section .info_news form button:hover {
   background-color: transparent;
-  color: #4bc5b8;
+  color: #9d783d;
 }
 
 .footer_section {

@@ -20,7 +20,7 @@
 }
 
 .navbar-nav .nav-link:hover {
-  color: #39A6A1FF;
+  color: #6e5732;
 }
 
 .header.navbar-scrolled .navbar-nav .nav-link {
@@ -28,7 +28,7 @@
 }
 
 .header.navbar-scrolled .navbar-nav .nav-link:hover {
-  color: #39A6A1FF;
+  color: #6e5732;
 }
 
 /* Boutons d'authentification */

@@ -47,6 +47,7 @@
                 <input type="checkbox" class="form-check-input" formControlName="disponible" id="disponible">
                 <label class="form-check-label" for="disponible">Disponible</label>
               </div>
+              <br>
               <div class="form-group">
                 <label for="type">Type:</label>
                 <select class="form-control" formControlName="type" required id="type">
@@ -57,6 +58,7 @@
                   <option value="maison">Maison</option>
                 </select>
               </div>
+              <br>
               <div class="form-group">
                 <label for="type_annonce">Type d'annonce:</label>
                 <select class="form-control" formControlName="type_annonce" required id="type_annonce">
@@ -64,10 +66,13 @@
                   <option value="vente">Vente</option>
                 </select>
               </div>
+              <br>
               <div class="form-group">
-                <label for="imagePath">Image:</label>
+                <label for="imagePath">Image:</label> <br>
                 <input type="file" class="form-control-file" (change)="onFileChange($event)">
               </div>
+              <br>
+
               <button type="submit" class="btn btn-success">Enregistrer</button>
             </form>
           </div>
