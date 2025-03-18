@@ -7,12 +7,18 @@ import { Bien } from '../models/bien.model';
   providedIn: 'root'
 })
 export class BiensService {
-  private apiUrl = 'http://localhost:8000/api/biens';
+  private apiUrl = 'http://127.0.0.1:8000/api/biens';
 
   constructor(private http: HttpClient) {}
 
   getBiens(): Observable<Bien[]> {
     return this.http.get<Bien[]>(this.apiUrl);
+  }
+  getVente(): Observable<Bien[]> {
+    return this.http.get<Bien[]>('http://127.0.0.1:8000/api/vente/');
+  }
+  getLocation(): Observable<Bien[]> {
+    return this.http.get<Bien[]>('http://127.0.0.1:8000/api/location/');
   }
 
   getBien(id: string | null): Observable<Bien> {
@@ -23,7 +29,7 @@ export class BiensService {
     return this.http.post<Bien>(this.apiUrl, bien);
   }
 
- 
+
 updateBien(bien: FormData): Observable<Bien> {
   return this.http.post<Bien>('http://127.0.0.1:8000/api/update/', bien);
 }
