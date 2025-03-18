@@ -46,7 +46,8 @@ export class DetailComponent implements OnInit {
   reserverEmail(): void {
     const subject = `Réservation pour ${this.bien.titre}`;
     const body = `Je souhaite réserver le bien suivant :\n\nTitre: ${this.bien.titre}\nPrix: ${this.bien.prix} FCFA\nDescription: ${this.bien.description}`;
-    const email = 'sakhoaichatou11@gmail.com.com';
+
+    const email = 'aichasakho2205@gmail.com';
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 }

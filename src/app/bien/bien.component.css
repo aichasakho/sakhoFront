@@ -2,7 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
 }
@@ -14,12 +14,19 @@ p {
 blockquote {
   font-family: 'Georgia', serif;
 }
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Couleur noire avec 40% d'opacité */
+  z-index: 1; /* S'assurer qu'il est au-dessus de l'image */
+}
 
 .citation {
   font-family: 'Merriweather', serif;
 }
-
-
 
 .home-banner {
   margin-top: -100px;
@@ -68,12 +75,13 @@ blockquote {
   font-weight: 300;
 }
 
-
-
 .annonces-section {
-  padding: 40px 20px;
+  padding: 10px 20px;
   background-color: #f9f9f9;
   font-family: 'Arial', sans-serif;
+  margin: 5px 5px 5px;
+  border-radius: 5%;
+
 }
 
 .annonces-section h1 {
@@ -84,9 +92,10 @@ blockquote {
 }
 
 .annonces-section hr {
-  border: none;
+  border-radius: 25px;
   height: 4px;
-  background-color: #39A6A1FF;
+  width: 25%;
+  background-color: #9d783d;
   margin: 0 auto 20px auto;
 }
 
@@ -103,7 +112,9 @@ blockquote {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+.badge{
+  background-color: #9d783d;
+}
 .annonce-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -161,13 +172,13 @@ blockquote {
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 50px;
-  color: #39A6A1FF;
-  border: 2px solid #39A6A1FF;
+  color: rgb(157, 120, 61);
+  border: 2px solid #9d783d;
   transition: all 0.3s ease;
 }
 
 .annonce-info button:hover {
-  background-color:#39A6A1FF;
+  background-color: #9d783d;
   color: #fff;
 }
 
@@ -193,7 +204,7 @@ blockquote {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.32);
   z-index: 1;
 }
 
@@ -230,7 +241,7 @@ blockquote {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 20px;
-  background-color: #39A6A1FF;
+  background-color: #9d783d;
   color: white;
   text-decoration: none;
   border-radius: 50px;
@@ -239,13 +250,27 @@ blockquote {
 }
 
 .contact-button:hover {
-  background-color: #2C7975FF;
+  background-color: #6e5732;
   transform: scale(1.1);
 }
 
+.btn {
+  background-color: transparent; /* Fond transparent */
+  border: 2px solid #8B4513; /* Bordure marron */
+  color: #8B4513; /* Couleur du texte marron */
+  padding: 8px 16px; /* Espacement interne */
+  border-radius: 5px; /* Coins arrondis */
+  transition: background-color 0.3s, color 0.3s; /* Transition pour l'effet de survol */
+  font-size: 14px; /* Taille de la police */
+}
+
+.btn:hover {
+  background-color: #8B4513; /* Fond marron au survol */
+  color: white; /* Couleur du texte blanche au survol */
+}
 .container {
   max-width: 100%;
-  margin: 0 auto;
+  margin: 90px auto;
   font-family: Arial, sans-serif;
 }
 
@@ -253,10 +278,9 @@ blockquote {
   position: relative;
   height: 80vh;
   overflow: hidden;
-
 }
 
-.carousel-image img {
+.carousels-image img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -267,27 +291,80 @@ blockquote {
   filter: brightness(25%);
 }
 
+.great-container{
+  margin: 5px;
+  /*background-color: #f9f9f9;
+  border-radius: 5%;*/
+
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-img-top {
+  height: 200px; /* Hauteur fixe pour l'uniformité */
+  object-fit: cover; /* Maintenir le ratio d'aspect */
+}
+
+.card-body {
+  flex-grow: 1; /* Permet au corps de prendre l'espace restant */
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center; /* Centre les boutons */
+  gap: 10px; /* Espacement entre les boutons */
+}
+
+.card-footer button {
+  gap: 10px;
+  margin: 5px; /* Espacement entre les boutons */}
+
+/* Pour centrer le bouton "Voir plus" */
+.text-center {
+  margin-top: 20px; /* Espacement au-dessus du bouton "Voir plus" */
+}
+
+.text-center button {
+  display: inline-block; /* S'assure que le bouton est centré */
+}
+
 
 .header {
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   padding: 20px;
   text-align: center;
+}
+
+.debut{
+  background-color: rgb(110, 87, 50);
+  padding: 10px;
+  text-align: center;
+  color: #FFFFFF;
+  border-style: double;
+  -webkit-border-radius: 25px  200px 25px 200px;
+
+
 }
 
 .content {
   display: flex;
   align-items: center;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .text-section {
   flex: 1;
   padding: 20px;
+  margin: 90px;
+  text-align: left;
 }
 
 .image-section {
   flex: 1;
-  text-align: center;
 }
 
 .image-section img {
@@ -296,25 +373,57 @@ blockquote {
 }
 
 .footer {
-  background-color: #000000;
+
+  background-color: #6e5732;
+  text-align: center;
+  padding: 5px;
   color: #FFFFFF;
-  font-size: 20px;
-  text-align: center;
-  padding: 10px;
-  border-radius: 10px;
+  border-style: double;
+  -webkit-border-radius: 25px 200px  25px 200px;
 }
+/*dernier section avant footer */
 
-
-
-.container {
+.containeer {
   max-width: 100%;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
+  text-align: left;
+  margin: 25px;
+
+}
+.offres-section{
+  margin: 10px;
+ /* padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 5%;*/
+
+
+}
+.offres-section hr {
+  border-radius: 25px;
+  height: 4px;
+  width: 25%;
+  background-color: #9d783d;
+  margin: 0 auto 20px auto;
 }
 
-.header {
-  text-align: center;
+.others-section{
+  margin: 90px;
+  /* background-color: #f9f9f9;
+   border-radius: 5%;
+ */
+ }
+
+
+.others-section hr {
+  border-radius: 25px;
+  height: 4px;
+  width: 25%;
+  background-color: rgb(157, 120, 61);
+  margin: 0 auto 20px auto;
+}
+
+h2 {
   margin-bottom: 20px;
+<<<<<<< HEAD
   background-color: rgba(255, 255, 255, 0.93);
 }
 
@@ -355,8 +464,27 @@ blockquote {
 
 .offer-card h3 {
   text-align: center;
+  color: #333;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  margin: 70px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   padding: 20px;
-  font-size: 1.25rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex: 1; /* Prend un espace égal */
+  margin: 0 10px; /* Espace entre les cartes */
+  height: 200px;
+}
+.card-offre {
   background-color: #fff;
   color: #000;
   margin: 0;
@@ -366,7 +494,46 @@ blockquote {
   color: #39A6A1FF;
   cursor: pointer;
   text-decoration: underline;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex: 1; /* Prend un espace égal */
+  margin: 0 10px; /* Espace entre les cartes */
+  height: 50px;
 }
+
+.card i {
+  font-size: 50px;
+  color: #6e5732; /* Couleur similaire à celle affichée */
+  display: block;
+  margin-bottom: 10px;
+  padding-top: 35px;
+}
+.card-offre i {
+  font-size: 50px;
+  color: #6e5732; /* Couleur similaire à celle affichée */
+  display: block;
+  margin-bottom: 10px;
+  padding-top: 35px;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #6e5732; /* Couleur similaire à celle affichée */
+}
+.card-offre h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #6e5732; /* Couleur similaire à celle affichée */
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgb(110, 87, 50);
+}
+
 /* Alignement des boutons */
 .button-group {
   display: flex;
@@ -384,3 +551,79 @@ blockquote {
   cursor: pointer; /* Change le curseur en pointeur */
 }
 
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .text-section, .image-section {
+    flex: 1 1 100%;
+    padding: 10px;
+  }
+
+  .carousel-caption {
+    top: 30%;
+    transform: translateY(-50%);
+  }
+
+  .carousel-caption h1 {
+    font-size: 2rem;
+  }
+
+  .carousel-caption a {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
+
+  .card {
+    margin: 10px 0;
+  }
+
+  .card-offre {
+    margin: 10px 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .contact-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+
+  .annonces-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-image {
+    height: 30vh;
+  }
+
+  .content {
+    margin: 0;
+  }
+
+  .text-section, .image-section {
+    padding: 10px;
+  }
+
+  .carousel-image {
+    height: auto;
+  }
+
+}

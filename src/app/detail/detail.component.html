@@ -3,7 +3,7 @@
 <div *ngIf="bien" class="bien-detail-container">
   <div class="bien-content">
     <div class="bien-image">
-      <img [src]="'http://localhost:8000/storage/' + bien.imagePath" alt="{{ bien.titre }}" class="img-fluid" />
+      <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
     </div>
 
     <div class="bien-description">
@@ -26,8 +26,12 @@
       </div>
 
       <div class="bien-actions">
-        <button class="btn btn-whatsapp" (click)="reserverWhatsApp()"><i class="flaticon-whatsapp"></i> WhatsApp</button>
-        <button class="btn btn-email" (click)="reserverEmail()"><i class="flaticon-email"></i> Email</button>
+        <button class="btn btn-whatsapp mt-2" (click)="reserverWhatsApp()">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </button>
+        <button class="btn btn-email mt-2" (click)="reserverEmail()">
+          <i class="bi bi-envelope "></i> Email
+        </button>
       </div>
     </div>
   </div>

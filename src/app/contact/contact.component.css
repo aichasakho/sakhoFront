@@ -9,10 +9,9 @@
 .header_section {
   background: #fff;
   padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .navbar-brand h3 {
-    color: #4a4a4a;
+    color: #f5f2f2;
   }
   .navbar-brand span {
     font-size: 14px;
@@ -21,23 +20,25 @@
   .nav-link {
     color: #555;
     &:hover {
-      color: #007bff;
+      color: rgba(48, 148, 144, 0.86);
     }
   }
 }
 
+/*.btn btn-primary{
+  background-color: #FFFFFF;
+}*/
 
 .contact_section {
   position: relative;
   background-size: cover;
   background-position: center;
-  color: #000000;
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: #0b2e13;
+  box-shadow: #f0f3f0;
 }
 
 .contact_section::before {
@@ -47,7 +48,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .contact_section .contact_form {
-  background-color: rgba(110, 110, 110, 0.4);
+  background-color: rgb(255, 255, 255);
   padding: 30px 15px;
   border-radius: 15px;
   width: 100%;
@@ -89,8 +89,6 @@
 
 .contact_section .contact_form form button {
   padding: 7px 45px;
-  background-color: #252525;
-  border: 1px solid #252525;
   color: #ffffff;
   margin-top: 25px;
   font-size: 15px;
@@ -100,13 +98,12 @@
 }
 
 .contact_section .contact_form form button:hover {
-  background-color: transparent;
-  color: #252525;
+  color: #f1e8e8;
 }
 
 /* contact section */
 .contact_section {
-  background-color: #164745;
+  background-color: #287e7a;
   position: relative;
   margin: 95px;
 }
@@ -189,8 +186,8 @@
   padding: 12px 50px;
   text-transform: uppercase;
   margin-top: 25px;
-  background-color: #4bc5b8;
-  color: #fff;
+  background-color: rgb(255, 255, 255);
+  color: rgba(22, 71, 69, 0.86);
   border-radius: 30px;
 }
 
