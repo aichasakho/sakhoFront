@@ -7,7 +7,7 @@ import { Bien } from '../models/bien.model';
   providedIn: 'root'
 })
 export class BiensService {
-  private apiUrl = 'http://127.0.0.1:8000/api/biens';
+  private apiUrl = 'http://192.168.43.172:8000/api/biens';
 
   constructor(private http: HttpClient) {}
 

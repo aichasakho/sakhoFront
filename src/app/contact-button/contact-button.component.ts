@@ -70,7 +70,7 @@ export class ContactButtonComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.showButton = window.scrollY > 100; // Afficher le bouton après avoir défilé de 100 pixels
-    console.log('Scroll position:', window.scrollY, 'Show button:', this.showButton);
+    //console.log('Scroll position:', window.scrollY, 'Show button:', this.showButton);
    }
 
 // Faire défiler vers le haut

@@ -79,7 +79,7 @@ blockquote {
   padding: 10px 20px;
   background-color: #f9f9f9;
   font-family: 'Arial', sans-serif;
-  margin: 5px 90px 90px;
+  margin: 5px 5px 5px;
   border-radius: 5%;
 
 }
@@ -292,7 +292,7 @@ blockquote {
 }
 
 .great-container{
-  margin: 90px;
+  margin: 5px;
   /*background-color: #f9f9f9;
   border-radius: 5%;*/
 
@@ -316,11 +316,12 @@ blockquote {
 .card-footer {
   display: flex;
   justify-content: center; /* Centre les boutons */
-  gap: 30px; /* Espacement entre les boutons */
+  gap: 10px; /* Espacement entre les boutons */
 }
 
 .card-footer button {
-  margin-left: 10px; /* Espacement entre les boutons */}
+  gap: 10px;
+  margin: 5px; /* Espacement entre les boutons */}
 
 /* Pour centrer le bouton "Voir plus" */
 .text-center {
