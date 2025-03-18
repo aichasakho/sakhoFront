@@ -6,6 +6,9 @@ import {BehaviorSubject, Observable, tap} from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+ /* hasAnyRole(arg0: string[]): boolean {
+      throw new Error('Method not implemented.');
+  }*/
 
   private apiUrl = 'http://127.0.0.1:8000/api';
 
@@ -32,9 +35,18 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`, { email, password }).pipe(
       tap((response: any) => {
         localStorage.setItem('authToken', response.token);
+  
+        if (response.user) { 
+          localStorage.setItem('user', JSON.stringify(response.user));
+        }
+        
         this.isAuthenticatedSubject.next(true);
       })
     );
+  }
+  getUser(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
   }
 
   logout(): Observable<any> {
@@ -45,5 +57,33 @@ export class AuthService {
       })
     );
   }
+
+
+  getUserRole(): string | null {
+    const user = localStorage.getItem('user');
+    if (!user) {
+      return null; 
+    }
+  
+    try {
+      return JSON.parse(user).role;
+    } catch (error) {
+      console.error('Erreur de parsing JSON:', error);
+      return null;
+    }
+  }
+  
+
+  hasRole(role: string): boolean {
+    const userRole = this.getUserRole();
+    console.log('User role:', userRole); 
+    return userRole === role;
+  }  
+
+  hasAnyRole(roles: string[]): boolean {
+    const userRole = this.getUserRole();
+    return roles.includes(userRole!);
+  }
+
 
 }

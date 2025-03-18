@@ -7,15 +7,21 @@ import { Bien } from '../models/bien.model';
   providedIn: 'root'
 })
 export class BiensService {
-  private apiUrl = 'http://localhost:8000/api/biens';
+  private apiUrl = 'http://192.168.43.172:8000/api/biens';
 
   constructor(private http: HttpClient) {}
 
   getBiens(): Observable<Bien[]> {
     return this.http.get<Bien[]>(this.apiUrl);
   }
+  getVente(): Observable<Bien[]> {
+    return this.http.get<Bien[]>('http://127.0.0.1:8000/api/vente/');
+  }
+  getLocation(): Observable<Bien[]> {
+    return this.http.get<Bien[]>('http://127.0.0.1:8000/api/location/');
+  }
 
-  getBien(id: number): Observable<Bien> {
+  getBien(id: string | null): Observable<Bien> {
     return this.http.get<Bien>(`${this.apiUrl}/${id}`);
   }
 
@@ -23,10 +29,10 @@ export class BiensService {
     return this.http.post<Bien>(this.apiUrl, bien);
   }
 
-  updateBien(id: number, formData: FormData): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, formData);
-  }
 
+updateBien(bien: FormData): Observable<Bien> {
+  return this.http.post<Bien>('http://127.0.0.1:8000/api/update/', bien);
+}
   deleteBien(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }

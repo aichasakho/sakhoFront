@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BienComponent } from './bien/bien.component';
-import { ReservationComponent } from './reservation/reservation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminBiensComponent } from './admin-biens/admin-biens.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -19,12 +18,13 @@ import { VenteComponent } from './vente/vente.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ListeBiensComponent } from './admin-biens/liste-biens/liste-biens.component';
+import { ContactButtonComponent } from './contact-button/contact-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BienComponent,
-    ReservationComponent,
     AdminBiensComponent,
     ContactComponent,
     EditBienComponent,
@@ -36,6 +36,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     VenteComponent,
     AccueilComponent,
     LogoutComponent,
+    ListeBiensComponent,
+    ContactButtonComponent,
   ],
   imports: [
     BrowserModule,

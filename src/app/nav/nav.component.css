@@ -1,64 +1,82 @@
+/* Styles de base pour la navbar */
+.header {
+  background-color: #ffffff;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.header.navbar-scrolled {
+  background-color: #000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .logo {
-  margin-left: 50px;
-  width: 100px;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-  .logo {
-    width: 120px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    width: 100px;
-  }
-}
-
-.header {
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.header.navbar-scrolled {
-  background-color: #000;
-  color: white;
+  height: 50px; /* Ajustez la taille du logo */
 }
 
 .navbar-nav .nav-link {
-  color: white;
-}
-
-.navbar-nav .nav-link.active {
-  color: #007bff;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #17a2b8;
-}
-
-.header {
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.header.navbar-scrolled {
-  background-color: #000;
-  color: white;
-}
-
-.navbar-nav .nav-link {
-  color: black;
+  color: #000;
+  font-weight: 500;
   transition: color 0.3s;
 }
 
-.header.navbar-scrolled .navbar-nav .nav-link {
-  color: white;
-}
-
-.navbar-nav .nav-link.active {
-  color: #007bff;
-}
-
 .navbar-nav .nav-link:hover {
-  color: #17a2b8;
+  color: #6e5732;
+}
+
+.header.navbar-scrolled .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.header.navbar-scrolled .navbar-nav .nav-link:hover {
+  color: #6e5732;
+}
+
+/* Boutons d'authentification */
+.auth-buttons .btn {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Styles pour mobile */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-nav .nav-item {
+    margin: 10px 0;
+  }
+
+  .auth-buttons {
+    margin-top: 20px;
+  }
+
+  .auth-buttons .btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    text-align: center;
+  }
 }
