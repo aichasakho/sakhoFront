@@ -389,7 +389,7 @@ blockquote {
 
 }
 .offres-section{
-  margin: 90px;
+  margin: 10px;
  /* padding: 40px 20px;
   background-color: #f9f9f9;
   border-radius: 5%;*/
@@ -442,6 +442,17 @@ h2 {
   margin: 0 10px; /* Espace entre les cartes */
   height: 200px;
 }
+.card-offre {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex: 1; /* Prend un espace égal */
+  margin: 0 10px; /* Espace entre les cartes */
+  height: 50px;
+}
 
 .card i {
   font-size: 50px;
@@ -450,8 +461,20 @@ h2 {
   margin-bottom: 10px;
   padding-top: 35px;
 }
+.card-offre i {
+  font-size: 50px;
+  color: #6e5732; /* Couleur similaire à celle affichée */
+  display: block;
+  margin-bottom: 10px;
+  padding-top: 35px;
+}
 
 .card h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #6e5732; /* Couleur similaire à celle affichée */
+}
+.card-offre h3 {
   margin: 0;
   font-size: 1.2em;
   color: #6e5732; /* Couleur similaire à celle affichée */
@@ -508,6 +531,10 @@ h2 {
   }
 
   .card {
+    margin: 10px 0;
+  }
+
+  .card-offre {
     margin: 10px 0;
   }
 
