@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   private notyf: Notyf;
-  private readonly SECRET_CODE = "0987654321234567890"; // Déclaré comme constante de classe
+  private readonly SECRET_CODE = "0987654321234567890"; 
 
   constructor(
     private fb: FormBuilder, 
@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
     if (enteredCode !== this.SECRET_CODE) {
       Swal.fire({
         title: "Permission refusée",
-        text: "Vous n'êtes pas autorisé à créer un compte",
+        text: "code d'autorisation invalide",
         icon: "error",
         confirmButtonText: 'OK'
       });
@@ -76,8 +76,7 @@ export class RegisterComponent implements OnInit {
         const errorMessage = error.error?.message || 'Une erreur est survenue lors de l\'inscription';
         this.notyf.error(errorMessage);
         
-        // Afficher une alerte pour les erreurs spécifiques
-        if (error.status === 409) { // Conflit - email déjà utilisé
+        if (error.status === 409) { 
           Swal.fire({
             title: "Email déjà utilisé",
             text: "L'adresse email est déjà associée à un compte",
