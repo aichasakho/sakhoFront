@@ -10,7 +10,6 @@ import {LoginComponent} from "./login/login.component";
 import {LocationComponent} from "./location/location.component";
 import {VenteComponent} from "./vente/vente.component";
 import {AccueilComponent} from "./accueil/accueil.component";
-import {ContactComponent} from "./contact/contact.component";
 import {ListeBiensComponent} from "./admin-biens/liste-biens/liste-biens.component";
 
 
@@ -27,7 +26,6 @@ const routes: Routes = [
   { path: 'locations', component: LocationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
-  { path: 'contact', component: ContactComponent},
 
   { path: '', redirectTo: '/biens', pathMatch: 'full' },
   { path: '**', redirectTo: '/annonces' }
