@@ -7,7 +7,6 @@ import { BienComponent } from './bien/bien.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminBiensComponent } from './admin-biens/admin-biens.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { ContactComponent } from './contact/contact.component';
 import { EditBienComponent } from './admin-biens/edit-bien/edit-bien.component';
 import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component';
@@ -26,7 +25,6 @@ import { ContactButtonComponent } from './contact-button/contact-button.componen
     AppComponent,
     BienComponent,
     AdminBiensComponent,
-    ContactComponent,
     EditBienComponent,
     NavComponent,
     RegisterComponent,

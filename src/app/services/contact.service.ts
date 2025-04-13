@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment'; // Import de l'environnement
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
-  private apiUrl = 'http://localhost:8000/api/contact'; // Remplacez par votre URL API
+  private apiUrl = `${environment.apiUrl}/contact`; // URL de base pour les biens
 
   constructor(private http: HttpClient) { }
 

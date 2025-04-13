@@ -18,6 +18,15 @@
           <h5>Créer un compte</h5>
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
+              <label for="nom_complet">Code D'autoristation</label>
+              <input
+                type="text"
+                formControlName="code"
+                id="code"
+                class="form-control"
+                placeholder="code"
+                required
+              />
               <label for="nom_complet">Nom Complet</label>
               <input
                 type="text"
