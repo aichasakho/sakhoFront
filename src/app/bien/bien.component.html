@@ -115,7 +115,7 @@
           <div class="card-footer">
             <div class="d-flex justify-content-center">
               <button class="btn btn-voir" [routerLink]="['/detail', bien.id]">Voir plus</button>
-              <button class="btn btn-modif" [routerLink]="['/edit-bien', bien.id]" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Modifier</button>
+              <button class="btn btn-modif mx-2" [routerLink]="['/edit-bien', bien.id]" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Modifier</button>
               <button class="btn btn-supp" (click)="delete(bien.id)" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Supprimer</button>
             </div>
           </div>
