@@ -7,41 +7,34 @@ import { Bien } from '../models/bien.model';
   providedIn: 'root'
 })
 export class BiensService {
-  private apiUrl = 'http://127.0.0.1:8000/api/biens';
-  //private apiUrl = 'http://192.168.43.172:8000/api/biens';
+  //private apiUrl = 'http://127.0.0.1:8000/api/biens';
+  private apiUrl = 'http://172.20.10.10:8000/api/biens';
 
   constructor(private http: HttpClient) {}
-
-  getBiens(): Observable<Bien[]> {
+  getBiens(): Observable<Bien[]>{
     return this.http.get<Bien[]>(this.apiUrl);
   }
   getVente(): Observable<Bien[]> {
-    return this.http.get<Bien[]>('http://127.0.0.1:8000/api/vente/');
+    return this.http.get<Bien[]>('http://172.20.10.10:8000/api/vente/');
   }
   getLocation(): Observable<Bien[]> {
-    return this.http.get<Bien[]>('http://127.0.0.1:8000/api/location/');
+    return this.http.get<Bien[]>('http://172.20.10.10:8000/api/location/');
   }
-
   getBien(id: string | null): Observable<Bien> {
     return this.http.get<Bien>(`${this.apiUrl}/${id}`);
   }
-
   createBien(bien: FormData): Observable<Bien> {
     return this.http.post<Bien>(this.apiUrl, bien);
   }
-
-
 updateBien(bien: FormData): Observable<Bien> {
-  return this.http.post<Bien>('http://127.0.0.1:8000/api/update/', bien);
+  return this.http.post<Bien>('http://172.20.10.10:8000/api/update/', bien);
 }
   deleteBien(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
-
   appelBien(bien: Bien): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/${bien.id}/appeler`, {});
   }
-
   contacterBien(bien: Bien): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/${bien.id}/contacter`, {});
   }

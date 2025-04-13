@@ -1,11 +1,9 @@
-<script src="bien.component.spec.ts"></script>
-<app-nav></app-nav>
 <br><br><br><br><br>
 
 <div class="container-fluid px-0 contain">
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-       <div class="carousel-overlay"></div>
+      <div class="carousel-overlay"></div>
       <div class="carousel-item active">
         <div class="carousel-image">
           <img src="assets/images/frames-for-your-heart-2d4lAQAlbDA-unsplash.jpg" class="d-block w-100 darken-image" alt="...">
@@ -60,68 +58,11 @@
         </div>
       </div>
     </div>
-     <div class="carousel-indicators">
+    <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    <div class="image-section">
-      <img src="assets/images/person_1.jpg" alt="Image de l'agence">
-    </div>
-  </div>
-  <div class="footer">
-    <p>15 ans d’expérience dans l’immobilier au Sénégal</p>
-  </div>
-</div>
-
-
-
-
-
-<div class="annonces-section">
-  <h1 class="section-title">Annonces</h1>
-
-  <div class="annonces-grid">
-    <div class="annonce-item" *ngFor="let bien of biens">
-      <div class="annonce-card">
-        <!--<div class="type-annonce" [ngClass]="{'location': bien.type_annonce === 'location', 'vente': bien.type_annonce === 'vente'}">
-          {{ bien.type_annonce }}
-        </div>-->
-        <div class="annonce-info" [routerLink]="['/detail', bien.id]">
-          <div class="description-container">
-        <img class="img-fluid" style="width:100%;" [src]="bien.imageUrl" alt="{{bien.titre}}">
-        <div class="badge-container">
-          <span class="badge {{ bien.type_annonce == 'location' ? 'bg-primary' : 'bg-success' }}">{{ bien.type_annonce }}</span>
-        </div>
-        <div class="annonce-info">
-          <div class="text">
-            <p class="description">{{ bien.description }}</p>
-            <span class="font-weight-bold">{{ bien.prix }} Fcfa</span>
-            <p>Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
-          </div>
-          <div class="properties">
-            <span><i class="flaticon-area"></i> Superficie: {{ bien.superficie }} m²</span>
-            <span><i class="flaticon-bathtub">🛁</i> {{ bien.nombre_douches }} </span>
-            <span><i class="flaticon-bed">🛏️</i> {{ bien.nombre_chambres }}</span>
-          </div>
-
-          <div class="button-group">
-            <button class="btn btn-outline" [routerLink]="['/detail', bien.id]">Voir plus</button>
-            <button class="btn btn-outline" [routerLink]="['/edit-bien', bien.id]">Modifier</button>
-            <button class="btn btn-outline" (click)="delete(bien.id)">Supprimer</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<br><br>
-  <div class="d-flex justify-content-center align-items-center h-100">
-    <button class="btn btn-outline-secondary btn-lg rounded-pill px-4 py-2" *ngIf="biensToShow.length < biens.length" (click)="loadMore()">
-      Voir plus
-    </button>
-  </div>
-
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -145,7 +86,7 @@
         <p>Fondée en 2009, Djibril Sakho Immobilier est une entreprise familiale qui s'est imposée avec succès sur le marché de l'immobilier au Sénégal. Elle offre une expertise reconnue dans les domaines de la location, de la vente, de la gérance et des prestations de services.</p>
       </div>
       <div class="col-md-6">
-        <img src="assets/images/person_1.jpg" class="img-fluid rounded" alt="Image de l'agence">
+        <img src="assets/images/fam.jpeg" class="img-fluid rounded" alt="Image de l'agence">
       </div>
     </div>
     <div class="footer text-center py-3 mt-4">
@@ -153,38 +94,7 @@
     </div>
   </div>
 </div>
-  </div>
 
-<div class="container">
-  <div class="header">
-    <h1>Nos Offres</h1>
-  </div>
-  <div class="offers">
-    <div class="offer-card">
-      <a href="#" class="card-link">
-        <img src="assets/icons/building-fill.svg" alt="Appartements à louer" class="offer-image">
-        <h3>Appartements à louer</h3>
-      </a>
-    </div>
-
-    <div class="offer-card">
-      <a href="#" class="card-link">
-        <img src="assets/icons/house-fill.svg" alt="Locations meublées" class="offer-image">
-        <h3>Locations meublées</h3>
-      </a>
-    </div>
-    <div class="offer-card">
-      <a href="#" class="card-link">
-        <img src="assets/icons/buildings-fill.svg" alt="Bureaux & Commerces" class="offer-image">
-        <h3>Bureaux & Commerces</h3>
-      </a>
-    </div>
-
-    <div class="offer-card">
-      <a href="#" class="card-link">
-        <img src="assets/icons/houses-fill.svg" alt="Toutes nos offres" class="offer-image">
-        <h3>Toutes nos offres</h3>
-      </a>
 <!-- Section Annonces -->
 <div class="annonces-section py-5">
   <h2 class="text-center mb-4">Annonces</h2>
@@ -220,16 +130,34 @@
   </div>
 </div>
 
-  </div>
 
+<!--<div class="others-section py-5">
+
+  <h2 class="text-center mb-4">DSI Favorites</h2>
+  <hr>
+  <div class="pub">
+    <div class="row align-items-center ">
+
+      <div class="col-md-3">
+        <img src="assets/images/person_2.jpg" class="img-fluid rounded" alt="Image de l'agence" >
+      </div>
+      <div class="col-md-6">
+        <h2>À propos de DSI</h2>
+
+        <p>Fondée en 2009, Djibril Sakho Immobilier est une entreprise familiale qui s'est imposée avec succès sur le marché de l'immobilier au Sénégal.</p>
+      </div>
+    </div>
+
+  </div>
+</div>-->
 
 <!-- Section Nos offres -->
 <div class="offres-section py-5">
-<h2 class="text-center mb-4">Nos offres</h2>
-<hr>
+  <h2 class="text-center mb-4">Nos offres</h2>
+  <hr>
   <div class="row mt-5">
     <div class="col-md-3 mb-4">
-      <div class="card-offre text-center h-100">
+      <div class="card text-center h-100">
         <i class="fas fa-home fa-3x mt-4"></i>
         <div class="card-body">
           <h3>Appartements à louer</h3>
@@ -237,7 +165,7 @@
       </div>
     </div>
     <div class="col-md-3 mb-4">
-      <div class="card-offre text-center h-100">
+      <div class="card text-center h-100">
         <i class="fas fa-couch fa-3x mt-4"></i>
         <div class="card-body">
           <h3>Locations meublées</h3>
@@ -245,7 +173,7 @@
       </div>
     </div>
     <div class="col-md-3 mb-4">
-      <div class="card-offre text-center h-100">
+      <div class="card text-center h-100">
         <i class="fas fa-store fa-3x mt-4"></i>
         <div class="card-body">
           <h3>Bureaux & Commerces</h3>
@@ -253,7 +181,7 @@
       </div>
     </div>
     <div class="col-md-3 mb-4">
-      <div class="card-offre text-center h-100">
+      <div class="card text-center h-100">
         <i class="fas fa-list-alt fa-3x mt-4"></i>
         <div class="card-body">
           <h3>Tous nos locations</h3>
@@ -262,7 +190,4 @@
     </div>
   </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </div>
-</div>

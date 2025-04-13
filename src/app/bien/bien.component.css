@@ -79,8 +79,8 @@ blockquote {
   padding: 10px 20px;
   background-color: #f9f9f9;
   font-family: 'Arial', sans-serif;
-  margin: 5px 5px 5px;
   border-radius: 5%;
+  margin: 70px;
 
 }
 
@@ -292,7 +292,7 @@ blockquote {
 }
 
 .great-container{
-  margin: 5px;
+  margin: 15px;
   /*background-color: #f9f9f9;
   border-radius: 5%;*/
 
@@ -376,21 +376,23 @@ blockquote {
 
   background-color: #6e5732;
   text-align: center;
-  padding: 5px;
+  padding: 2px;
   color: #FFFFFF;
   border-style: double;
+  margin: 5px;
+
   -webkit-border-radius: 25px 200px  25px 200px;
 }
 /*dernier section avant footer */
 
 .containeer {
-  max-width: 100%;
   text-align: left;
-  margin: 25px;
+  margin-left: 35px;
+
 
 }
 .offres-section{
-  margin: 10px;
+  margin: 70px;
  /* padding: 40px 20px;
   background-color: #f9f9f9;
   border-radius: 5%;*/
@@ -405,25 +407,9 @@ blockquote {
   margin: 0 auto 20px auto;
 }
 
-.others-section{
-  margin: 90px;
-  /* background-color: #f9f9f9;
-   border-radius: 5%;
- */
- }
-
-
-.others-section hr {
-  border-radius: 25px;
-  height: 4px;
-  width: 25%;
-  background-color: rgb(157, 120, 61);
-  margin: 0 auto 20px auto;
-}
 
 h2 {
   margin-bottom: 20px;
-<<<<<<< HEAD
   background-color: rgba(255, 255, 255, 0.93);
 }
 
