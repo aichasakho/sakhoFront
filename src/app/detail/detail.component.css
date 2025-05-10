@@ -59,7 +59,7 @@
 .bien-price,
 .bien-availability {
   font-size: 1.4rem;
-  color: #28a745;
+  color: #9d783d;
   margin-bottom: 15px;
 }
 
@@ -83,59 +83,56 @@
 
 .properties i {
   margin-right: 10px;
-  color: #007bff;
+  color: #9d783d;
 }
 
 .bien-actions {
   display: flex;
-  gap: 20px;
+  gap: 20px; /* Espace entre les boutons */
   margin-top: 30px;
   flex-wrap: wrap;
+  justify-content: center; /* Centrer les boutons horizontalement */
 }
 
 .bien-actions button {
-  padding: 15px 30px;
-  font-size: 1.3rem;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  flex-grow: 1;
-  width: calc(33% - 10px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    max-width: 250px; /* Largeur maximale pour les boutons */
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #9d783d; /* Bordure pour le style outline */
+    background-color: transparent; /* Fond transparent */
+    color: #9d783d; /* Couleur du texte */
+    transition: background-color 0.3s, color 0.3s; /* Transition pour l'effet de survol */
 }
 
-.bien-actions .btn-outline-primary {
-  background-color: #007bff;
-  color: white;
-  border: none;
-}
-
-.bien-actions .btn-outline-primary:hover {
-  background-color: #0056b3;
-  cursor: pointer;
+.bien-actions button:hover {
+  background-color: #9d783d; /* Couleur de fond au survol */
+  color: white; /* Couleur du texte au survol */
 }
 
 .bien-actions .btn-whatsapp {
-  background-color: #25D366;
-  color: white;
-  border: none;
+  background-color: transparent; /* Fond transparent */
+  border: 2px solid #9d783d; /* Bordure verte */
+  color: #9d783d; /* Couleur du texte */
 }
 
 .bien-actions .btn-whatsapp:hover {
-  background-color: #128C7E;
-  cursor: pointer;
+  background-color: #6e5732; /* Fond au survol */
+  color: white; /* Couleur du texte au survol */
 }
 
+
 .bien-actions .btn-email {
-  background-color: #17a2b8;
-  color: white;
-  border: none;
+  background-color: transparent; /* Fond transparent */
+  border: 2px solid #9d783d; /* Bordure bleue */
+  color: #9d783d; /* Couleur du texte */
 }
 
 .bien-actions .btn-email:hover {
-  background-color: #117a8b;
-  cursor: pointer;
+  background-color: #6e5732; /* Fond au survol */
+  color: white; /* Couleur du texte au survol */
 }
 
 .bien-actions i {
@@ -147,6 +144,7 @@
   .bien-content {
     flex-direction: column;
     padding: 20px;
+    width: 100%;
   }
 
   .bien-image {

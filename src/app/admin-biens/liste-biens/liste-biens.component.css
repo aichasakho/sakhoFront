@@ -1,0 +1,33 @@
+/* Assurez-vous que le body et le html ont une hauteur de 100% */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Wrapper pour le layout */
+.wrapper {
+  display: flex;
+  height: 100vh; /* Hauteur de la fenêtre */
+}
+
+/* Navbar */
+.navbar {
+  z-index: 1000; /* Pour le garder au-dessus du contenu */
+}
+
+/* Sidebar */
+.sidebar {
+  min-height: 100vh; /* S'assurer que la sidebar prend toute la hauteur */
+  position: fixed; /* Rendre la sidebar fixe */
+  left: 0; /* Positionner à gauche */
+  top: 70px; /* Ajuster pour la hauteur du navbar */
+  width: 260px; /* Largeur fixe de la sidebar */
+
+}
+
+/* Contenu principal */
+.container-fluid {
+  margin-left: 5px; /* Décalage pour la sidebar */
+  padding: 20px; /* Ajout de padding pour le contenu */
+  flex-grow: 1; /* Permet au contenu de grandir */
+}

@@ -10,22 +10,21 @@
   background: #fff;
   padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  .navbar-brand h3 {
-    color: #4a4a4a;
-  }
-  .navbar-brand span {
-    font-size: 14px;
-    color: #888;
-  }
-  .nav-link {
-    color: #555;
-    &:hover {
-      color: #007bff;
-    }
-  }
+}
+.navbar-brand-h3 {
+  color: #4a4a4a;
+}
+.navbar-brand span {
+  font-size: 14px;
+  color: #888;
+}
+.nav-link {
+  color: #555;
 }
 
+.nav-link:hover {
+  color: #007bff;
+}
 
 .register_section {
   position: relative;

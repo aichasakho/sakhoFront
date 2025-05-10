@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import { OnInit, HostListener } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from "../services/auth-service.service";
+import { Component, Renderer2, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -12,8 +13,11 @@ export class NavComponent implements OnInit {
   isScrolled: boolean = false;
   dropdownOpen: boolean = false;
   activeLink: string = '';
-
-  constructor(public router: Router, private authService: AuthService) {
+  user: any;
+  isMenuOpen = false;
+  constructor(public router: Router, private authService: AuthService,
+    private renderer: Renderer2, private el: ElementRef
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.activeLink = event.urlAfterRedirects;
@@ -22,9 +26,12 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user = this.authService.getUser();
     this.authService.isAuthenticated$.subscribe((authStatus) => {
       this.isAuthenticated = authStatus;
+  
     });
+
   }
 
   @HostListener('window:scroll', [])
@@ -40,12 +47,14 @@ export class NavComponent implements OnInit {
     });
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event) {
-    this.isScrolled = window.scrollY > 50;
-  }
-
   isActiveLink(link: string): boolean {
     return this.activeLink === link;
   }
+  closeNavbar() {
+    const navbarCollapse = this.el.nativeElement.querySelector('.navbar-collapse');
+    this.renderer.removeClass(navbarCollapse, 'show');
+  }
+ toggleNavbar() {
+      this.isMenuOpen = !this.isMenuOpen; // Change l'état du menu (ouvert/fermé)
+    }
 }

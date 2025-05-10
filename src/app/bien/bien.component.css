@@ -1,98 +1,197 @@
-.home-banner {
-  margin-top: -100px;
+/* ================ GLOBAL STYLES ================ */
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #333;
+}
+
+p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* ================ CAROUSEL SECTION ================ */
+.contain {
+  position: relative;
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
   position: relative;
   width: 100%;
-  height: 20vh;
   overflow: hidden;
-  margin-bottom: 40px;
 }
 
-.banner-image {
-  width: 100%;
-  height: 20%;
-  object-fit: cover;
-  filter: brightness(0.3);
-}
-
-.banner-overlay {
+.carousel-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
-.banner-text {
+.carousel-item {
+  position: relative;
+  display: none;
+  align-items: center;
+  width: 100%;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-image {
+  height: 80vh;
+  overflow: hidden;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.carousel-caption {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
-.banner-text h2 {
-  font-size: 4rem;
-  font-weight: bold;
+.detail-box {
+  background-color: rgba(110, 87, 50, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.banner-text p {
-  font-size: 1.5rem;
-  margin-top: 10px;
-  font-weight: 300;
+.detail-box h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: white;
 }
 
+.detail-box h4 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: white;
+}
 
+/* ================ ABOUT SECTION ================ */
+.debut {
+  background-color: rgb(110, 87, 50);
+  padding: 15px;
+  text-align: center;
+  color: #FFFFFF;
+  border-style: double;
+  border-radius: 25px 200px 25px 200px;
+  margin: 40px auto;
+  max-width: 80%;
+}
 
+.great-container {
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.containeer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.containeer h2 {
+  color: #6e5732;
+  margin-bottom: 20px;
+}
+
+.containeer img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  background-color: #6e5732;
+  text-align: center;
+  padding: 15px;
+  color: #FFFFFF;
+  border-style: double;
+  border-radius: 25px 200px 25px 200px;
+  margin-top: 30px;
+}
+
+.footer h5 {
+  margin: 0;
+}
+
+/* ================ PROPERTIES SECTION ================ */
 .annonces-section {
   padding: 40px 20px;
   background-color: #f9f9f9;
-  font-family: 'Arial', sans-serif;
+  margin: 40px auto;
 }
 
-.annonces-section h1 {
-  font-size: 36px;
-  color: #333;
+.annonces-section h2 {
+  font-size: 2.5rem;
   text-align: center;
   margin-bottom: 20px;
+  color: #6e5732;
 }
 
 .annonces-section hr {
   border: none;
   height: 4px;
-  background-color: #007bff;
-  margin: 0 auto 20px auto;
+  width: 150px;
+  background-color: #9d783d;
+  margin: 0 auto 30px auto;
 }
 
-.annonces-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.annonce-item {
-  background-color: #fff;
+.card {
+  border: none;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  margin-bottom: 20px;
 }
 
-.annonce-item:hover {
+.card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.annonce-item img {
+.card-img-top {
   width: 100%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
 }
 
-.annonce-item .badge {
+.badge {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -100,122 +199,184 @@
   font-size: 14px;
   color: #fff;
   border-radius: 4px;
+  background-color: #9d783d;
 }
 
-.annonce-info {
+.card-body {
   padding: 20px;
 }
 
-.annonce-info .text {
-  margin-bottom: 10px;
+.card-footer {
+  background-color: transparent;
+  border-top: none;
+  padding: 15px;
 }
 
-.annonce-info .text p {
-  margin: 0 0 10px;
-  color: #666;
+/* ================ OFFERS SECTION ================ */
+.offres-section {
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 1200px;
 }
 
-.annonce-info .text .font-weight-bold {
-  font-size: 20px;
-  color: #333;
+.offres-section h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #6e5732;
 }
 
-.annonce-info .properties {
-  margin: 15px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.offres-section hr {
+  border: none;
+  height: 4px;
+  width: 150px;
+  background-color: #9d783d;
+  margin: 0 auto 30px auto;
 }
 
-.annonce-info .properties span {
-  color: #555;
-  font-size: 14px;
-}
-
-.annonce-info button {
-  display: block;
-  margin: 10px auto 0;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 50px;
-  color: #007bff;
-  border: 2px solid #007bff;
+.card-offre {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 30px 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
-}
-
-.annonce-info button:hover {
-  background-color: #007bff;
-  color: #fff;
-}
-
-.home-banner {
-  margin-top: -90px;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  margin-bottom: 40px;
-}
-
-.banner-image {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: brightness(0.3);
+  margin-bottom: 20px;
 }
 
-.banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+.card-offre:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(110, 87, 50, 0.2);
+  border-color: #6e5732;
 }
 
-.banner-drawing {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+.card-offre i {
+  color: #6e5732;
+  margin-bottom: 20px;
 }
 
-.banner-text {
-  position: absolute;
-  top: 30%;
-  left: 30px;
-  transform: translateY(-50%);
-  text-align: left;
-  color: white;
-  z-index: 2;
-}
-
-.banner-text h2 {
-  font-size: 4rem;
-  font-weight: bold;
-}
-
-.banner-text p {
+.card-offre h3 {
+  color: #6e5732;
   font-size: 1.5rem;
-  margin-top: 10px;
-  font-weight: 300;
 }
 
+/* ================ BUTTONS ================ */
 .contact-button {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px 20px;
-  background-color: #007bff;
+  padding: 12px 30px;
+  background-color: #9d783d;
   color: white;
   text-decoration: none;
   border-radius: 50px;
   font-size: 1rem;
   transition: all 0.3s ease;
+  border: 2px solid #9d783d;
 }
 
 .contact-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.1);
+  background-color: transparent;
+  color: #9d783d;
+  transform: scale(1.05);
+}
+
+.btn-voir {
+  background-color: #6e5732;
+  color: white;
+  border: 2px solid #6e5732;
+}
+
+.btn-voir:hover {
+  background-color: transparent;
+  color: #6e5732;
+}
+
+.btn-modif {
+  background-color: #2c6e49;
+  color: white;
+  border: 2px solid #2c6e49;
+}
+
+.btn-modif:hover {
+  background-color: transparent;
+  color: #2c6e49;
+}
+
+.btn-supp {
+  background-color: #c1121f;
+  color: white;
+  border: 2px solid #c1121f;
+}
+
+.btn-supp:hover {
+  background-color: transparent;
+  color: #c1121f;
+}
+
+/* ================ RESPONSIVE ================ */
+@media (max-width: 992px) {
+  .carousel-image {
+    height: 60vh;
+  }
+  
+  .detail-box h3 {
+    font-size: 1.5rem;
+  }
+  
+  .detail-box h4 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 50vh;
+  }
+  
+  .detail-box {
+    padding: 20px;
+    max-width: 90%;
+  }
+  
+  .detail-box h3 {
+    font-size: 1.3rem;
+  }
+  
+  .detail-box h4 {
+    font-size: 1.5rem;
+  }
+  
+  .annonces-section .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .offres-section .col-md-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-image {
+    height: 40vh;
+  }
+  
+  .detail-box {
+    padding: 15px;
+  }
+  
+  .detail-box h3 {
+    font-size: 1.1rem;
+  }
+  
+  .detail-box h4 {
+    font-size: 1.3rem;
+  }
+  
+  .offres-section .col-md-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }

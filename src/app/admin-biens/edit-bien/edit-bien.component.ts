@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { BiensService } from '../../services/bien.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BiensService } from '../../services/bien.service';
 import { Bien } from '../../models/bien.model';
+import { FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-bien',
@@ -10,82 +11,105 @@ import { Bien } from '../../models/bien.model';
   styleUrls: ['./edit-bien.component.css']
 })
 export class EditBienComponent implements OnInit {
-  bienForm!: FormGroup;
-  selectedFile?: File;
-  bienId!: number;
-
-  constructor(
-    private fb: FormBuilder,
-    private bienService: BiensService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {
-    this.bienForm = this.fb.group({
-      titre: ['', Validators.required],
-      description: ['', Validators.required],
-      prix: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      type: ['', Validators.required]
-    });
-
-    this.bienId = Number(this.route.snapshot.paramMap.get('id'));
-
-    this.loadBienData();
-  }
-
-  loadBienData(): void {
-    this.bienService.getBien(this.bienId).subscribe(
-      (data) => {
-        this.bienForm.patchValue({
-          titre: data.titre,
-          description: data.description,
-          prix: data.prix,
-          type: data.type
-        });
-      },
-      (error) => {
-        console.error('Erreur lors du chargement du bien', error);
-        alert('Bien introuvable');
-      }
-    );
-  }
-
-  onSubmit(): void {
-    if (this.bienForm.valid) {
-      const formData = new FormData();
-      if (this.selectedFile) {
-        formData.append('imagePath', this.selectedFile, this.selectedFile.name);
-      }
-
-      this.bienService.updateBien(this.bienId, formData).subscribe(
-        (response) => {
-          console.log("Mise à jour réussie", response);
-          this.router.navigate(['/biens']);
-        },
-        (error) => {
-          if (error.error && error.error.errors) {
-            let errorMessage = 'Erreur lors de la mise à jour: ';
-            for (const key in error.error.errors) {
-              errorMessage += `${key}: ${error.error.errors[key].join(', ')}; `;
-            }
-            alert(errorMessage);
-          } else {
-            alert('Une erreur inconnue est survenue.');
+ 
+    idBien!:any
+    biens: Bien[] = [];
+  veriForm = false;
+  bienForm = this.formBuilder.group({
+    id :[''],
+    titre: ['', Validators.required],
+    description: ['', Validators.required],
+    prix: ['', Validators.required],
+    imagePath: [null],
+    disponible: ['1'],
+    type: ['', Validators.required],
+    type_annonce: ['', Validators.required],
+    nombre_chambres: ['', Validators.required],
+    nombre_douches: ['', Validators.required],
+    superficie: ['', Validators.required],
+  });
+  
+    constructor(
+      private formBuilder: FormBuilder,
+      private router: Router,
+      private route: ActivatedRoute,
+      private bienService: BiensService,
+  
+    ) {}
+  
+    ngOnInit(): void {
+      // Récupérer le paramètre 'id' depuis l'URL
+      this.route.paramMap.subscribe(params => {
+        this.idBien = params.get('id');
+        this.bienService.getBienById(this.idBien).subscribe(
+          (data)=>{
+            console.log(data)
+            this.bienForm.get("titre")?.setValue(""+data.titre)
+            this.bienForm.get("description")?.setValue(""+data.description)
+            this.bienForm.get("prix")?.setValue(""+data.prix)
+            this.bienForm.get("type")?.setValue(""+data.type)
+            this.bienForm.get("type_annonce")?.setValue(""+data.type_annonce)
+            this.bienForm.get("nombre_chambres")?.setValue(""+data.nombre_chambres)
+            this.bienForm.get("nombre_douches")?.setValue(""+data.nombre_douches)
+            this.bienForm.get("superficie")?.setValue(""+data.superficie)
+          },
+          (Error)=>{
+  
           }
-        }
-      );
-    } else {
-      console.error("Erreur lors de la soumission. Vérifiez les champs.");
+        )
+      }); 
+  
+    
     }
-  }
-
-
-  onFileSelected(event: Event): void {
-    const file = (event.target as HTMLInputElement).files?.[0];
-    if (file) {
-      this.selectedFile = file;
-      console.log("File selected:", file);
+  
+    
+    onFileChange(event: any) {
+      if (event.target.files.length > 0) {
+        const file = event.target.files[0];
+        this.bienForm.patchValue({
+          imagePath: file
+        });
+      }
     }
-  }
+   
+    modifiBien() {
+      this.veriForm = true;
+      if (this.bienForm.invalid) {
+        return;
+      } else {
+           const formData = new FormData();
+           
+           formData.append('id', this.idBien);
+           formData.append('titre', this.bienForm.get('titre')?.value || '');
+           formData.append('description', this.bienForm.get('description')?.value || '');
+           formData.append('prix', this.bienForm.get('prix')?.value || '');
+           formData.append('imagePath', this.bienForm.get('imagePath')?.value || '');
+           formData.append('disponible', this.bienForm.get('disponible')?.value || '1');
+           formData.append('type', this.bienForm.get('type')?.value || '');
+           formData.append('type_annonce', this.bienForm.get('type_annonce')?.value || '');
+           formData.append('nombre_chambres', this.bienForm.get('nombre_chambres')?.value || '');
+           formData.append('nombre_douches', this.bienForm.get('nombre_douches')?.value || '');
+           formData.append('superficie', this.bienForm.get('superficie')?.value || '');
+
+           for (const pair of (formData as any).entries()) {
+              console.log(pair[0] + ': ' + pair[1]);
+            }
+           this.bienService.updateBien(formData).subscribe(
+            (data) => {
+               console.log(data);
+               Swal.fire({
+                 position: "top-end",
+                 icon: "success",
+                 title: "Modification  avec success",
+                 showConfirmButton: false,
+                 timer: 1500
+               });
+               this.router.navigate(['biens']);
+             },
+             (error) => {
+               console.log(error);
+             }
+           );
+         }
+       }
 }
