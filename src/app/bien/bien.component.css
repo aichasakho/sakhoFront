@@ -609,11 +609,11 @@ h2 {
   .carousel-image {
     height: 60vh;
   }
-  
+
   .detail-box h3 {
     font-size: 1.5rem;
   }
-  
+
   .detail-box h4 {
     font-size: 1.8rem;
   }
@@ -623,25 +623,25 @@ h2 {
   .carousel-image {
     height: 50vh;
   }
-  
+
   .detail-box {
     padding: 20px;
     max-width: 90%;
   }
-  
+
   .detail-box h3 {
     font-size: 1.3rem;
   }
-  
+
   .detail-box h4 {
     font-size: 1.5rem;
   }
-  
+
   .annonces-section .col-md-4 {
     flex: 0 0 100%;
     max-width: 100%;
   }
-  
+
   .offres-section .col-md-3 {
     flex: 0 0 50%;
     max-width: 50%;
@@ -652,19 +652,19 @@ h2 {
   .carousel-image {
     height: 40vh;
   }
-  
+
   .detail-box {
     padding: 15px;
   }
-  
+
   .detail-box h3 {
     font-size: 1.1rem;
   }
-  
+
   .detail-box h4 {
     font-size: 1.3rem;
   }
-  
+
   .offres-section .col-md-3 {
     flex: 0 0 100%;
     max-width: 100%;

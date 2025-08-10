@@ -104,6 +104,7 @@
       <div class="col-md-4 mb-4" *ngFor="let bien of biens">
         <div class="card h-100">
           <div class="card-content">
+            <p>{{bien.imageUrl}}</p>
             <img [src]="bien.imageUrl" class="card-img-top" alt="{{bien.titre}}">
             <div class="card-body">
               <div class="badge  mb-2">{{ bien.type_annonce }}</div>
@@ -131,25 +132,6 @@
 </div>
 
 
-<!--<div class="others-section py-5">
-
-  <h2 class="text-center mb-4">DSI Favorites</h2>
-  <hr>
-  <div class="pub">
-    <div class="row align-items-center ">
-
-      <div class="col-md-3">
-        <img src="assets/images/person_2.jpg" class="img-fluid rounded" alt="Image de l'agence" >
-      </div>
-      <div class="col-md-6">
-        <h2>À propos de DSI</h2>
-
-        <p>Fondée en 2009, Djibril Sakho Immobilier est une entreprise familiale qui s'est imposée avec succès sur le marché de l'immobilier au Sénégal.</p>
-      </div>
-    </div>
-
-  </div>
-</div>-->
 
 <!-- Section Nos offres -->
 <div class="offres-section py-5">
@@ -157,7 +139,7 @@
   <hr>
   <div class="row mt-5">
     <div class="col-md-3 mb-4">
-      <div class="card text-center h-100">
+      <div class="card-offre text-center h-100">
         <i class="fas fa-home fa-3x mt-4"></i>
         <div class="card-body">
           <h3>Appartements à louer</h3>
@@ -165,7 +147,7 @@
       </div>
     </div>
     <div class="col-md-3 mb-4">
-      <div class="card text-center h-100">
+      <div class="card-offre text-center h-100">
         <i class="fas fa-couch fa-3x mt-4"></i>
         <div class="card-body">
           <h3>Locations meublées</h3>
@@ -173,7 +155,7 @@
       </div>
     </div>
     <div class="col-md-3 mb-4">
-      <div class="card text-center h-100">
+      <div class="card-offre text-center h-100">
         <i class="fas fa-store fa-3x mt-4"></i>
         <div class="card-body">
           <h3>Bureaux & Commerces</h3>
@@ -181,7 +163,7 @@
       </div>
     </div>
     <div class="col-md-3 mb-4">
-      <div class="card text-center h-100">
+      <div class="card-offre text-center h-100">
         <i class="fas fa-list-alt fa-3x mt-4"></i>
         <div class="card-body">
           <h3>Tous nos locations</h3>
