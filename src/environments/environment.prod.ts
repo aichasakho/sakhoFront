@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://votre-domaine.com/api'
+    apiUrl: 'https://dsakhoimmo-3fc49115a881.herokuapp.com/api'
   };
