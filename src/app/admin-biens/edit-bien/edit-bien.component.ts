@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./edit-bien.component.css']
 })
 export class EditBienComponent implements OnInit {
- 
+
     idBien!:any
     biens: Bien[] = [];
   veriForm = false;
@@ -28,15 +28,15 @@ export class EditBienComponent implements OnInit {
     nombre_douches: ['', Validators.required],
     superficie: ['', Validators.required],
   });
-  
+
     constructor(
       private formBuilder: FormBuilder,
       private router: Router,
       private route: ActivatedRoute,
       private bienService: BiensService,
-  
+
     ) {}
-  
+
     ngOnInit(): void {
       // Récupérer le paramètre 'id' depuis l'URL
       this.route.paramMap.subscribe(params => {
@@ -54,15 +54,15 @@ export class EditBienComponent implements OnInit {
             this.bienForm.get("superficie")?.setValue(""+data.superficie)
           },
           (Error)=>{
-  
+
           }
         )
-      }); 
-  
-    
+      });
+
+
     }
-  
-    
+
+
     onFileChange(event: any) {
       if (event.target.files.length > 0) {
         const file = event.target.files[0];
@@ -71,14 +71,14 @@ export class EditBienComponent implements OnInit {
         });
       }
     }
-   
+
     modifiBien() {
       this.veriForm = true;
       if (this.bienForm.invalid) {
         return;
       } else {
            const formData = new FormData();
-           
+
            formData.append('id', this.idBien);
            formData.append('titre', this.bienForm.get('titre')?.value || '');
            formData.append('description', this.bienForm.get('description')?.value || '');
@@ -100,7 +100,7 @@ export class EditBienComponent implements OnInit {
                Swal.fire({
                  position: "top-end",
                  icon: "success",
-                 title: "Modification  avec success",
+                 title: "Modifié  avec success",
                  showConfirmButton: false,
                  timer: 1500
                });

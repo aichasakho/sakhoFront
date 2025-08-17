@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment'; // Import de l'env
   providedIn: 'root'
 })
 export class BiensService {
+
   private apiUrl = `${environment.apiUrl}/biens`; // URL de base pour les biens
   private venteUrl = `${environment.apiUrl}/vente`; // URL pour les ventes
   private locationUrl = `${environment.apiUrl}/location`; // URL pour les locations
@@ -22,6 +23,7 @@ export class BiensService {
 
   // Biens en vente
   getVente(): Observable<Bien[]> {
+
     return this.http.get<Bien[]>(this.venteUrl);
   }
 

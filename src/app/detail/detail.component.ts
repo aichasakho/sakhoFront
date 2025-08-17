@@ -39,14 +39,15 @@ export class DetailComponent implements OnInit {
 
   reserverWhatsApp(): void {
     const message = `Je souhaite réserver le bien: ${this.bien.titre} avec le prix de ${this.bien.prix} FCFA.`;
-    const phoneNumber = '+221776819474';
+    const phoneNumber = '+221776660967';
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
   }
 
   reserverEmail(): void {
     const subject = `Réservation pour ${this.bien.titre}`;
     const body = `Je souhaite réserver le bien suivant :\n\nTitre: ${this.bien.titre}\nPrix: ${this.bien.prix} FCFA\nDescription: ${this.bien.description}`;
-    const email = 'aichasakho2205@gmail.com';
+
+    const email = 'sakhomouhamadou@gmail.com';
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 }
