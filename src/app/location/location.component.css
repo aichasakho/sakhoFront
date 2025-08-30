@@ -1,0 +1,85 @@
+/* Styles globaux */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+/* Styles des cartes d'annonces */
+.annonces-section {
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  margin: 5px;
+  border-radius: 5%;
+}
+
+.annonces-section h1 {
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.annonces-section hr {
+  border-radius: 25px;
+  height: 4px;
+  width: 25%;
+  background-color: #9d783d;
+  margin: 0 auto 20px auto;
+}
+
+.annonces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.annonce-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.badge {
+  background-color: #9d783d;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+/* Styles des boutons */
+.btn {
+  background-color: transparent;
+  border: 2px solid #8B4513;
+  color: #8B4513;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background-color: #8B4513;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .annonces-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .annonces-section h1 {
+    font-size: 2rem;
+  }
+}

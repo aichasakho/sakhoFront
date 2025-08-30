@@ -1,42 +1,76 @@
 <div class="header navbar navbar-expand-lg navbar-light shadow-sm p-3 fixed-top" [class.navbar-scrolled]="isScrolled">
-  <a routerLink="/" class="nav-link" [class.active]="isActiveLink('/')"><img src="../assets/images/logo.png" class="logo" alt="Logo" /></a>
+  <!-- Logo -->
+  <a routerLink="/" class="navbar-brand" [class.active]="isActiveLink('/')">
+    <img src="assets/images/logo.png" class="logo" alt="Logo" />
+  </a>
 
-  <nav class="navbar-collapse">
-    <ul class="navbar-nav ms-auto">
+  <!-- Bouton de bascule pour mobile -->
+  <button
+  class="navbar-toggler"
+  type="button"
+  aria-controls="navbarCollapse"
+  [attr.aria-expanded]="isMenuOpen"
+  aria-label="Toggle navigation"
+  (click)="toggleNavbar()"
+>
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+  <!-- Menu -->
+  <div class="collapse navbar-collapse" id="navbarCollapse" [class.show]="isMenuOpen">
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <!-- Liens du menu -->
       <li class="nav-item me-4">
-        <a routerLink="/" class="nav-link" [class.active]="isActiveLink('/')">Accueil</a>
+        <a routerLink="/" class="nav-link" (click)="closeNavbar()">Accueil</a>
+      </li>
+
+      <li class="nav-item me-4" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">
+        <a routerLink="/admin/biens" class="nav-link" (click)="closeNavbar()">Ajouter un Bien</a>
       </li>
       <li class="nav-item me-4">
-        <a routerLink="/locations" class="nav-link" [class.active]="isActiveLink('/locations')">Locations</a>
+        <a routerLink="/locations" class="nav-link" (click)="closeNavbar()">Locations</a>
       </li>
       <li class="nav-item me-4">
-        <a routerLink="/ventes" class="nav-link" [class.active]="isActiveLink('/ventes')">Ventes</a>
+        <a routerLink="/ventes" class="nav-link" (click)="closeNavbar()">Ventes</a>
       </li>
+      <!--<li class="nav-item me-4">
+        <a routerLink="/contact" class="nav-link" (click)="closeNavbar()">Contact</a>
+      </li>-->
       <li class="nav-item me-4">
-        <a routerLink="/contact" class="nav-link" [class.active]="isActiveLink('/contact')">Contact</a>
-      </li>
-      <li class="nav-item me-4">
-        <a routerLink="/admin/biens" class="nav-link" [class.active]="isActiveLink('/admin/biens')">Dashboard</a>
+        <a href="tel:+221775789119" class="nav-link" (click)="closeNavbar()">
+          <i class="fas fa-phone-alt"></i> +221 77 666 09 67
+        </a>
       </li>
     </ul>
-  </nav>
 
-  <div class="auth-buttons d-flex align-items-center">
-    <div *ngIf="!isAuthenticated" class="d-flex">
-      <a routerLink="/login" class="btn btn-primary me-2">Se connecter</a>
-      <a routerLink="/register" class="btn btn-outline-secondary">S'inscrire</a>
+    <!-- Boutons d'authentification -->
+    <div class="auth-buttons d-flex align-items-center ms-lg-3">
+      <!-- Non authentifié -->
+      <div *ngIf="!isAuthenticated" class="d-flex">
+
+        <a routerLink="/login" class="btn btn-outline-success me-2" (click)="closeNavbar()">Se connecter</a>
+        <a routerLink="/register" class="btn btn-outline-secondary" (click)="closeNavbar()">S'inscrire</a>
+      </div>
+
+      <!-- Authentifié -->
+      <div *ngIf="isAuthenticated" class="dropdown" (mouseenter)="dropdownOpen = true" (mouseleave)="dropdownOpen = false">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="userMenuButton" [attr.aria-expanded]="dropdownOpen ? 'true' : 'false'">
+          <i class="fas fa-user-circle"></i> Compte
+        </button>
+        <ul class="dropdown-menu" [class.show]="dropdownOpen">
+          <li><a class="dropdown-item" routerLink="/profile" (click)="closeNavbar()">Profil</a></li>
+          <li><a class="dropdown-item" routerLink="/settings" (click)="closeNavbar()">Paramètres</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><button class="dropdown-item text-danger" (click)="logout(); closeNavbar()">Se déconnecter</button></li>
+        </ul>
+      </div>
     </div>
 
-    <div *ngIf="isAuthenticated" class="dropdown" (mouseenter)="dropdownOpen = true" (mouseleave)="dropdownOpen = false">
-      <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="userMenuButton" [attr.aria-expanded]="dropdownOpen ? 'true' : 'false'">
-        <i class="fas fa-user-circle"></i>Compte
-      </button>
-      <ul class="dropdown-menu" [class.show]="dropdownOpen">
-        <li><a class="dropdown-item" routerLink="/profile">Profil</a></li>
-        <li><a class="dropdown-item" routerLink="/settings">Paramètres</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><button class="dropdown-item text-danger" (click)="logout()">Se déconnecter</button></li>
-      </ul>
-    </div>
+
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
   </div>
 </div>

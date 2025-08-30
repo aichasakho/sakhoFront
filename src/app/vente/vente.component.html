@@ -1,1 +1,38 @@
-<p>vente works!</p>
+<app-nav></app-nav>
+<br><br><br><br><br>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+<!-- Section Annonces -->
+<div class="annonces-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Article en Vente</h2>
+    <hr>
+    <br>
+    <div class="row">
+      <div class="col-md-3 mb-4" *ngFor="let bien of biens">
+        <div class="card h-100">
+          <p>{{bien.imageUrl}}</p>
+          <img [src]="bien.imageUrl" class="card-img-top" alt="{{bien.titre}}">
+          <div class="card-body">
+            <div class="badge  mb-2">{{ bien.type_annonce }}</div>
+            <p class="card-text" style="text-align: justify;">{{ bien.description }}</p>
+            <p class="card-text"><strong>{{ bien.prix }} Fcfa</strong></p>
+            <p class="card-text">Disponible: {{ bien.disponible ? 'Oui' : 'Non' }}</p>
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+              <button class="btn btn-outline-primary " [routerLink]="['/detail', bien.id]">Voir plus</button>
+              <button class="btn btn-outline-secondary" [routerLink]="['/edit-bien', bien.id]" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Modifier</button>
+              <button class="btn btn-outline-danger" (click)="delete(bien.id)" *ngIf="isAuthenticated && (user?.role=='admin' || user?.role=='super_admin')">Supprimer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button class="btn btn-secondary btn-lg" *ngIf="biensToShow.length < biens.length" (click)="loadMore()">
+        Voir plus de biens
+      </button>
+    </div>
+  </div>
+</div>

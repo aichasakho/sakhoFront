@@ -1,71 +1,79 @@
-/* Sidebar */
-.sidebar {
-  background-color: #343a40;
-  color: #ffffff;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  padding-top: 20px;
+.wrapper {
+  background: linear-gradient(to bottom, rgb(110, 87, 50), #ffffff);
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.sidebar .nav-item {
-  margin-bottom: 15px;
+.row{
+  margin-top: 60px;
+  margin-right: 15%;
+
 }
 
-.sidebar .nav-link {
-  color: #ffffff;
-  text-decoration: none;
+.card {
+  background: rgba(255, 255, 255, 0.89);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.sidebar .nav-link:hover {
-  color: #17a2b8;
+h2 {
+  color: #060c06;
+  font-weight: bold;
 }
 
-.sidebar .nav-item .nav-link.active {
-  color: #007bff;
+.form-group label {
+  font-weight: bold;
+  color: #0d0e0d;
 }
 
-/* Formulaire */
+.form-control {
+  border: 1px solid #0e1010;
+  border-radius: 5px;
+}
+
+.form-control:focus {
+  border-color: rgba(157, 120, 61, 0.62);
+  box-shadow: 0 0 5px rgba(157, 120, 61, 0.62);
+}
+
+.btn-success {
+  background-color: rgba(157, 120, 61, 0.87);
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-success:hover {
+  background-color: rgba(157, 120, 61, 0.85);
+}
+
+span {
+  color: #d32f2f;
+  font-size: 0.9em;
+}
+
+
 form .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 form .form-check {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 200px;
+  padding: 8px;
+  background-color: rgb(157, 120, 61);
   color: white;
   border: none;
   border-radius: 5px;
 }
 
 form button:hover {
-  background-color: #0056b3;
-}
-
-/* Liste des Biens */
-.list-group-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.bien-info {
-  margin-left: 20px;
-}
-
-.bien-info strong {
-  font-size: 1.2rem;
-}
-
-.actions button {
-  margin-left: 10px;
+  background-color: rgba(157, 120, 61, 0.7);
 }
 
 .logo {
@@ -85,3 +93,14 @@ form button:hover {
     width: 100px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
